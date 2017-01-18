@@ -1,0 +1,149 @@
+body {
+    background: #fff;
+    color: #666;
+    font-family: 'Oxygen', sans-serif;
+}
+
+#ice_age{
+	padding: 0 20px;
+}
+h2{
+	color: #0077d4;
+}
+
+.icon{
+    cursor: pointer;
+    width: 25px;
+    display:block;
+    float:left;
+    margin-right: 10px;
+}
+
+.icon img{
+    width: 100%;
+}
+
+.bar_container {
+    height: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.bar{
+    height: 100%;
+    display: inline-block;
+    float: left;
+    width: 0.1%;
+}
+
+.partial{
+    background-color:#E8E430;
+    transition: width 1s ease-out;
+}
+
+.complete{
+    transition: width 1s ease-out;
+}
+
+.miles_left {
+    margin-left: 5px;
+    float: left;
+}
+
+#efn_bar .complete, [data-efnprogress="done"]{
+    background-color:#50B513;
+}
+
+.segment_container [data-afnprogress], .segment_container [data-efnprogress]{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+[data-afnprogress="partial"], [data-efnprogress="partial"]{
+    background-color: #E8E430;
+}
+
+#afn_bar .complete, [data-afnprogress="done"]{
+    background-color:#50B513;
+}
+
+[data-afnprogress="done"]:after, [data-afnprogress="partial"]:after{
+    content: "A";
+	color: white;
+}
+
+[data-efnprogress="done"]:after, [data-efnprogress="partial"]:after{
+    content: "E";
+	color: white;
+}
+
+[data-notes]{
+	cursor: pointer;
+}
+
+.segment_name{
+    margin-right:5px;
+}
+
+.segment {
+    width: 75%;
+    border: 1px solid black;
+    padding:20px;
+    box-sizing: border-box;
+    min-height: 150px;
+}
+
+h4{
+    margin-top: 0;
+    text-align: center;
+}
+
+.clear{
+    clear: both;
+}
+
+
+.segment_container {
+    width: 25%;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#footnote {
+    width: 100%;
+    position: fixed;
+    bottom: -100px;
+    background: white;
+    border: 3px solid #0077d4;
+    transition: bottom 1s ease-out;
+    box-sizing: border-box;
+    padding: 15px;
+    left: 0;
+    border-bottom: none;
+}
+
+@media (max-width: 1250px) {
+  .segment_container {
+    width: 33.3%;
+    }
+}
+
+@media (max-width: 950px) {
+  .segment_container {
+    width: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+  .segment_container {
+    width: 100%;
+    }
+}
