@@ -121,7 +121,7 @@ var iceAge = {
                         //segmentHTML += '<span data-icon="'+className+'" class="icon"><img src="icons/'+className+'.png" /></span>';
                     }
                     else{
-                        segmentHTML += '<div data-icon="'+className+' details" class="icon">' + readableType + ': No</div>';
+                        segmentHTML += '<div data-icon="'+className+'" class="icon segment_details">' + readableType + ': No</div>';
                     }
                 }
 
