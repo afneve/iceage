@@ -86,6 +86,26 @@ h2{
 [data-notes]{
 	cursor: pointer;
 }
+#segment_filter{
+    position:fixed;
+    top:0;
+    height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Oxygen', sans-serif;
+    /*background: white;*/
+    width:100%;
+    display:none;
+}
+
+#segment_filter select{
+    border: none;
+    font-size: 19px;
+    font-weight: bold;
+    padding: 5px 0;
+    font-family: 'Oxygen', sans-serif;
+    color: #666;
+}
 
 .segment_name{
     text-align:left;

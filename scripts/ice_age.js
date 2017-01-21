@@ -66,6 +66,7 @@ var iceAge = {
     */
     displaySegmentList: function(){
         var segmentHTML = '',
+            filterHTML = '',
             previousSection = '';
     
         for(var i=0; i < ice_age_data.length; i++){
@@ -88,7 +89,8 @@ var iceAge = {
             }*/
 
             if(ice_age_data[i].booksection != previousSection){
-                segmentHTML += '<div class="county"><h3>' + ice_age_data[i].booksection + '</h3>';
+                segmentHTML += '<div class="county"><h3 id="segment_' + i + '">' + ice_age_data[i].booksection + '</h3>';
+                filterHTML += '<option value="segment_' + i + '">' + ice_age_data[i].booksection + '</option>';
             }
 
 
@@ -170,6 +172,7 @@ var iceAge = {
         }
 
         $('#segment_list').html(segmentHTML);
+        $('#segment_filter select').html(filterHTML);
 
         $('.segment .icon').on('click', function(){
             var iconType = $(this).attr('data-icon');
@@ -209,6 +212,26 @@ var iceAge = {
                 iceAge.enableSpeech();
             }
         });
+
+        $(window).scroll(function () {
+            var firstCounty = $("#segment_0").offset().top;
+            console.log(firstCounty);
+            console.log($(this).scrollTop());
+				if ($(this).scrollTop() > firstCounty) {
+					 $('#segment_filter').show();
+				}
+                else{
+                    $('#segment_filter').hide();
+                }
+        });
+
+        $('body').on('change', '#segment_filter select', function(){ 
+            console.log($(this).val());
+            var segment = '#'+$(this).val();
+            $('html, body').animate({
+			    scrollTop: $(segment).offset().top - 8 
+		    });
+		});
 
     },
 
