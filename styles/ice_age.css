@@ -112,7 +112,7 @@ h4{
 
 
 .segment_container {
-    width: 25%;
+    width: 33.3%;
     display: inline-block;
     margin-bottom: 20px;
 }
@@ -131,12 +131,6 @@ h4{
 }
 
 @media (max-width: 1250px) {
-  .segment_container {
-    width: 33.3%;
-    }
-}
-
-@media (max-width: 950px) {
   .segment_container {
     width: 50%;
     }
