@@ -358,5 +358,5 @@ var iceAge = {
 $(document).ready(function () {
     iceAge.init();
     iceAge.attachEventListeners();
-    iceAge.enableSpeech();
+  //iceAge.enableSpeech();
 });
