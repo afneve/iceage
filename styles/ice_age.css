@@ -90,13 +90,15 @@ h2{
 }
 
 .segment_name{
-    margin-right:5px;
+    text-align:left;
+}
+
+.segment_summary{
+    margin-bottom: 20px;
 }
 
 .segment {
-    width: 75%;
-    border: 1px solid black;
-    padding:20px;
+    width: 100%;
     box-sizing: border-box;
     min-height: 150px;
 }
@@ -112,9 +114,9 @@ h4{
 
 
 .segment_container {
-    width: 33.3%;
+    width: 100%;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 45px;
 }
 
 #footnote {
@@ -128,16 +130,4 @@ h4{
     padding: 15px;
     left: 0;
     border-bottom: none;
-}
-
-@media (max-width: 1250px) {
-  .segment_container {
-    width: 50%;
-    }
-}
-
-@media (max-width: 500px) {
-  .segment_container {
-    width: 100%;
-    }
 }
