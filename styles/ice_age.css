@@ -96,6 +96,7 @@ h2{
     /*background: white;*/
     width:100%;
     display:none;
+    background: white;
 }
 
 #segment_filter select{
