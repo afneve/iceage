@@ -89,7 +89,6 @@ h2{
 #segment_filter{
     position:fixed;
     top:0;
-    height: 20px;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Oxygen', sans-serif;
