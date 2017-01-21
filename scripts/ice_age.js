@@ -244,6 +244,7 @@ var iceAge = {
             saidWord = saidWord.trim();
             //console.log(saidWord);
             console.log(saidWord);
+            alert(saidWord);
             if(saidWord.indexOf("next slide") >= 0 && event.results[0].isFinal){
                 p.next();
             }
@@ -357,4 +358,5 @@ var iceAge = {
 $(document).ready(function () {
     iceAge.init();
     iceAge.attachEventListeners();
+    iceAge.enableSpeech();
 });
