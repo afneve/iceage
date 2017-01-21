@@ -98,15 +98,28 @@ var iceAge = {
             segmentHTML += '<div class="segment" data-index="'+i+'">';
                 segmentHTML += '<h4 class="segment_name">' + ice_age_data[i].segment + '</h4>';
                 segmentHTML += '<div class="segment_summary">' + ice_age_data[i].summary + '</div>'
+
+                segmentHTML += '<div>Distance: ' + ice_age_data[i].iceagetraildistance + '</div>';
+                segmentHTML += '<div>Elevation: ' + ice_age_data[i].elevation + '</div>';
+                segmentHTML += '<div>Ruggedness: ' + ice_age_data[i].ruggedness + '</div>';
                 segmentHTML += '<div class="icons">';
 
                 for(var l = 0; l < iceAge.iconArray.length; l++){
                     var type = iceAge.iconArray[l];
+                    var readableType = type;
+
+                    if(readableType == 'potablewater'){
+                        readableType = 'potable water';
+                    }
                     console.log(type);
                     console.log(ice_age_data[i]);
                     if(ice_age_data[i][type].trim() != ''){
                         var className = iceAge.iconArray[l].toLowerCase();
-                        segmentHTML += '<span data-icon="'+className+'" class="icon"><img src="icons/'+className+'.png" /></span>';
+                        segmentHTML += '<div data-icon="'+className+'" class="icon segment_details">' + readableType + ': Yes</div>';
+                        //segmentHTML += '<span data-icon="'+className+'" class="icon"><img src="icons/'+className+'.png" /></span>';
+                    }
+                    else{
+                        segmentHTML += '<div data-icon="'+className+' details" class="icon">' + readableType + ': No</div>';
                     }
                 }
 
