@@ -275,6 +275,7 @@ var iceAge = {
         console.log(ignore_onend);
             if (ignore_onend) {
                 console.log("RETURN");
+                recognition.start();
             return false;
             }
         }
