@@ -9,6 +9,12 @@ var iceAge = {
     totalTrailDistance : 0,
     getData : false,
 
+
+    /*
+    ******************
+    Start of App
+    ******************
+    */
     init: function () {
         if (iceAge.getData) {
             iceAge.getLabelsFromWebPage();
@@ -21,7 +27,9 @@ var iceAge = {
     },
 
     /*
-    **Retrive Data and put on page
+    ******************
+    Retrieves data and put it on the page
+    ******************
     */
     displayProgress: function(){
         var multiplier = 100;
@@ -52,7 +60,9 @@ var iceAge = {
     }, 
 
     /*
-    **Retrive Data and put on page
+    ******************
+    Retrieves data and put it on the page
+    ******************
     */
     displaySegmentList: function(){
         var segmentHTML = '',
@@ -168,6 +178,107 @@ var iceAge = {
         });
     },
     /*
+    ******************
+    Attach Event Listenrs
+    ******************
+    */
+    attachEventListeners: function(){
+
+        $('body').on('keyup', function(e) {
+            if (e.keyCode == 39) {
+                console.log('right arrow');
+            } else if (e.keyCode == 37) {
+                console.log('left arrow');
+            }
+
+            if (e.keyCode == 83) {
+                iceAge.enableSpeech();
+            }
+        });
+
+    },
+
+     enableSpeech: function() {
+        console.log("enabled");
+        var ignore_onend;
+        // get navigation links
+        //   var allLinks = document.getElementsByTagName('a');
+        // get last word said element
+        // var strongEl = document.getElementById('latest-word');
+
+        // new instance of speech recognition
+        var recognition = new webkitSpeechRecognition();
+        // set params
+        recognition.continuous = true;
+        recognition.interimResults = false;
+        recognition.start();
+
+        recognition.onresult = function(event) {
+
+            // delve into words detected results & get the latest
+            // total results detected
+            console.log(event.results);
+            //console.log(event.results[0].isFinal);
+            
+            var resultsLength = event.results.length - 1;
+            //console.log(resultsLength);
+            // get length of latest results
+            var ArrayLength = event.results[resultsLength].length - 1;
+            //console.warn(event.results[resultsLength].length);
+            // get last word detected
+            var saidWord = event.results[resultsLength][ArrayLength].transcript;
+            saidWord = saidWord.trim();
+            //console.log(saidWord);
+            console.log(saidWord);
+            if(saidWord.indexOf("next slide") >= 0 && event.results[0].isFinal){
+                p.next();
+            }
+            if(saidWord.indexOf("previous slide") >= 0 && event.results[0].isFinal){
+                p.previous();
+            }
+
+            // loop through links and match to word spoken
+            //  for (i = 0; i < allLinks.length; i++) {
+
+                // get the word associated with the link
+            //     var dataWord = allLinks[i].dataset.word;
+
+                // if word matches chenge the colour of the link
+            //     if (saidWord.indexOf(dataWord) != -1) {
+            //        allLinks[i].style.color = 'red';
+            //    }
+            // }
+
+            // append the last word to the bottom sentence
+            // strongEl.innerHTML = saidWord;
+        }
+
+        // speech error handling
+        recognition.onerror = function(event) {
+            console.log(event.error);
+            if (event.error == 'no-speech') {
+                ignore_onend = true;
+                console.log("TESTIGN");
+            }
+            if (event.error == 'audio-capture') {
+                ignore_onend = true;
+            }
+            if (event.error == 'not-allowed') {
+                ignore_onend = true;
+            }
+            console.log(event);
+        }
+        
+        recognition.onend = function() { 
+        console.log(ignore_onend);
+            if (ignore_onend) {
+                console.log("RETURN");
+            return false;
+            }
+        }
+    },
+    
+    /*
     **Retrive Labels from table and put into array
     **ID was added in
     */
@@ -228,4 +339,5 @@ var iceAge = {
 
 $(document).ready(function () {
     iceAge.init();
+    iceAge.attachEventListeners();
 });
