@@ -92,11 +92,12 @@ var iceAge = {
             }
 
 
-
+            console.log(ice_age_data[0]);
 
             segmentHTML += '<div class="segment_container">';
             segmentHTML += '<div class="segment" data-index="'+i+'">';
                 segmentHTML += '<h4 class="segment_name">' + ice_age_data[i].segment + '</h4>';
+                segmentHTML += '<div>' + ice_age_data[i].summary + '</div>'
                 segmentHTML += '<div class="icons">';
 
                 for(var l = 0; l < iceAge.iconArray.length; l++){
