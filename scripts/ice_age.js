@@ -270,7 +270,8 @@ var iceAge = {
         }
         
         recognition.onend = function(event) {
-            console.log(event); 
+            console.log(event);
+            ignore_onend = true; 
         console.log(ignore_onend);
             if (ignore_onend) {
                 console.log("RETURN");
