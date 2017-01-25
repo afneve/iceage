@@ -1,0 +1,61 @@
+.bar_container {
+    height: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.bar{
+    height: 100%;
+    display: inline-block;
+    float: left;
+    width: 0.1%;
+}
+
+.partial{
+    background-color:#E8E430;
+    transition: width 1s ease-out;
+}
+
+.complete{
+    transition: width 1s ease-out;
+}
+
+.miles_left {
+    margin-left: 5px;
+    float: left;
+}
+
+#efn_bar .complete, [data-efnprogress="done"]{
+    background-color:#50B513;
+}
+
+.segment_container [data-afnprogress], .segment_container [data-efnprogress]{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+[data-afnprogress="partial"], [data-efnprogress="partial"]{
+    background-color: #E8E430;
+}
+
+#afn_bar .complete, [data-afnprogress="done"]{
+    background-color:#50B513;
+}
+
+[data-afnprogress="done"]:after, [data-afnprogress="partial"]:after{
+    content: "A";
+	color: white;
+}
+
+[data-efnprogress="done"]:after, [data-efnprogress="partial"]:after{
+    content: "E";
+	color: white;
+}
