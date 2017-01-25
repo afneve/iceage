@@ -115,11 +115,15 @@ var iceAge = {
                         console.log(ice_age_data[i]);
                         if(ice_age_data[i][type].trim() != ''){
                             var className = iceAge.iconArray[l].toLowerCase();
-                            segmentHTML += '<div data-icon="'+className+'" class="segment_details yes">' + readableType + ': Yes</div>';
+                            segmentHTML += '<div data-icon="'+className+'" class="segment_details">';
+                            segmentHTML += '<span class="yes">' + readableType + ': Yes</span>';
+                            segmentHTML += '</div>';
                             //segmentHTML += '<span data-icon="'+className+'" class="icon"><img src="icons/'+className+'.png" /></span>';
                         }
                         else{
-                            segmentHTML += '<div data-icon="'+className+'" class="segment_details no">' + readableType + ': No</div>';
+                            segmentHTML += '<div data-icon="'+className+'" class="segment_details">';
+                            segmentHTML += '<span class="no">' + readableType + ': No</span>';
+                            segmentHTML += '</div>';
                         }
                     }
 
