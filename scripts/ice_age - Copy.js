@@ -74,15 +74,28 @@ var iceAge = {
             afnProgress = '',
             notes = '';
 
+            /*for(var j=0; j < progress_data.length; j++){
+                if(progress_data[j].Segment == ice_age_data[i].Segment){
+
+                    efnProgress = progress_data[j].efnStatus;
+                    afnProgress = progress_data[j].afnStatus;
+
+                    if(typeof progress_data[j].notes != 'undefined'){
+                        notes = progress_data[j].notes;
+                    }
+                    progress_data.splice(j,1);
+                    
+                }
+            }*/
 
             if(ice_age_data[i].booksection != previousSection){
                 segmentHTML += '<div class="county"><h3 id="segment_' + i + '">' + ice_age_data[i].booksection + '</h3>';
                 filterHTML += '<li>'
-                filterHTML += '<a href="' + i + '">' + ice_age_data[i].booksection + '</a>';
+                filterHTML += '<span>' + ice_age_data[i].booksection + '</span>';
                 filterHTML += '<ul>';
             }
 
-            filterHTML += '<li><a href="' + i + '">' + ice_age_data[i].segment + '</a></li>'
+            fitlerHTML += '<li>' + ice_age_data[i].segment + '</li>'
 
             segmentHTML += '<div class="segment_container">';
             segmentHTML += '<div class="segment" data-index="'+i+'">';
@@ -137,15 +150,55 @@ var iceAge = {
             }
 
             if(ice_age_data[i].booksection != nextSection){
-                filterHTML += '</ul>';
                 segmentHTML += '</div>'; //END COUNTY DIV
             }
 
             previousSection = ice_age_data[i].booksection;
+
+           // segmentHTML += '<div class="segment">';
+           // segmentHTML += '<span class="segment_name">' + ice_age_data[i].Segment + '</span>';
+            //segmentHTML += '<span data-efnprogress="' + efnProgress + '" data-notes="'+notes+'"></span><span data-afnprogress="' + afnProgress + '" data-notes="'+notes+'"></span>';
+           // segmentHTML += '</div>';
+
+         /*   iceAge.totalTrailDistance += parseFloat(ice_age_data[i].IceAgeTrailDistance);
+
+            if(efnProgress == 'done'){
+                iceAge.efnComplete += parseFloat(ice_age_data[i].IceAgeTrailDistance);
+            }
+            else if(efnProgress == 'partial'){
+                iceAge.efnPartial += parseFloat(ice_age_data[i].IceAgeTrailDistance);
+            }
+
+            if(afnProgress == 'done'){
+                iceAge.afnComplete += parseFloat(ice_age_data[i].IceAgeTrailDistance);
+            }
+            else if(afnProgress == 'partial'){
+                iceAge.afnPartial += parseFloat(ice_age_data[i].IceAgeTrailDistance); 
+            }*/
         }
 
         $('#segment_list').html(segmentHTML);
-        $('#segment_filter ul').html(filterHTML);
+        $('#segment_filter select').html(filterHTML);
+
+        $('.segment .icon').on('click', function(){
+            var iconType = $(this).attr('data-icon');
+
+            var index = $(this).closest('.segment').attr('data-index');
+
+            $('#footnote').html(ice_age_data[index][iconType]);
+				$('#footnote').css('bottom', 0);
+				$('#footnote').addClass('show');
+				
+				setTimeout(function(){
+
+				    $('#footnote').css('bottom', -100);
+				}, 4000);
+
+            /*
+            if($(this).attr('data-notes') != ''){
+                
+            }*/
+        });
     },
     /*
     ******************

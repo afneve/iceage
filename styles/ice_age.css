@@ -33,32 +33,62 @@ h2{
     transform: rotate(38deg);
 }
 
-.no:after{
+.no:before {
+    width: 3px;
+    height: 16px;
+    background: red;
     content: "";
-    border: 3px solid black;
-    width: 5px;
-    height: 10px;
-    position: absolute;
+    display: inline-block;
     right: -20px;
-    border-left: none;
-    border-top: none;
-    transform: rotate(38deg);
+    position: absolute;
+    transform: rotate(45deg);
+}
+
+.no:after {
+    width: 3px;
+    height: 16px;
+    background: red;
+    content: "";
+    display: inline-block;
+    right: -20px;
+    position: absolute;
+    transform: rotate(-45deg);
 }
 
 [data-notes]{
 	cursor: pointer;
 }
 #segment_filter{
-    position:fixed;
-    top:0;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Oxygen', sans-serif;
     /*background: white;*/
-    width:100%;
-    display:none;
+    width:25%;
     background: white;
+    float: left;
 }
+
+#segment_list {
+    float: left;
+    width: 75%;
+}
+
+#segment_filter a{
+    font-size:10px;
+}
+
+#segment_filter ul{
+    list-style: none;
+}
+
+#segment_filter ul ul{
+    padding-left: 10px;
+}
+
+#segment_filter ul ul li{
+    line-height: 12px;
+}
+
 
 #segment_filter select{
     border: none;
