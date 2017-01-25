@@ -14,7 +14,10 @@ h2{
 
 .segment_details{
     cursor: pointer;
-    display: inline-block;
+    position: relative;
+}
+
+.segment_details span{
     position: relative;
 }
 
