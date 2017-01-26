@@ -31,39 +31,6 @@ var iceAge = {
     Retrieves data and put it on the page
     ******************
     */
-    displayProgress: function(){
-        var multiplier = 100;
-
-        var efnIceAgePercentage = (iceAge.efnComplete + iceAge.efnPartial) / iceAge.totalTrailDistance;
-        var afnIceAgePercentage = (iceAge.afnComplete + iceAge.afnPartial) / iceAge.totalTrailDistance;
-
-       // while( ((efnIceAgePercentage * multiplier) < 25 ) || ((afnIceAgePercentage * multiplier) < 25 ) ){
-        //   multiplier += 1;
-        //}
-
-        setTimeout(function(){
-            $("#efn_bar .complete").css("width", (iceAge.efnComplete / iceAge.totalTrailDistance) * multiplier + '%' );
-            $("#afn_bar .complete").css("width", (iceAge.afnComplete / iceAge.totalTrailDistance) * multiplier + '%' );
-        }, 500);
-
-        setTimeout(function(){
-            $("#efn_bar .partial").css("width", (iceAge.efnPartial / iceAge.totalTrailDistance) * multiplier + '%' );
-            $("#afn_bar .partial").css("width", (iceAge.afnPartial / iceAge.totalTrailDistance) * multiplier + '%' );
-            $("#efn_bar .miles_left").text(iceAge.totalTrailDistance - iceAge.efnComplete + " miles to go");
-            $("#afn_bar .miles_left").text(iceAge.totalTrailDistance - iceAge.afnComplete + " miles to go");
-        }, 1000);
-               
-    },
-
-    calculatePercentage: function(amount, multiplier){
-
-    }, 
-
-    /*
-    ******************
-    Retrieves data and put it on the page
-    ******************
-    */
     displaySegmentList: function(){
         var segmentHTML = '',
             filterHTML = '',
@@ -79,10 +46,11 @@ var iceAge = {
                 segmentHTML += '<div class="county"><h3 id="segment_' + i + '">' + ice_age_data[i].booksection + '</h3>';
                 filterHTML += '<li>'
                 filterHTML += '<a href="' + i + '">' + ice_age_data[i].booksection + '</a>';
-                filterHTML += '<ul>';
+                filterHTML += '</li>';
+                //filterHTML += '<ul>';
             }
 
-            filterHTML += '<li><a href="' + i + '">' + ice_age_data[i].segment + '</a></li>'
+          //  filterHTML += '<li><a href="' + i + '">' + ice_age_data[i].segment + '</a></li>'
 
             segmentHTML += '<div class="segment_container">';
             segmentHTML += '<div class="segment" data-index="'+i+'">';
@@ -137,7 +105,7 @@ var iceAge = {
             }
 
             if(ice_age_data[i].booksection != nextSection){
-                filterHTML += '</ul>';
+                //filterHTML += '</ul>';
                 segmentHTML += '</div>'; //END COUNTY DIV
             }
 
@@ -146,6 +114,10 @@ var iceAge = {
 
         $('#segment_list').html(segmentHTML);
         $('#segment_filter ul').html(filterHTML);
+        console.log($('#segment_filter').height());
+        $('#segment_filter_container').css({
+            'height' : $('#segment_filter ul').height()
+        });
     },
     /*
     ******************
@@ -166,18 +138,40 @@ var iceAge = {
             }
         });
 
-       /* $(window).scroll(function () {
-            var firstCounty = $("#segment_0").offset().top;
-            console.log(firstCounty);
-            console.log($(this).scrollTop());
-				if ($(this).scrollTop() > firstCounty) {
-					 $('#segment_filter').show();
-				}
-                else{
-                    $('#segment_filter').hide();
-                }
+        $('#segment_filter').on('click', 'a', function(e){
+            e.preventDefault();
+
+            var segment = '#segment_'+$(this).attr('href');
+            $('html, body').animate({
+			    scrollTop: $(segment).offset().top - 8 
+		    }, 1000, function(){
+                
+             /*   $('#segment_filter').css({
+                    'position' : 'absolute',
+                    'top' : $(window).scrollTop()
+                }); */
+
+            });
+
         });
 
+     $(window).scroll(function () {
+            var firstCounty = $("#segment_0").offset().top;
+           // console.log(firstCounty);
+           // console.log($(this).scrollTop());
+				if ($(this).scrollTop() > firstCounty) {
+				    $('#segment_filter').css({
+                        'position' : 'fixed',
+                        'top' : 10
+                    });
+				}
+                else{
+                    $('#segment_filter').css({
+                        'position' : 'relative'
+                    });
+                }
+        });
+/*
         $('body').on('change', '#segment_filter select', function(){ 
             console.log($(this).val());
             var segment = '#'+$(this).val();
