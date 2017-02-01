@@ -160,3 +160,12 @@ h4{
     left: 0;
     border-bottom: none;
 }
+
+@media (max-width: 600px) {
+    #segment_filter_container{
+        display: none;
+    }
+    #segment_list{
+        width: 100%;
+    }
+}
