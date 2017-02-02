@@ -2,7 +2,7 @@
 
 var iceAge = {
     labelArray: [],
-    iconArray: ["potablewater", "restrooms", "nohiking"],
+    iconArray: ["potablewater", "restrooms"],
     jsonString: '',
     efnComplete: 0,
     efnPartial: 0,
@@ -23,6 +23,7 @@ var iceAge = {
             iceAge.getJsonFromWebPage();
         } else {
             iceAge.displaySegmentList();
+            //iceAge.formatData();
         }
     },
 
@@ -35,14 +36,33 @@ var iceAge = {
         var segmentHTML = '',
             filterHTML = '',
             previousSection = '',
-            nextSection = '';
+            nextSection = '',
+            segmentCounter = 1;
 
         for (var i = 0; i < ice_age_data.length; i++) {
 
             if (ice_age_data[i].booksection != previousSection) {
-                segmentHTML += '<div class="county"><h3 id="segment_' + i + '">' + ice_age_data[i].booksection + '</h3>';
-                filterHTML += '<li>';
-                filterHTML += '<a href="' + i + '">' + ice_age_data[i].booksection + '</a>';
+                if(i == 0){
+                    segmentHTML += '<div class="county" data-index="'+ segmentCounter +'">';
+                    segmentCounter++
+                }
+                else{
+                    segmentHTML += '<div class="county hide" data-index="'+ segmentCounter +'">';
+                    segmentCounter++
+                }
+                
+                segmentHTML += '<h3 id="segment_' + i + '">' + ice_age_data[i].booksection + '</h3>';
+                
+                if(i == 0){
+                    filterHTML += '<li class="selected">';   
+                }
+                else{
+                    filterHTML += '<li>';
+                }
+                
+
+
+                filterHTML += '<a href="' + (segmentCounter - 1) + '">' + ice_age_data[i].booksection + '</a>';
                 filterHTML += '</li>';
                 //filterHTML += '<ul>';
             }
@@ -82,6 +102,9 @@ var iceAge = {
                 }
             }
 
+            if(ice_age_data[i].nohiking.trim() !== '')
+                segmentHTML += '<div class="nohiking">Hiking Restrictions: </div><div>' + ice_age_data[i].nohiking + '</div>';
+
             segmentHTML += '</div>';
             segmentHTML += '<div class="clear"></div>';
             //segmentHTML += '<span data-efnprogress="' + efnProgress + '" data-notes="'+notes+'"></span><span data-afnprogress="' + afnProgress + '" data-notes="'+notes+'"></span>';
@@ -107,10 +130,6 @@ var iceAge = {
 
         $('#segment_list').html(segmentHTML);
         $('#segment_filter ul').html(filterHTML);
-        console.log($('#segment_filter').height());
-        $('#segment_filter_container').css({
-            'height': $('#segment_filter ul').height()
-        });
     },
     /*
     ******************
@@ -134,20 +153,17 @@ var iceAge = {
         $('#segment_filter').on('click', 'a', function(e) {
             e.preventDefault();
 
-            var segment = '#segment_' + $(this).attr('href');
-            $('html, body').animate({
-                scrollTop: $(segment).offset().top - 8
-            }, 1000, function() {
+            var segment = $(this).attr('href');
 
-                /*   $('#segment_filter').css({
-                       'position' : 'absolute',
-                       'top' : $(window).scrollTop()
-                   }); */
+            $('#segment_filter li').removeClass('selected');
+            $(this).parent('li').addClass('selected');
 
-            });
+
+            $('.county').hide();
+            $('[data-index="' + segment + '"]').show();
 
         });
-
+ /*
         $(window).scroll(function() {
             var firstCounty = $("#segment_0").offset().top;
             // console.log(firstCounty);
@@ -163,7 +179,7 @@ var iceAge = {
                 });
             }
         });
-        /*
+       
                 $('body').on('change', '#segment_filter select', function(){ 
                     console.log($(this).val());
                     var segment = '#'+$(this).val();
@@ -231,6 +247,21 @@ var iceAge = {
 
         iceAge.jsonString += ']';
         console.log(iceAge.jsonString);
+    },
+
+    formatData : function(){
+        var countyObject = {},
+            segmentObject = {},
+            text = '';
+
+        for (var i = 0; i < ice_age_data.length; i++) {
+            
+            countyObject.id = i + 1;
+            countyObject.countyName = ice_age_data[i].booksection;
+        }
+
+        console.log(countyObject);
+
     }
 };
 

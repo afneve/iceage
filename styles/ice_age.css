@@ -71,7 +71,6 @@ h2{
     width: 30%;
     background: #eee;
     float: left;
-    padding: 0 20px;
     box-sizing: border-box;
 }
 
@@ -87,8 +86,14 @@ h2{
     color: black;
 }
 
+#segment_filter>ul>li.selected {
+    background: white;          
+}
+
 #segment_filter>ul>li>a {
     font-size: 14px;
+    display:block;
+    padding: 8px;
 }
 
 #segment_filter ul{
@@ -139,6 +144,14 @@ h4{
 
 .clear{
     clear: both;
+}
+
+.hide{
+    display:none;
+}
+
+.nohiking{
+    margin: 15px 0 5px;
 }
 
 
