@@ -213,18 +213,6 @@ var iceAge = {
     */
     attachEventListeners: function() {
 
-        $('body').on('keyup', function(e) {
-            if (e.keyCode == 39) {
-                console.log('right arrow');
-            } else if (e.keyCode == 37) {
-                console.log('left arrow');
-            }
-
-            if (e.keyCode == 83) {
-                iceAge.enableSpeech();
-            }
-        });
-
         $('#segment_filter').on('click', 'a', function(e) {
             e.preventDefault();
 
@@ -259,6 +247,10 @@ var iceAge = {
                         $('#segment_filter li.selected a').click();
                     }
                     
+                }
+
+                if (e.keyCode == 83) {
+                    iceAge.enableSpeech();
                 }
 
         });
