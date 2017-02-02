@@ -68,8 +68,8 @@ var iceAge = {
 
         object.lowest = array[0];
         object.highest = array[ array.length - 1 ];
-        object.shortCutoff = parseInt( (object.average + object.lowest) / 2 );
-        object.midCutoff = parseInt( (object.average + object.highest) / 2 );
+        object.shortCutoff = parseFloat( ((object.average + object.lowest) / 2).toFixed(2) );
+        object.midCutoff = parseFloat( ((object.average + object.highest) / 2).toFixed(2) );
     },
 
     /*
