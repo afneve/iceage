@@ -9,6 +9,12 @@ var iceAge = {
     afnComplete: 0,
     afnPartial: 0,
     totalTrailDistance: 0,
+    distanceArray: [],
+    distanceObject: {},
+    elevationArray: [],
+    elevationObject: {},
+    ruggednessArray: [],
+    ruggednessObject: {},
     getData: false,
 
 
@@ -22,9 +28,48 @@ var iceAge = {
             iceAge.getLabelsFromWebPage();
             iceAge.getJsonFromWebPage();
         } else {
+            iceAge.dataCollection();
             iceAge.displaySegmentList();
             //iceAge.formatData();
         }
+    },
+
+    /*
+    ******************
+    Organize data
+    ******************
+    */
+    dataCollection: function(){
+         for (var i = 0; i < ice_age_data.length; i++) {
+             iceAge.distanceArray.push( parseFloat(ice_age_data[i].iceagetraildistance) );
+             iceAge.elevationArray.push( parseFloat(ice_age_data[i].elevation) );
+             iceAge.ruggednessArray.push( parseFloat(ice_age_data[i].ruggedness) );
+         }
+
+        iceAge.getAverage(iceAge.distanceArray, iceAge.distanceObject);
+        iceAge.getAverage(iceAge.elevationArray, iceAge.elevationObject);
+        iceAge.getAverage(iceAge.ruggednessArray, iceAge.ruggednessObject);
+    },
+
+    getAverage: function(array, object){
+        var average = 0;
+
+        for (var i = 0; i < array.length; i++) {
+            average += array[i];
+        }
+
+        average = (average / array.length).toFixed(2);
+
+        object.average = parseFloat(average);
+       
+        array.sort(function(a,b){
+            return a - b;
+        });
+
+        object.lowest = array[0];
+        object.highest = array[ array.length - 1 ];
+        object.shortCutoff = parseInt( (object.average + object.lowest) / 2 );
+        object.midCutoff = parseInt( (object.average + object.highest) / 2 );
     },
 
     /*
@@ -37,6 +82,7 @@ var iceAge = {
             filterHTML = '',
             previousSection = '',
             nextSection = '',
+            difficulty = '',
             segmentCounter = 1;
 
         for (var i = 0; i < ice_age_data.length; i++) {
@@ -74,9 +120,40 @@ var iceAge = {
             segmentHTML += '<h4 class="segment_name">' + ice_age_data[i].segment + '</h4>';
             segmentHTML += '<div class="segment_summary">' + ice_age_data[i].summary + '</div>';
 
-            segmentHTML += '<div>Distance: ' + ice_age_data[i].iceagetraildistance + '</div>';
-            segmentHTML += '<div>Elevation: ' + ice_age_data[i].elevation + '</div>';
-            segmentHTML += '<div>Ruggedness: ' + ice_age_data[i].ruggedness + '</div>';
+//MESS TO CLEAN UP
+            if(parseFloat(ice_age_data[i].iceagetraildistance) <= iceAge.distanceObject.shortCutoff ){
+                difficulty = 'easy';
+            }
+            else if( parseFloat(ice_age_data[i].iceagetraildistance) <= iceAge.distanceObject.midCutoff ){
+                difficulty = 'average';
+            }
+            else{
+                difficulty = 'hard';
+            }
+            segmentHTML += '<div class="'+ difficulty +'">Distance: ' + ice_age_data[i].iceagetraildistance + '</div>';
+
+            if(parseFloat(ice_age_data[i].elevation) <= iceAge.elevationObject.shortCutoff ){
+                difficulty = 'easy';
+            }
+            else if( parseFloat(ice_age_data[i].elevation) <= iceAge.elevationObject.shortCutoff ){
+                difficulty = 'average';
+            }
+            else{
+                 difficulty = 'hard';
+            }
+            segmentHTML += '<div class="'+ difficulty +'">Elevation: ' + ice_age_data[i].elevation + '</div>';
+
+            if(parseFloat(ice_age_data[i].ruggedness) <= iceAge.ruggednessObject.shortCutoff){
+                 difficulty = 'easy';
+            }
+            else if(parseFloat(ice_age_data[i].ruggedness) <= iceAge.ruggednessObject.midCutoff){
+                difficulty = 'average';
+            }
+            else{
+                 difficulty = 'hard';
+            }
+            segmentHTML += '<div class="'+ difficulty +'">Ruggedness: ' + ice_age_data[i].ruggedness + '</div>';
+//MESS TO CLEAN UP
 
             segmentHTML += '<div class="icons">';
 
@@ -88,8 +165,6 @@ var iceAge = {
                 if (readableType == 'potablewater') {
                     readableType = 'potable water';
                 }
-                console.log(type);
-                console.log(ice_age_data[i]);
                 if (ice_age_data[i][type].trim() !== '') {
                     segmentHTML += '<div data-icon="' + className + '" class="segment_details">';
                     segmentHTML += '<span class="yes">' + readableType + ':</span>';
@@ -161,6 +236,30 @@ var iceAge = {
 
             $('.county').hide();
             $('[data-index="' + segment + '"]').show();
+
+        });
+
+        $('body').on('keyup', function(e) {
+
+                if (e.keyCode == 39) {
+                    var nextElement = $('#segment_filter li.selected');
+
+                    if($(nextElement).next().length > 0){
+                        $('#segment_filter li').removeClass('selected');
+                        $(nextElement).next().addClass('selected');
+                        $('#segment_filter li.selected a').click();
+                    }
+                   
+                } else if (e.keyCode == 37) {
+                    var nextElement = $('#segment_filter li.selected');
+
+                    if($(nextElement).prev().length > 0){
+                        $('#segment_filter li').removeClass('selected');
+                        $(nextElement).prev().addClass('selected');
+                        $('#segment_filter li.selected a').click();
+                    }
+                    
+                }
 
         });
  /*

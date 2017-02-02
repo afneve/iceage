@@ -12,6 +12,13 @@ h2{
     text-align:center;
 }
 
+.easy{
+    color: green;
+}
+.hard{
+    color: red;
+}
+
 .segment_details{
     cursor: pointer;
     position: relative;
