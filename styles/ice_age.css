@@ -183,7 +183,7 @@ h4{
 
 @media (max-width: 600px) {
     #segment_filter_container{
-        display: none;
+        width: 100%;
     }
     #segment_list{
         width: 100%;
