@@ -28,6 +28,13 @@ var iceAge = {
             iceAge.getLabelsFromWebPage();
             iceAge.getJsonFromWebPage();
         } else {
+            if (navigator.geolocation) {
+                console.log(navigator.geolocation);
+                //navigator.geolocation.getCurrentPosition(showPosition);
+            } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+
             iceAge.dataCollection();
             iceAge.displaySegmentList();
             //iceAge.formatData();
@@ -85,8 +92,11 @@ var iceAge = {
             difficulty = '',
             segmentCounter = 1;
 
-        for (var i = 0; i < ice_age_data.length; i++) {
+        //segment_id_location_data    
 
+        for (var i = 0; i < ice_age_data.length; i++) {
+            ice_age_data[i].segment_id = i + 1;
+            //IF NEW COUNTY
             if (ice_age_data[i].booksection != previousSection) {
                 if(i == 0){
                     segmentHTML += '<div class="county" data-index="'+ segmentCounter +'">';
@@ -177,8 +187,28 @@ var iceAge = {
                 }
             }
 
-            if(ice_age_data[i].nohiking.trim() !== '')
+            for(var j = 0; j < segment_id_location_data.length; j++){
+                if(segment_id_location_data[j].segment_id == ice_age_data[i].segment_id){
+                    var eastLat = segment_id_location_data[j].eastLat,
+                        eastLong = segment_id_location_data[j].eastLong,
+                        westLat = segment_id_location_data[j].westLat,
+                        westLong = segment_id_location_data[j].westLong;
+
+                    segmentHTML += '<div class="map">';
+                    segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/place/' + eastLat + 'N+' + eastLong + 'W" >East End</a>';
+                    segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/place/' + westLat + 'N+' + westLong + 'W" >West End</a>';
+                    segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + eastLat + 'N+' + eastLong + 'W/' + westLat + 'N+' + westLong + 'W">Beginning to End</a>';
+                    
+                    //https://www.google.com/maps/dir/45°+23.979'+-92°+38.973'/45.4500167,-92.6488167
+                    segmentHTML += '</div>';
+                }
+            }
+
+            if(ice_age_data[i].nohiking.trim() !== ''){
                 segmentHTML += '<div class="nohiking">Hiking Restrictions: </div><div>' + ice_age_data[i].nohiking + '</div>';
+            }
+
+            
 
             segmentHTML += '</div>';
             segmentHTML += '<div class="clear"></div>';
