@@ -19,6 +19,10 @@ h2{
     color: red;
 }
 
+.county h3 {
+    margin-top: 0;
+}
+
 .segment_details{
     cursor: pointer;
     position: relative;

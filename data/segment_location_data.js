@@ -304,7 +304,7 @@ segment_id_location_data = [{
 	"segment": "Plover River ",
 	"eastLat": "45 3.053'",
 	"eastLong": "89 13.444'",
-	"westLat": "45 0 0.070'",
+	"westLat": "45 0.070'",
 	"westLong": "89 15.819'"
 }, {
 	"segment_id": "45",
