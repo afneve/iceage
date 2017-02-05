@@ -31,7 +31,9 @@ var iceAge = {
         } else {
             if (navigator.geolocation) {
                 console.log(navigator.geolocation);
-                iceAge.position = navigator.geolocation.getCurrentPosition();
+                navigator.geolocation.getCurrentPosition(function(position){
+                    iceAge.position = position;
+                });
             } else { 
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
