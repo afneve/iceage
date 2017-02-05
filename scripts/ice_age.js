@@ -152,7 +152,7 @@ var iceAge = {
             if(parseFloat(ice_age_data[i].elevation) <= iceAge.elevationObject.shortCutoff ){
                 difficulty = 'easy';
             }
-            else if( parseFloat(ice_age_data[i].elevation) <= iceAge.elevationObject.shortCutoff ){
+            else if( parseFloat(ice_age_data[i].elevation) <= iceAge.elevationObject.midCutoff ){
                 difficulty = 'average';
             }
             else{
