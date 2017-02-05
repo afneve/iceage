@@ -15,6 +15,7 @@ var iceAge = {
     elevationObject: {},
     ruggednessArray: [],
     ruggednessObject: {},
+    position : '',
     getData: false,
 
 
@@ -30,7 +31,7 @@ var iceAge = {
         } else {
             if (navigator.geolocation) {
                 console.log(navigator.geolocation);
-                navigator.geolocation.getCurrentPosition();
+                iceAge.position = navigator.geolocation.getCurrentPosition();
             } else { 
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
