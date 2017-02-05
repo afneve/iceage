@@ -33,13 +33,17 @@ var iceAge = {
                 console.log(navigator.geolocation);
                 navigator.geolocation.getCurrentPosition(function(position){
                     iceAge.position = position;
+                    iceAge.dataCollection();
+                    iceAge.displaySegmentList();
+                }, function(){
+                    iceAge.dataCollection();
+                    iceAge.displaySegmentList();
                 });
             } else { 
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
 
-            iceAge.dataCollection();
-            iceAge.displaySegmentList();
+            
             //iceAge.formatData();
         }
     },
