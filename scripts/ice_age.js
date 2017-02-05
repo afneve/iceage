@@ -30,7 +30,7 @@ var iceAge = {
         } else {
             if (navigator.geolocation) {
                 console.log(navigator.geolocation);
-                //navigator.geolocation.getCurrentPosition(showPosition);
+                navigator.geolocation.getCurrentPosition();
             } else { 
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
