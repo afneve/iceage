@@ -44,6 +44,9 @@ h2{
     text-align: center;
     cursor: pointer;
 }
+#nav .selected{
+    background: blue;
+}
 .nav_item {
     display: inline-block;
     width: 50%;

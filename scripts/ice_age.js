@@ -17,6 +17,7 @@ var iceAge = {
     ruggednessObject: {},
     position : '',
     getData: false,
+    useGeo: true,
 
 
     /*
@@ -29,19 +30,18 @@ var iceAge = {
             iceAge.getLabelsFromWebPage();
             iceAge.getJsonFromWebPage();
         } else {
-           // if (navigator.geolocation) {
-             //   console.log(navigator.geolocation);
-             //   navigator.geolocation.getCurrentPosition(function(position){
-              //      iceAge.position = position;
+            if (navigator.geolocation && iceAge.useGeo) {
+                navigator.geolocation.getCurrentPosition(function(position){
+                    iceAge.position = position;
                     iceAge.dataCollection();
                     iceAge.displaySegmentList();
-            //    }, function(){
-                   // iceAge.dataCollection();
-                  //  iceAge.displaySegmentList();
-             //   });
-           // } else { 
-           //     x.innerHTML = "Geolocation is not supported by this browser.";
-           // }
+                }, function(){
+                   iceAge.dataCollection();
+                   iceAge.displaySegmentList();
+                });
+           } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+           }
 
             
             //iceAge.formatData();
@@ -308,8 +308,6 @@ MESS TO CLEAN UP
             userHTML += '<div class="user_header">Distance:</div>';
             userHTML += '<div>Length of trails partially done is ' + userPartialMiles + ' miles</div>';
             userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
-            console.log(iceAge.totalTrailDistance, userCompleteMiles);
-
 
             userHTML += '<div>' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles remaining!</div>'; 
             userHTML += '</div>'
@@ -365,12 +363,16 @@ MESS TO CLEAN UP
         $('#segments').on('click', function(e){
             $('#progress_container').hide();
             $('#segment_container').show();
+            $('#nav div').removeClass('selected');
+            $(this).addClass('selected');
             
         });
 
         $('#progress').on('click', function(e){
             $('#segment_container').hide();
             $('#progress_container').show();
+            $('#nav div').removeClass('selected');
+            $(this).addClass('selected');
         });
 
         $('body').on('keyup', function(e) {
