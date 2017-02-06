@@ -33,7 +33,7 @@ h2{
     text-align: left;
 }
 .container{
-    padding-top:20px;
+    padding-top:45px;
 }
 #nav {
     position: absolute;
@@ -51,6 +51,8 @@ h2{
     display: inline-block;
     width: 50%;
     float: left;
+    padding: 10px;
+    box-sizing: border-box;
 }
 .user_segments {
     margin-top: 15px;
