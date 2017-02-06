@@ -22,7 +22,40 @@ h2{
 .county h3 {
     margin-top: 0;
 }
-
+.user_container {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    padding: 10px 5px 20px;
+    box-sizing:border-box;
+}
+#progress_container h4{
+    text-align: left;
+}
+.container{
+    padding-top:20px;
+}
+#nav {
+    position: absolute;
+    width: 100px;
+    background: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.nav_item {
+    display: inline-block;
+    width: 50%;
+    float: left;
+}
+.user_segments {
+    margin-top: 15px;
+}
+.user_header {
+    font-weight: bold;
+    text-transform: uppercase;
+}
 .segment_details{
     cursor: pointer;
     position: relative;
@@ -195,5 +228,10 @@ h4{
     }
     #segment_list{
         width: 100%;
+    }
+    .user_container {
+        display: inline-block;
+        width: 100%;
+        vertical-align: top;
     }
 }
