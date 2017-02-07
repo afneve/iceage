@@ -11,6 +11,9 @@ h2{
 	color: #0077d4;
     text-align:center;
 }
+a.location{
+    color: #236B8E;
+}
 
 .easy{
     color: green;
@@ -45,7 +48,7 @@ h2{
     cursor: pointer;
 }
 #nav .selected{
-    background: blue;
+    background: #afeeee;
 }
 .nav_item {
     display: inline-block;
