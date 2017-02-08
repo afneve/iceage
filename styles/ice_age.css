@@ -49,6 +49,9 @@ h4{
 
 a.location{
     color: #236B8E;
+    display: block;
+    float: left;
+    clear: both;
 }
 
 .easy{
@@ -82,10 +85,6 @@ a.location{
 .segment_details{
     cursor: pointer;
     position: relative;
-}
-
-.location{
-    display: block;
 }
 
 .segment_details span{
