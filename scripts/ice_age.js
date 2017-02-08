@@ -17,7 +17,7 @@ var iceAge = {
     ruggednessObject: {},
     position : '',
     getData: false,
-    useGeo: true,
+    useGeo: false,
 
 
     /*
@@ -40,7 +40,8 @@ var iceAge = {
                    iceAge.displaySegmentList();
                 });
            } else { 
-                x.innerHTML = "Geolocation is not supported by this browser.";
+                iceAge.dataCollection();
+                iceAge.displaySegmentList();
            }
 
             
@@ -280,7 +281,7 @@ MESS TO CLEAN UP
 
             userName = progress_data.users[i].user;
             userHTML += '<div class="user_container">';
-            userHTML += '<h4>User ' + progress_data.users[i].userId + '</h4>';
+            userHTML += '<h4>' + progress_data.users[i].user + '</h4>';
             for (var j = 0; j < ice_age_data.length; j++) {
 
                

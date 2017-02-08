@@ -2,15 +2,51 @@ body {
     background: #fff;
     color: #666;
     font-family: 'Oxygen', sans-serif;
-}
-
-#ice_age{
-	padding: 0 20px;
+    margin: 0;
 }
 h2{
 	color: #0077d4;
     text-align:center;
 }
+h4{
+    margin: 0 0 10px;
+    text-align: center;
+}
+
+.clear{
+    clear: both;
+}
+
+.hide{
+    display:none;
+}
+
+#ice_age{
+	padding: 60px 20px 0;
+}
+
+#nav {
+    position: fixed;
+    width: 100%;
+    background: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    height: 40px;
+    z-index: 10;
+}
+#nav .selected{
+    background: #afeeee;
+}
+.nav_item {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 a.location{
     color: #236B8E;
 }
@@ -35,28 +71,7 @@ a.location{
 #progress_container h4{
     text-align: left;
 }
-.container{
-    padding-top:45px;
-}
-#nav {
-    position: absolute;
-    width: 100px;
-    background: black;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-}
-#nav .selected{
-    background: #afeeee;
-}
-.nav_item {
-    display: inline-block;
-    width: 50%;
-    float: left;
-    padding: 10px;
-    box-sizing: border-box;
-}
+
 .user_segments {
     margin-top: 15px;
 }
@@ -191,19 +206,6 @@ a.location{
     width: 100%;
     box-sizing: border-box;
     min-height: 150px;
-}
-
-h4{
-    margin: 0 0 10px;
-    text-align: center;
-}
-
-.clear{
-    clear: both;
-}
-
-.hide{
-    display:none;
 }
 
 .nohiking{
