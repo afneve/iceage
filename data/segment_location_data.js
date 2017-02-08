@@ -404,26 +404,26 @@ segment_id_location_data = [{
 	"eastLong": "89 29.052'",
 	"westLat": "43 58.671'",
 	"westLong": "89 30.117'"
-}, {//ERRORE HERE
+}, {
 	"segment_id": "59",
 	"segment": "John Muir Park",
 	"eastLat": "43 41.428'",
 	"eastLong": "89 23.723'",
-	"westLat": "43 33.626'",
-	"westLong": "89 26.126'"
+	"westLat": "",
+	"westLong": ""
 }, {
 	"segment_id": "60",
 	"segment": "Portage Canal ",
-	"eastLat": "43 32.137'",
-	"eastLong": "89 28.436'",
-	"westLat": "43 29.038'",
-	"westLong": "89 45.792'"
+	"eastLat": "43 33.626'",
+	"eastLong": "89 26.126'",
+	"westLat": "43 32.137'",
+	"westLong": "89 28.436'"
 }, {
 	"segment_id": "61",
 	"segment": "Baraboo",
-	"eastLat": "43 27.603'",
-	"eastLong": "89 43.68'",
-	"westLat": "43 24.567'",
+	"eastLat": "43 29.038'",
+	"eastLong": "89 45.792'",
+	"westLat": "43 27.603'",
 	"westLong": "89 43.68'"
 }, {
 	"segment_id": "62",
@@ -432,7 +432,7 @@ segment_id_location_data = [{
 	"eastLong": "89 38.216'",
 	"westLat": "43 25.528'",
 	"westLong": "89 41.187'"
-}, {/////////////////
+}, {
 	"segment_id": "63",
 	"segment": "Devil's Lake",
 	"eastLat": "43 25.528'",
@@ -479,43 +479,43 @@ segment_id_location_data = [{
 	"segment": "Lodi Marsh",
 	"eastLat": "43 16.932'",
 	"eastLong": "89 32.824'",
-	"westLat": "43 11.744'",
-	"westLong": "89 37.23'"
+	"westLat": "",
+	"westLong": ""
 }, {
 	"segment_id": "70",
 	"segment": "Indian Lake ",
-	"eastLat": "43 11.387'",
-	"eastLong": "89 38.097'",
-	"westLat": "43 08.644'",
-	"westLong": "89 40.210'"
+	"eastLat": "43 11.744'",
+	"eastLong": "89 37.23'",
+	"westLat": "43 11.387'",
+	"westLong": "89 38.097'"
 }, {
 	"segment_id": "71",
 	"segment": "Table Bluff ",
-	"eastLat": "43 7.135'",
-	"eastLong": "89 40.415'",
-	"westLat": "43 7.103'",
-	"westLong": "89 39.127'"
+	"eastLat": "43 8.644'",
+	"eastLong": "89 40.210'",
+	"westLat": "43 7.135'",
+	"westLong": "89 40.415'"
 }, {
 	"segment_id": "72",
 	"segment": "Cross Plains ",
-	"eastLat": "43 6.690'",
-	"eastLong": "89 38.845'",
-	"westLat": "43 2.516'",
-	"westLong": "89 35.764'"
+	"eastLat": "43 7.103'",
+	"eastLong": "89 39.127'",
+	"westLat": "43 6.690'",
+	"westLong": "89 38.845'"
 }, {
 	"segment_id": "73",
 	"segment": "Valley View ",
-	"eastLat": "43 1.865'",
-	"eastLong": "89 34.682'",
-	"westLat": "43 1.377'",
-	"westLong": "89 33.182'"
+	"eastLat": "43 2.516'",
+	"eastLong": "89 35.764'",
+	"westLat": "43 1.865'",
+	"westLong": "89 34.682'"
 }, {
 	"segment_id": "74",
 	"segment": "Madison",
-	"eastLat": "43 0.956'",
-	"eastLong": "89 31.187'",
-	"westLat": "42 57.721'",
-	"westLong": "89 30.829'"
+	"eastLat": "43 1.377'",
+	"eastLong": "89 33.182'",
+	"westLat": "43 0.956'",
+	"westLong": "89 31.187'"
 }, {
 	"segment_id": "75",
 	"segment": "Verona",
@@ -575,10 +575,10 @@ segment_id_location_data = [{
 }, {
 	"segment_id": "83",
 	"segment": "Janesville to Milton ",
-	"eastLat": "42 46.414'",
-	"eastLong": "88 58.179'",
-	"westLat": "42 46.760'",
-	"westLong": "88 55.044'"
+	"eastLat": "",
+	"eastLong": "",
+	"westLat": "42 46.414'",
+	"westLong": "88 58.179'"
 }, {
 	"segment_id": "84",
 	"segment": "Milton ",
@@ -696,15 +696,15 @@ segment_id_location_data = [{
 	"segment": "Holy Hill ",
 	"eastLat": "43 14.191'",
 	"eastLong": "88 19.709'",
-	"westLat": "43 17.725'",
-	"westLong": "88 19.791'"
+	"westLat": "",
+	"westLong": ""
 }, {
 	"segment_id": "101",
 	"segment": "Pike Lake",
-	"eastLat": "43 19.493'",
-	"eastLong": "88 17.959'",
-	"westLat": "43 20.34'",
-	"westLong": "88 16.897'"
+	"eastLat": "43 17.725'",
+	"eastLong": "88 19.791'",
+	"westLat": "43 19.493'",
+	"westLong": "88 17.959'"
 },{
 	"segment_id": "102",
 	"segment": "Slinger",
@@ -759,29 +759,29 @@ segment_id_location_data = [{
 	"segment": "Parnell",
 	"eastLat": "43 35.632'",
 	"eastLong": "88 10.585'",
-	"westLat": "43 43.446'",
-	"westLong": "88 5.821'"
+	"westLat": "",
+	"westLong": "'"
 }, {
 	"segment_id": "110",
 	"segment": "Greenbush ",
-	"eastLat": "43 47.814'",
-	"eastLong": "88 2.106'",
-	"westLat": "43 49.118'",
-	"westLong": "88 .063'"
+	"eastLat": "43 43.446'",
+	"eastLong": "88 5.821'",
+	"westLat": "43 47.814'",
+	"westLong": "88 2.106'"
 }, {
 	"segment_id": "111",
 	"segment": "LaBudde Creek",
-	"eastLat": "43 50.856'",
-	"eastLong": "87 58.769'",
-	"westLat": "44 5.848'",
-	"westLong": "87 42.041'"
+	"eastLat": "43 49.118'",
+	"eastLong": "88 0.063'",
+	"westLat": "43 50.856'",
+	"westLong": "87 58.769'"
 }, {
 	"segment_id": "112",
 	"segment": "City of Manitowoc",
-	"eastLat": "44 7.548'",
-	"eastLong": "87 36.886'",
-	"westLat": "44 8.661'",
-	"westLong": "87 35.414'"
+	"eastLat": "44 5.848'",
+	"eastLong": "87 42.041'",
+	"westLat": "44 7.548'",
+	"westLong": "87 36.886'"
 }, {
 	"segment_id": "113",
 	"segment": "City of Dunes",
