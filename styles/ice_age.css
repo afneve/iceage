@@ -12,6 +12,9 @@ h4{
     margin: 0 0 10px;
     text-align: center;
 }
+.user_container h4{
+    font-size:22px;
+}
 
 .clear{
     clear: both;
@@ -50,7 +53,6 @@ h4{
 a.location{
     color: #236B8E;
     display: block;
-    float: left;
     clear: both;
 }
 
