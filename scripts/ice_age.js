@@ -17,7 +17,7 @@ var iceAge = {
     ruggednessObject: {},
     position : '',
     getData: false,
-    useGeo: false,
+    useGeo: true,
 
 
     /*
