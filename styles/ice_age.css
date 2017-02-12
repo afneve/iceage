@@ -239,10 +239,14 @@ a.location{
     left: 0;
     border-bottom: none;
 }
+select{
+        display: none;
+    }
 
 @media (max-width: 600px) {
-    #segment_filter_container{
+    #segment_filter{
         width: 100%;
+        display:none;
     }
     #segment_list{
         width: 100%;
@@ -251,5 +255,9 @@ a.location{
         display: inline-block;
         width: 100%;
         vertical-align: top;
+    }
+    select{
+        display: block;
+        margin-bottom: 10px;
     }
 }
