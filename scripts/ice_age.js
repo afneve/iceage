@@ -27,7 +27,7 @@ var iceAge = {
     init: function() {
         var loc = window.location.pathname;
         if (loc.includes('afneve')) {
-            iceAge.getGeo = true;
+            iceAge.useGeo = true;
         }
 
         if (navigator.geolocation && iceAge.useGeo) {
@@ -291,7 +291,6 @@ var iceAge = {
                     }
                 }*/
         }
-        console.log(userArray);
         return userArray;
     },
 
@@ -503,7 +502,6 @@ var iceAge = {
             countyObject.countyName = ice_age_data[i].booksection;
         }
 
-        console.log(countyObject);
     }
 };
 
