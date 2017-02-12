@@ -409,8 +409,8 @@ segment_id_location_data = [{
 	"segment": "John Muir Park",
 	"eastLat": "43 41.428'",
 	"eastLong": "89 23.723'",
-	"westLat": "",
-	"westLong": ""
+	"westLat": "43 41.428'",
+	"westLong": "89 23.723'"
 }, {
 	"segment_id": "60",
 	"segment": "Portage Canal ",

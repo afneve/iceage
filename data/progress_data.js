@@ -8,7 +8,7 @@ progress_data = {
 	{
 		"user" : "E",
 		"userId" : "2",
-		"completedSegmentIds" : [33],
-		"partialSegmentIds" : [34, 44, 45, 51, 63, 120]
+		"completedSegmentIds" : [33, 45],
+		"partialSegmentIds" : [34, 44, 51, 63, 120]
 	}]
 }
