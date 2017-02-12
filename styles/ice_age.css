@@ -239,6 +239,10 @@ a.location{
     left: 0;
     border-bottom: none;
 }
+.segment_info, .user_badge_container {
+    width: 50%;
+    display:inline-block;
+}
 select{
         display: none;
     }
@@ -260,4 +264,7 @@ select{
         display: block;
         margin-bottom: 10px;
     }
+    .segment_info {
+    width: 100%;
+}
 }

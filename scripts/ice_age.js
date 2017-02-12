@@ -95,12 +95,16 @@ var iceAge = {
             previousSection = '',
             nextSection = '',
             difficulty = '',
+            usersArray = [],
             segmentCounter = 1;
 
         selectHTML += '<select>';
 
         for (var i = 0; i < ice_age_data.length; i++) {
             ice_age_data[i].segment_id = i + 1;
+
+            usersArray = iceAge.usersWhoHaveCompletedSegment(i + 1);
+
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
 
             //IF NEW COUNTY
@@ -132,7 +136,7 @@ var iceAge = {
             segmentHTML += '<div class="segment_summary">' + ice_age_data[i].summary + '</div>';
 
             
-
+            segmentHTML += '<div class="segment_info">';
             /*
             MESS TO CLEAN UP
             */
@@ -188,6 +192,9 @@ var iceAge = {
                 }
             }
 
+            segmentHTML += '</div>';
+            
+
             for (var j = 0; j < segment_id_location_data.length; j++) {
                 if (segment_id_location_data[j].segment_id == ice_age_data[i].segment_id) {
                     var eastLat = segment_id_location_data[j].eastLat,
@@ -219,14 +226,23 @@ var iceAge = {
                 }
             }
 
+            segmentHTML += '</div>';
+
+            segmentHTML += '<div class="user_badge_container">';
+            for(var u = 0; u < usersArray.length; u++){
+                segmentHTML += '<div class="'+ usersArray[u] +'">'+ usersArray[u] +'</div>';
+            }
+            segmentHTML += '</div>';
+
             if (ice_age_data[i].nohiking.trim() !== '') {
                 segmentHTML += '<div class="nohiking">Hiking Restrictions: </div><div>' + ice_age_data[i].nohiking + '</div>';
             }
 
-            segmentHTML += '</div>';
+            
+           
             segmentHTML += '<div class="clear"></div>';
-            //segmentHTML += '<span data-efnprogress="' + efnProgress + '" data-notes="'+notes+'"></span><span data-afnprogress="' + afnProgress + '" data-notes="'+notes+'"></span>';
             segmentHTML += '</div>';
+            
             segmentHTML += '<div class="clear"></div>';
             segmentHTML += '</div>';
 
@@ -254,6 +270,31 @@ var iceAge = {
 
         iceAge.displayUserProgress();
     },
+
+    usersWhoHaveCompletedSegment: function(segmentId){
+        var userArray = [];
+
+        for (var i = 0; i < progress_data.users.length; i++) {
+                for (var k = 0; k < progress_data.users[i].completedSegmentIds.length; k++) {
+                    var id = progress_data.users[i].completedSegmentIds[k];
+                    if (id == segmentId) {
+                        userArray.push(progress_data.users[i].user);
+                        break;
+                    }
+                }
+
+               /* for (var l = 0; l < progress_data.users[i].partialSegments.length; l++) {
+                    var id = progress_data.users[i].partialSegments[l].segmentId;
+                    if (id == segmentId) {
+
+                        break;
+                    }
+                }*/
+        }
+        console.log(userArray);
+        return userArray;
+    },
+
     /*
     ******************
     Display User Progress
@@ -371,6 +412,10 @@ var iceAge = {
             $('.county').hide();
             $('[data-index="' + segment + '"]').show();
 
+            $('html, body').animate({
+        	    scrollTop: 0 
+        	});
+
         });
 
         $('body').on('change', '#segment_filter_container select', function(){ 
@@ -379,6 +424,7 @@ var iceAge = {
 
             $('.county').hide();
             $('[data-index="' + segment + '"]').show();
+            
         });
 
         $('#segments').on('click', function(e) {
