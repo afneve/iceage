@@ -25,7 +25,7 @@ var iceAge = {
     ******************
     */
     init: function() {
-        var loc = window.location.pathname;
+        var loc = window.location.host;
         if (loc.includes('afneve')) {
             iceAge.useGeo = true;
         }
