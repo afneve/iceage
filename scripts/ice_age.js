@@ -16,8 +16,7 @@ var iceAge = {
     ruggednessArray: [],
     ruggednessObject: {},
     position : '',
-    getData: false,
-    useGeo: true,
+    useGeo: false,
 
 
     /*
@@ -26,10 +25,11 @@ var iceAge = {
     ******************
     */
     init: function() {
-        if (iceAge.getData) {
-            iceAge.getLabelsFromWebPage();
-            iceAge.getJsonFromWebPage();
-        } else {
+        var loc = window.location.pathname;
+        if(loc.includes('afneve')){
+            iceAge.getGeo = true;
+        }
+
             if (navigator.geolocation && iceAge.useGeo) {
                 navigator.geolocation.getCurrentPosition(function(position){
                     iceAge.position = position;
@@ -43,10 +43,6 @@ var iceAge = {
                 iceAge.dataCollection();
                 iceAge.displaySegmentList();
            }
-
-            
-            //iceAge.formatData();
-        }
     },
 
     /*
@@ -295,11 +291,16 @@ MESS TO CLEAN UP
                         }
                     } 
                   
-                    for(var l=0; l < progress_data.users[i].partialSegmentIds.length; l++){
-                        var id = progress_data.users[i].partialSegmentIds[l];
+                    for(var l=0; l < progress_data.users[i].partialSegments.length; l++){
+                        console.log(progress_data.users[i].partialSegments[l]);
+                        var id = progress_data.users[i].partialSegments[l].segmentId;
                         if(id == ice_age_data[j].segment_id){
+                            userPartialList += '<div class="user_segment_container">';
                             userPartialList += '<div class="seg">' + ice_age_data[j].segment + '</div>';
+                            userPartialList += '<div class="seg_notes">' + progress_data.users[i].partialSegments[l].notes + '</div>';
+                            userPartialList += '</div>';
                             userPartialMiles += parseFloat(ice_age_data[j].iceagetraildistance);
+                            
                             break;
                         } 
                     } 
@@ -311,7 +312,7 @@ MESS TO CLEAN UP
             userHTML += '</div>';
 
             userHTML += '<div class="user_segments">';
-            userHTML += '<div class="user_header">Partially Completed Segments ( ' + progress_data.users[i].partialSegmentIds.length + ' )</div>';
+            userHTML += '<div class="user_header">Partially Completed Segments ( ' + progress_data.users[i].partialSegments.length + ' )</div>';
             userHTML += userPartialList;
             userHTML += '</div>';
 
@@ -441,64 +442,6 @@ MESS TO CLEAN UP
 
     },
 
-    /*
-     **Retrive Labels from table and put into array
-     **ID was added in
-     */
-    getLabelsFromWebPage: function() {
-
-        $("#labels").children("td").each(function(index) {
-            var label = $(this).text();
-            label = label.toLowerCase();
-            label = label.replace(/\s+/g, '');
-            label = label.replace(/�/g, '');
-            iceAge.labelArray.push(label);
-        });
-    },
-    /*
-     **Build JSON from table and console JSON object
-     */
-    getJsonFromWebPage: function() {
-        var rowCount = $("tr").length - 1;
-
-
-        iceAge.jsonString += '[';
-
-        $("tr").each(function(index) {
-            if (index > 0) {
-                iceAge.jsonString += '{';
-                var columnCount = $(this).children('td').length - 1;
-
-                $(this).children('td').each(function(index) {
-
-                    //  iceAge.jsonString += '"' + iceAge.labelArray[index] + '":';
-
-                    //  if (index == 1 || index == 4) {
-                    var cellText = $(this).text();
-                    cellText = cellText.replace(/\s\s+/g, ' ');
-                    cellText = cellText.replace(/�/g, '');
-
-                    iceAge.jsonString += '"' + iceAge.labelArray[index] + '":';
-                    iceAge.jsonString += '"' + cellText + '"';
-
-                    //use var columnCount if reading everything in JSON
-                    if (index != columnCount) {
-                        iceAge.jsonString += ',';
-                    }
-                    //  }
-                });
-
-                iceAge.jsonString += '}';
-                if (index < rowCount) {
-                    iceAge.jsonString += ',';
-                }
-            }
-        });
-
-        iceAge.jsonString += ']';
-        console.log(iceAge.jsonString);
-    },
-
     formatData : function(){
         var countyObject = {},
             segmentObject = {},
@@ -511,7 +454,6 @@ MESS TO CLEAN UP
         }
 
         console.log(countyObject);
-
     }
 };
 

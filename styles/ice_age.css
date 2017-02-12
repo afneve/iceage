@@ -63,6 +63,10 @@ a.location{
     color: red;
 }
 
+.user_segment_container{
+    margin-bottom: 15px;
+}
+
 .county h3 {
     margin-top: 0;
 }
@@ -76,9 +80,11 @@ a.location{
 #progress_container h4{
     text-align: left;
 }
-
+.seg{
+    font-weight: bold;
+}
 .user_segments {
-    margin-top: 15px;
+    margin-top: 25px;
 }
 .user_header {
     font-weight: bold;
