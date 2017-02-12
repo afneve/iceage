@@ -292,7 +292,6 @@ MESS TO CLEAN UP
                     } 
                   
                     for(var l=0; l < progress_data.users[i].partialSegments.length; l++){
-                        console.log(progress_data.users[i].partialSegments[l]);
                         var id = progress_data.users[i].partialSegments[l].segmentId;
                         if(id == ice_age_data[j].segment_id){
                             userPartialList += '<div class="user_segment_container">';
