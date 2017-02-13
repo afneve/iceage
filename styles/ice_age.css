@@ -57,10 +57,10 @@ a.location{
 }
 
 .easy{
-    color: green;
+    color: #017927;
 }
 .hard{
-    color: red;
+    color: #C50401;
 }
 
 .user_segment_container{
@@ -102,7 +102,7 @@ a.location{
 
 .yes:after{
     content: "";
-    border: 3px solid green;
+    border: 3px solid #017927;
     width: 5px;
     height: 10px;
     position: absolute;
@@ -115,7 +115,7 @@ a.location{
 .no:before {
     width: 3px;
     height: 16px;
-    background: red;
+    background: #C50401;
     content: "";
     display: inline-block;
     right: -20px;
@@ -126,7 +126,7 @@ a.location{
 .no:after {
     width: 3px;
     height: 16px;
-    background: red;
+    background: #C50401;
     content: "";
     display: inline-block;
     right: -20px;
