@@ -96,6 +96,7 @@ var iceAge = {
             nextSection = '',
             difficulty = '',
             usersArray = [],
+            usersPartialArray = [],
             segmentCounter = 1;
 
         selectHTML += '<select>';
@@ -104,6 +105,7 @@ var iceAge = {
             ice_age_data[i].segment_id = i + 1;
 
             usersArray = iceAge.usersWhoHaveCompletedSegment(i + 1);
+            usersPartialArray = iceAge.usersWhoHavePartialSegment(i + 1);
 
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
 
@@ -230,8 +232,12 @@ var iceAge = {
 
             segmentHTML += '<div class="user_badge_container">';
             for(var u = 0; u < usersArray.length; u++){
-                segmentHTML += '<div class="'+ usersArray[u] +'">'+ usersArray[u] +'</div>';
+                segmentHTML += '<div class="badge" data-complete="'+ usersArray[u] +'"><img src="./images/' + usersArray[u] + '-complete.svg" alt="" /><span class="badge_label">' + usersArray[u] + '</span></div>';
             }
+            for(var up = 0; up < usersPartialArray.length; up++){
+                segmentHTML += '<div class="badge" data-partial="'+ usersPartialArray[up] +'"><img src="./images/' + usersPartialArray[up] + '-partial.svg" alt="" /><span class="badge_label">' + usersPartialArray[up] + '</span></div>';
+            }
+
             segmentHTML += '</div>';
 
             if (ice_age_data[i].nohiking.trim() !== '') {
@@ -290,6 +296,21 @@ var iceAge = {
                         break;
                     }
                 }*/
+        }
+        return userArray;
+    },
+
+    usersWhoHavePartialSegment: function(segmentId){
+        var userArray = [];
+
+        for (var i = 0; i < progress_data.users.length; i++) {
+               for (var l = 0; l < progress_data.users[i].partialSegments.length; l++) {
+                    var id = progress_data.users[i].partialSegments[l].segmentId;
+                    if (id == segmentId) {
+                        userArray.push(progress_data.users[i].user);
+                        break;
+                    }
+                }
         }
         return userArray;
     },

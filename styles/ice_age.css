@@ -244,9 +244,29 @@ a.location{
     display:inline-block;
 }
 select{
-        display: none;
-    }
-
+    display: none;
+}
+.badge{
+    display:inline-block;
+    width:50%;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
+.badge img{
+    width: 50px;
+}
+span.badge_label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    top: 23%;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
 @media (max-width: 600px) {
     #segment_filter{
         width: 100%;
