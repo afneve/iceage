@@ -116,7 +116,7 @@ var iceAge = {
                 }
                 segmentCounter++;
 
-                segmentHTML += '<h3 id="segment_' + i + '">' + ice_age_data[i].booksection + '</h3>';
+                segmentHTML += '<h3>' + ice_age_data[i].booksection + '</h3>';
 
                 if (i === 0) {
                     filterHTML += '<li class="selected">';
@@ -128,7 +128,7 @@ var iceAge = {
                 filterHTML += '</li>';
             }
 
-            segmentHTML += '<div class="segments_view">';
+            segmentHTML += '<div class="segment_container">';
             segmentHTML += '<div class="segment" data-index="' + i + '">';
             segmentHTML += '<h4 class="segment_name">' + ice_age_data[i].segment + '</h4>';
             segmentHTML += '<div class="segment_summary">' + ice_age_data[i].summary + '</div>';
