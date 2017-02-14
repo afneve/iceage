@@ -1,61 +1,40 @@
-.bar_container {
-    height: 20px;
-    margin-bottom: 20px;
-    width: 100%;
-    border: 1px solid;
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.bar{
-    height: 100%;
+.user_container {
     display: inline-block;
-    float: left;
-    width: 0.1%;
+    width: 50%;
+    vertical-align: top;
+    padding: 10px 5px 20px;
+    box-sizing:border-box;
 }
 
-.partial{
-    background-color:#E8E430;
-    transition: width 1s ease-out;
+.user_segment_container{
+    margin-bottom: 15px;
+}
+#progress_view h4{
+    text-align: left;
 }
 
-.complete{
-    transition: width 1s ease-out;
+.user_segments {
+    margin-top: 25px;
 }
-
-.miles_left {
-    margin-left: 5px;
-    float: left;
-}
-
-#efn_bar .complete, [data-efnprogress="done"]{
-    background-color:#50B513;
-}
-
-.segment_container [data-afnprogress], .segment_container [data-efnprogress]{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    font-size: 16px;
+.user_header {
     font-weight: bold;
-    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
-[data-afnprogress="partial"], [data-efnprogress="partial"]{
-    background-color: #E8E430;
+.user_badge_container {
+    width: 50%;
+    display:inline-block;
 }
 
-#afn_bar .complete, [data-afnprogress="done"]{
-    background-color:#50B513;
+.user_container h4{
+    font-size:22px;
 }
 
-[data-afnprogress="done"]:after, [data-afnprogress="partial"]:after{
-    content: "A";
-	color: white;
-}
-
-[data-efnprogress="done"]:after, [data-efnprogress="partial"]:after{
-    content: "E";
-	color: white;
+@media (max-width: 600px) {
+    .user_container {
+        display: inline-block;
+        width: 100%;
+        vertical-align: top;
+    }
 }

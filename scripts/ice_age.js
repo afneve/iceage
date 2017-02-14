@@ -1,13 +1,7 @@
 "use strict";
 
 var iceAge = {
-    labelArray: [],
     iconArray: ["potablewater", "restrooms"],
-    jsonString: '',
-    efnComplete: 0,
-    efnPartial: 0,
-    afnComplete: 0,
-    afnPartial: 0,
     totalTrailDistance: 0,
     distanceArray: [],
     distanceObject: {},
@@ -17,7 +11,6 @@ var iceAge = {
     ruggednessObject: {},
     position: '',
     useGeo: false,
-
 
     /*
     ******************
@@ -47,7 +40,7 @@ var iceAge = {
 
     /*
     ******************
-    Organize data
+    Organize Trail Data into Arrays
     ******************
     */
     dataCollection: function() {
@@ -62,6 +55,11 @@ var iceAge = {
         iceAge.getAverage(iceAge.ruggednessArray, iceAge.ruggednessObject);
     },
 
+    /*
+    ******************
+    Get Average of trail data to use later
+    ******************
+    */
     getAverage: function(array, object) {
         var average = 0;
 
@@ -111,18 +109,16 @@ var iceAge = {
 
             //IF NEW COUNTY
             if (ice_age_data[i].booksection != previousSection) {
-                if (i == 0) {
+                if (i === 0) {
                     segmentHTML += '<div class="county" data-index="' + segmentCounter + '">';
                 } else {
                     segmentHTML += '<div class="county hide" data-index="' + segmentCounter + '">';
                 }
-                segmentCounter++
+                segmentCounter++;
 
                 segmentHTML += '<h3 id="segment_' + i + '">' + ice_age_data[i].booksection + '</h3>';
 
-
-
-                if (i == 0) {
+                if (i === 0) {
                     filterHTML += '<li class="selected">';
                 } else {
                     filterHTML += '<li>';
@@ -132,47 +128,24 @@ var iceAge = {
                 filterHTML += '</li>';
             }
 
-            segmentHTML += '<div class="segment_container">';
+            segmentHTML += '<div class="segments_view">';
             segmentHTML += '<div class="segment" data-index="' + i + '">';
             segmentHTML += '<h4 class="segment_name">' + ice_age_data[i].segment + '</h4>';
             segmentHTML += '<div class="segment_summary">' + ice_age_data[i].summary + '</div>';
 
             
             segmentHTML += '<div class="segment_info">';
-            /*
-            MESS TO CLEAN UP
-            */
-            if (parseFloat(ice_age_data[i].iceagetraildistance) <= iceAge.distanceObject.shortCutoff) {
-                difficulty = 'easy';
-            } else if (parseFloat(ice_age_data[i].iceagetraildistance) <= iceAge.distanceObject.midCutoff) {
-                difficulty = 'average';
-            } else {
-                difficulty = 'hard';
-            }
+
+            difficulty = iceAge.getDifficultyLevel(parseFloat(ice_age_data[i].iceagetraildistance), iceAge.distanceObject.shortCutoff, iceAge.distanceObject.midCutoff);          
             segmentHTML += '<div class="' + difficulty + '">Distance: ' + ice_age_data[i].iceagetraildistance + '</div>';
 
-            if (parseFloat(ice_age_data[i].elevation) <= iceAge.elevationObject.shortCutoff) {
-                difficulty = 'easy';
-            } else if (parseFloat(ice_age_data[i].elevation) <= iceAge.elevationObject.midCutoff) {
-                difficulty = 'average';
-            } else {
-                difficulty = 'hard';
-            }
+
+            difficulty = iceAge.getDifficultyLevel(parseFloat(ice_age_data[i].elevation), iceAge.elevationObject.shortCutoff, iceAge.elevationObject.midCutoff);          
             segmentHTML += '<div class="' + difficulty + '">Elevation: ' + ice_age_data[i].elevation + '</div>';
 
-            if (parseFloat(ice_age_data[i].ruggedness) <= iceAge.ruggednessObject.shortCutoff) {
-                difficulty = 'easy';
-            } else if (parseFloat(ice_age_data[i].ruggedness) <= iceAge.ruggednessObject.midCutoff) {
-                difficulty = 'average';
-            } else {
-                difficulty = 'hard';
-            }
+            difficulty = iceAge.getDifficultyLevel(parseFloat(ice_age_data[i].ruggedness), iceAge.ruggednessObject.shortCutoff, iceAge.ruggednessObject.midCutoff);          
             segmentHTML += '<div class="' + difficulty + '">Ruggedness: ' + ice_age_data[i].ruggedness + '</div>';
-            /*
-            MESS TO CLEAN UP
-            */
 
-            segmentHTML += '<div class="icons">';
 
             for (var l = 0; l < iceAge.iconArray.length; l++) {
                 var type = iceAge.iconArray[l];
@@ -186,15 +159,12 @@ var iceAge = {
                     segmentHTML += '<div data-icon="' + className + '" class="segment_details">';
                     segmentHTML += '<span class="yes">' + readableType + ':</span>';
                     segmentHTML += '</div>';
-                    //segmentHTML += '<span data-icon="'+className+'" class="icon"><img src="icons/'+className+'.png" /></span>';
                 } else {
                     segmentHTML += '<div data-icon="' + className + '" class="segment_details">';
                     segmentHTML += '<span class="no">' + readableType + ':</span>';
                     segmentHTML += '</div>';
                 }
             }
-
-            segmentHTML += '</div>';
             
 
             for (var j = 0; j < segment_id_location_data.length; j++) {
@@ -244,12 +214,7 @@ var iceAge = {
                 segmentHTML += '<div class="nohiking">Hiking Restrictions: </div><div>' + ice_age_data[i].nohiking + '</div>';
             }
 
-            
-           
-            segmentHTML += '<div class="clear"></div>';
             segmentHTML += '</div>';
-            
-            segmentHTML += '<div class="clear"></div>';
             segmentHTML += '</div>';
 
             if (typeof ice_age_data[i + 1] != 'undefined') {
@@ -259,10 +224,7 @@ var iceAge = {
             }
 
             if (ice_age_data[i].booksection != nextSection) {
-                //filterHTML += '</ul>';
-
                 segmentHTML += '</div>'; //END COUNTY DIV
-                segmentHTML += '<div class="clear"></div>';
             }
 
             previousSection = ice_age_data[i].booksection;
@@ -277,6 +239,18 @@ var iceAge = {
         iceAge.displayUserProgress();
     },
 
+    getDifficultyLevel: function(iceAgeDistance, shortCutoff, midCutoff){
+        var difficulty = '';
+        if (iceAgeDistance <= shortCutoff) {
+            difficulty = 'easy';
+        } else if (iceAgeDistance <= midCutoff) {
+            difficulty = 'average';
+        } else {
+            difficulty = 'difficult';
+        }
+        return difficulty;
+    },
+
     usersWhoHaveCompletedSegment: function(segmentId){
         var userArray = [];
 
@@ -288,14 +262,6 @@ var iceAge = {
                         break;
                     }
                 }
-
-               /* for (var l = 0; l < progress_data.users[i].partialSegments.length; l++) {
-                    var id = progress_data.users[i].partialSegments[l].segmentId;
-                    if (id == segmentId) {
-
-                        break;
-                    }
-                }*/
         }
         return userArray;
     },
@@ -325,12 +291,8 @@ var iceAge = {
             userHTML = '',
             userCompleteList = '',
             userPartialList = '',
-            userIncompleteList = '',
             userCompleteMiles = 0,
-            userPartialMiles = 0,
-            userMilesRemaining = 0;
-
-        //segment_id_location_data  
+            userPartialMiles = 0;
 
         for (var i = 0; i < progress_data.users.length; i++) {
             userCompleteList = '';
@@ -340,7 +302,7 @@ var iceAge = {
 
             userName = progress_data.users[i].user;
             userHTML += '<div class="user_container">';
-            userHTML += '<h4>' + progress_data.users[i].user + '</h4>';
+            userHTML += '<h4>Hiker ' + progress_data.users[i].user + '</h4>';
             for (var j = 0; j < ice_age_data.length; j++) {
 
 
@@ -348,7 +310,7 @@ var iceAge = {
                     var id = progress_data.users[i].completedSegmentIds[k];
                     if (id == ice_age_data[j].segment_id) {
 
-                        userCompleteList += '<div class="seg">' + ice_age_data[j].segment + '</div>';
+                        userCompleteList += '<div class="segment_name">' + ice_age_data[j].segment + '</div>';
                         userCompleteMiles += parseFloat(ice_age_data[j].iceagetraildistance);
                         break;
                     }
@@ -358,7 +320,7 @@ var iceAge = {
                     var id = progress_data.users[i].partialSegments[l].segmentId;
                     if (id == ice_age_data[j].segment_id) {
                         userPartialList += '<div class="user_segment_container">';
-                        userPartialList += '<div class="seg">' + ice_age_data[j].segment + '</div>';
+                        userPartialList += '<div class="segment_name">' + ice_age_data[j].segment + '</div>';
                         userPartialList += '<div class="seg_notes">' + progress_data.users[i].partialSegments[l].notes + '</div>';
                         userPartialList += '</div>';
                         userPartialMiles += parseFloat(ice_age_data[j].iceagetraildistance);
@@ -384,34 +346,12 @@ var iceAge = {
             userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
 
             userHTML += '<div>' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles remaining!</div>';
-            userHTML += '</div>'
+            userHTML += '</div>';
 
             userHTML += '</div>';
         } //END USER LOOP
 
-        $('#progress_container').html(userHTML);
-
-        /*if(progress_data[j].segment == ice_age_data[i].segment){
-            console.log(ice_age_data[i].segment);
-            console.log(ice_age_data[i].segment_id);
-
-           // efnProgress = progress_data[j].efnStatus;
-            //afnProgress = progress_data[j].afnStatus;
-
-            //Name
-            //Miles complete vs mile remaining
-            //Number of completed segments
-            //List of completed segments
-            //Number of partial segments
-            //List of partial segments
-            //Number of unwalked segments
-            //LIst of unwalked segments
-
-            //progress_data.splice(j,1);            
-        }*/
-
-
-
+        $('#progress_view').html(userHTML);
     },
     /*
     ******************
@@ -419,7 +359,7 @@ var iceAge = {
     ******************
     */
     attachEventListeners: function() {
-
+        //CHANGE SEGMENT ON CLICK
         $('#segment_filter').on('click', 'a', function(e) {
             e.preventDefault();
 
@@ -428,40 +368,32 @@ var iceAge = {
             $('#segment_filter li').removeClass('selected');
             $(this).parent('li').addClass('selected');
 
-
             $('.county').hide();
             $('[data-index="' + segment + '"]').show();
 
             $('html, body').animate({
         	    scrollTop: 0 
         	});
-
         });
 
+        //CHANGE SEGMENT SELECT BOX;
         $('body').on('change', '#segment_filter_container select', function(){ 
-
             var segment = $(this).val();
 
             $('.county').hide();
-            $('[data-index="' + segment + '"]').show();
-            
+            $('[data-index="' + segment + '"]').show(); 
         });
 
-        $('#segments').on('click', function(e) {
-            $('#progress_container').hide();
-            $('#segment_container').show();
-            $('#nav div').removeClass('selected');
+        $('nav').on('click', '.nav_item', function(e){
+            $('.view').hide();
+            $('.nav_item').removeClass('selected');
+
             $(this).addClass('selected');
+            $('#' + $(this).attr('id') + '_view').show();
 
         });
 
-        $('#progress').on('click', function(e) {
-            $('#segment_container').hide();
-            $('#progress_container').show();
-            $('#nav div').removeClass('selected');
-            $(this).addClass('selected');
-        });
-
+        //ARROW THROUGH COUNTIES ON SEGMENT VIEW
         $('body').on('keyup', function(e) {
 
             if (e.keyCode == 39) {
@@ -489,41 +421,7 @@ var iceAge = {
             }
 
         });
-        /*
-               $(window).scroll(function() {
-                   var firstCounty = $("#segment_0").offset().top;
-                   // console.log(firstCounty);
-                   // console.log($(this).scrollTop());
-                   if ($(this).scrollTop() > firstCounty) {
-                       $('#segment_filter').css({
-                           'position': 'fixed',
-                           'top': 10
-                       });
-                   } else {
-                       $('#segment_filter').css({
-                           'position': 'relative'
-                       });
-                   }
-               });
-              
-                       
-               		});*/
-        ////TEST
-
     },
-
-    formatData: function() {
-        var countyObject = {},
-            segmentObject = {},
-            text = '';
-
-        for (var i = 0; i < ice_age_data.length; i++) {
-
-            countyObject.id = i + 1;
-            countyObject.countyName = ice_age_data[i].booksection;
-        }
-
-    }
 };
 
 $(document).ready(function() {
