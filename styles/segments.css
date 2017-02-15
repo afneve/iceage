@@ -164,7 +164,7 @@ a.location{
     position: relative;
 }
 .badge img{
-    width: 50px;
+    width: 125px;
 }
 span.badge_label {
     position: absolute;
@@ -172,8 +172,8 @@ span.badge_label {
     right: 0;
     margin: auto;
     text-align: center;
-    top: 23%;
-    font-size: 20px;
+    top: 36%;
+    font-size: 25px;
     font-weight: bold;
     color: white;
 }
