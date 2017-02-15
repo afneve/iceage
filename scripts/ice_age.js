@@ -10,7 +10,7 @@ var iceAge = {
     ruggednessArray: [],
     ruggednessObject: {},
     position: '',
-    useGeo: false,
+    useGeo: true,
 
     /*
     ******************
@@ -36,6 +36,8 @@ var iceAge = {
             iceAge.dataCollection();
             iceAge.displaySegmentList();
         }
+
+        iceAge.attachEventListeners();
     },
 
     /*
@@ -98,14 +100,6 @@ var iceAge = {
             segmentCounter = 1;
 
         selectHTML += '<select>';
-
-        $.ajax({
-                            dataType: "json",
-                            url: 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=44.949086699999995,-89.69990770000001&destinations=45.0508833,-89.2262554&key=AIzaSyApgw_Wx9fBUWmzgwQZIXeXXV7rMqHnVME',
-                            success: function(data){
-                                console.log(data);
-                            }
-                        });
 
         for (var i = 0; i < ice_age_data.length; i++) {
             ice_age_data[i].segment_id = i + 1;
@@ -194,15 +188,13 @@ var iceAge = {
                     }
 
                     if (iceAge.position !== '') {
-                        
-
-
-
                         if (eastLat !== '') {
                             segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + eastLat + 'N+' + eastLong + 'W">To East end from your location</a>';
+                            segmentHTML += '<a class="getDistance" data-lat="' + eastLat + '" data-long="' + eastLong + '">Get Distance</a>'; 
                         }
                         if (westLat !== '') {
                             segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + westLat + 'N+' + westLong + 'W">To West end from your location</a>';
+                            segmentHTML += '<a class="getDistance" data-lat="' + westLat + '" data-long="' + westLong + '">Get Distance</a>';
                         }
                     }
 
@@ -250,7 +242,40 @@ var iceAge = {
 
         iceAge.displayUserProgress();
     },
+    getDistanceFromCurrentLocation : function(htmlElement, currentPosLat, currentPosLong, destLat, destLong){
+        var origin1 = new google.maps.LatLng(currentPosLat,currentPosLong);
+        var destination1 = new google.maps.LatLng(destLat,-(destLong));
+        var service = new google.maps.DistanceMatrixService();
+        console.log(origin1);
+        console.log(destination1);
+        service.getDistanceMatrix(
+        {
+            origins: [origin1],
+            destinations: [destination1],
+            unitSystem: google.maps.UnitSystem.IMPERIAL,
+            travelMode: google.maps.DirectionsTravelMode.DRIVING
+        }, function(response, status){
+             if (status == 'OK') {
+                var origins = response.originAddresses;
+                var destinations = response.destinationAddresses;
 
+                for (var i = 0; i < origins.length; i++) {
+                    var results = response.rows[i].elements;
+                    for (var j = 0; j < results.length; j++) {
+                        var element = results[j];
+                        var distance = element.distance.text;
+                        var duration = element.duration.text;
+                        var from = origins[i];
+                        var to = destinations[j];
+                        console.log(distance);
+                        console.log(htmlElement);
+                        $(htmlElement).html(distance);
+                    }
+                }
+            }
+        });
+
+    },
     convertCoord : function(coord){
         var decimalCoord;
         var degree = 0,
@@ -409,6 +434,11 @@ var iceAge = {
         	});
         });
 
+        $('body').on('click', '.getDistance', function(e){
+            console.log('click');
+            var distanceTo = iceAge.getDistanceFromCurrentLocation($(this), iceAge.position.coords.latitude, iceAge.position.coords.longitude, $(this).attr('data-lat'),  $(this).attr('data-long') );
+        });
+
         //CHANGE SEGMENT SELECT BOX;
         $('body').on('change', '#segment_filter_container select', function(){ 
             var segment = $(this).val();
@@ -458,6 +488,6 @@ var iceAge = {
 };
 
 $(document).ready(function() {
-    iceAge.init();
-    iceAge.attachEventListeners();
+    //iceAge.init();
+    
 });
