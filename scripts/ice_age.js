@@ -99,6 +99,14 @@ var iceAge = {
 
         selectHTML += '<select>';
 
+        $.ajax({
+                            dataType: "json",
+                            url: 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=44.949086699999995,-89.69990770000001&destinations=45.0508833,-89.2262554&key=AIzaSyApgw_Wx9fBUWmzgwQZIXeXXV7rMqHnVME',
+                            success: function(data){
+                                console.log(data);
+                            }
+                        });
+
         for (var i = 0; i < ice_age_data.length; i++) {
             ice_age_data[i].segment_id = i + 1;
 
@@ -186,24 +194,16 @@ var iceAge = {
                     }
 
                     if (iceAge.position !== '') {
-                        $.ajax({
-                            dataType: "json",
-                            url: 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=44.949086699999995,-89.69990770000001&destinations=45.0508833,-89.2262554&key=AIzaSyApgw_Wx9fBUWmzgwQZIXeXXV7rMqHnVME',
-                            success: function(data){
-                                console.log(data);
-
-                                if (eastLat !== '') {
-                                    segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + eastLat + 'N+' + eastLong + 'W">To East end from your location</a>';
-                                }
-                                if (westLat !== '') {
-                                    segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + westLat + 'N+' + westLong + 'W">To West end from your location</a>';
-                                }
-                            }
-                        });
-
-
-
                         
+
+
+
+                        if (eastLat !== '') {
+                            segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + eastLat + 'N+' + eastLong + 'W">To East end from your location</a>';
+                        }
+                        if (westLat !== '') {
+                            segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + westLat + 'N+' + westLong + 'W">To West end from your location</a>';
+                        }
                     }
 
                     segmentHTML += '</div>';
