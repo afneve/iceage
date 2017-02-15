@@ -177,25 +177,29 @@ var iceAge = {
                         westLong = iceAge.convertCoord(segment_id_location_data[j].westLong);
 
                     segmentHTML += '<div class="map">';
-                    if (eastLat !== '') {
-                        segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/place/' + eastLat + 'N+' + eastLong + 'W" >East End</a>';
-                    }
                     if (westLat !== '') {
                         segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/place/' + westLat + 'N+' + westLong + 'W" >West End</a>';
+                    }
+                    if (eastLat !== '') {
+                        segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/place/' + eastLat + 'N+' + eastLong + 'W" >East End</a>';
                     }
                     if (eastLat !== '' && westLat !== '') {
                         segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + eastLat + 'N+' + eastLong + 'W/' + westLat + 'N+' + westLong + 'W">Beginning to End</a>';
                     }
 
                     if (iceAge.position !== '') {
-                        if (eastLat !== '') {
-                            segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + eastLat + 'N+' + eastLong + 'W">To East end from your location</a>';
-                            segmentHTML += '<a class="getDistance" data-lat="' + eastLat + '" data-long="' + eastLong + '">Get Distance</a>'; 
-                        }
                         if (westLat !== '') {
-                            segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + westLat + 'N+' + westLong + 'W">To West end from your location</a>';
-                            segmentHTML += '<a class="getDistance" data-lat="' + westLat + '" data-long="' + westLong + '">Get Distance</a>';
+                            segmentHTML += '<div class="location_based_info">';
+                            segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + westLat + 'N+' + westLong + 'W">Directions to West End</a>';
+                            segmentHTML += '<div class="getDistance" data-lat="' + westLat + '" data-long="' + westLong + '"></div>';
+                            segmentHTML += '</div>';
                         }
+                        if (eastLat !== '') {
+                            segmentHTML += '<div class="location_based_info">'
+                            segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + eastLat + 'N+' + eastLong + 'W">Directions to East End</a>';
+                            segmentHTML += '<div class="getDistance" data-lat="' + eastLat + '" data-long="' + eastLong + '"></div>'; 
+                            segmentHTML += '</div>';
+                        }            
                     }
 
                     segmentHTML += '</div>';
@@ -246,8 +250,6 @@ var iceAge = {
         var origin1 = new google.maps.LatLng(currentPosLat,currentPosLong);
         var destination1 = new google.maps.LatLng(destLat,-(destLong));
         var service = new google.maps.DistanceMatrixService();
-        console.log(origin1);
-        console.log(destination1);
         service.getDistanceMatrix(
         {
             origins: [origin1],
@@ -267,9 +269,7 @@ var iceAge = {
                         var duration = element.duration.text;
                         var from = origins[i];
                         var to = destinations[j];
-                        console.log(distance);
-                        console.log(htmlElement);
-                        $(htmlElement).html("Distance: " + distance + " Time: " + duration);
+                        $(htmlElement).html("<div>Drive Distance: " + distance + "</div><div>Drive Time: " + duration + "</div>");
                     }
                 }
             }
@@ -427,16 +427,19 @@ var iceAge = {
             $(this).parent('li').addClass('selected');
 
             $('.county').hide();
-            $('[data-index="' + segment + '"]').show();
+            $('.county[data-index="' + segment + '"]').show();
+
+            if(!$('.county[data-index="' + segment + '"]').attr('data-loaded')){
+                $('.county[data-index="' + segment + '"]').find(".getDistance").each(function() {
+                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.position.coords.latitude, iceAge.position.coords.longitude, $(this).attr('data-lat'),  $(this).attr('data-long') );
+                });
+            }
+
+            $('.county[data-index="' + segment + '"]').attr('data-loaded', 'true');
 
             $('html, body').animate({
         	    scrollTop: 0 
         	});
-        });
-
-        $('body').on('click', '.getDistance', function(e){
-            console.log('click');
-            var distanceTo = iceAge.getDistanceFromCurrentLocation($(this), iceAge.position.coords.latitude, iceAge.position.coords.longitude, $(this).attr('data-lat'),  $(this).attr('data-long') );
         });
 
         //CHANGE SEGMENT SELECT BOX;
@@ -445,6 +448,14 @@ var iceAge = {
 
             $('.county').hide();
             $('[data-index="' + segment + '"]').show(); 
+
+            if(!$('.county[data-index="' + segment + '"]').attr('data-loaded')){
+                $('.county[data-index="' + segment + '"]').find(".getDistance").each(function() {
+                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.position.coords.latitude, iceAge.position.coords.longitude, $(this).attr('data-lat'),  $(this).attr('data-long') );
+                });
+            }
+
+            $('.county[data-index="' + segment + '"]').attr('data-loaded', 'true');
         });
 
         $('nav').on('click', '.nav_item', function(e){

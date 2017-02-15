@@ -73,7 +73,6 @@ Styles for list of segments
 }
 
 .segment_details{
-    cursor: pointer;
     position: relative;
 }
 
@@ -178,6 +177,10 @@ span.badge_label {
     color: white;
 }
 
+.location_based_info {
+    margin: 16px 0px;
+}
+
 @media (max-width: 1000px) {
     .badge img{
         width: 75%;
@@ -189,6 +192,7 @@ span.badge_label {
 @media (max-width: 600px) {
     #segment_filter_container{
         background: white;
+        width: 100%;
     }
     #segment_filter{
         width: 100%;
@@ -200,6 +204,7 @@ span.badge_label {
     #segment_filter_container select{
         display: block;
         margin-bottom: 10px;
+        width: 100%;
     }
     .segment_info {
         width: 100%;
