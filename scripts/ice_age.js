@@ -269,7 +269,7 @@ var iceAge = {
                         var to = destinations[j];
                         console.log(distance);
                         console.log(htmlElement);
-                        $(htmlElement).html(distance);
+                        $(htmlElement).html("Distance: " + distance + " Time: " + duration);
                     }
                 }
             }
