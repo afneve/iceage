@@ -169,10 +169,10 @@ var iceAge = {
 
             for (var j = 0; j < segment_id_location_data.length; j++) {
                 if (segment_id_location_data[j].segment_id == ice_age_data[i].segment_id) {
-                    var eastLat = segment_id_location_data[j].eastLat,
-                        eastLong = segment_id_location_data[j].eastLong,
-                        westLat = segment_id_location_data[j].westLat,
-                        westLong = segment_id_location_data[j].westLong;
+                    var eastLat = iceAge.convertCoord(segment_id_location_data[j].eastLat),
+                        eastLong = iceAge.convertCoord(segment_id_location_data[j].eastLong),
+                        westLat = iceAge.convertCoord(segment_id_location_data[j].westLat),
+                        westLong = iceAge.convertCoord(segment_id_location_data[j].westLong);
 
                     segmentHTML += '<div class="map">';
                     if (eastLat !== '') {
@@ -186,12 +186,24 @@ var iceAge = {
                     }
 
                     if (iceAge.position !== '') {
-                        if (eastLat !== '') {
-                            segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + eastLat + 'N+' + eastLong + 'W">To East end from your location</a>';
-                        }
-                        if (westLat !== '') {
-                            segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + westLat + 'N+' + westLong + 'W">To West end from your location</a>';
-                        }
+                        $.ajax({
+                            dataType: "json",
+                            url: 'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=44.949086699999995,-89.69990770000001&destinations=45.0508833,-89.2262554&key=AIzaSyApgw_Wx9fBUWmzgwQZIXeXXV7rMqHnVME',
+                            success: function(data){
+                                console.log(data);
+
+                                if (eastLat !== '') {
+                                    segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + eastLat + 'N+' + eastLong + 'W">To East end from your location</a>';
+                                }
+                                if (westLat !== '') {
+                                    segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + westLat + 'N+' + westLong + 'W">To West end from your location</a>';
+                                }
+                            }
+                        });
+
+
+
+                        
                     }
 
                     segmentHTML += '</div>';
@@ -238,6 +250,27 @@ var iceAge = {
 
         iceAge.displayUserProgress();
     },
+
+    convertCoord : function(coord){
+        var decimalCoord;
+        var degree = 0,
+            min = 0,
+            sec = 0;
+        if(coord !== ''){
+            //45° 23.979'
+            //-92° 38.973'
+            coord = coord.split(' ');
+            degree = parseFloat(coord[0]);
+            min = parseFloat(coord[1]);
+
+
+            decimalCoord = degree + (min/60);
+            
+            //DD = d + (min/60) + (sec/3600)
+            return decimalCoord;
+        }
+    }, 
+
 
     getDifficultyLevel: function(iceAgeDistance, shortCutoff, midCutoff){
         var difficulty = '';
