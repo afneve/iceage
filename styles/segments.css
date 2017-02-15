@@ -178,7 +178,14 @@ span.badge_label {
     color: white;
 }
 
-
+@media (max-width: 1000px) {
+    .badge img{
+        width: 75%;
+    }
+    span.badge_label {
+        font-size: 22px;
+    }
+}
 @media (max-width: 600px) {
     #segment_filter_container{
         background: white;
@@ -195,6 +202,9 @@ span.badge_label {
         margin-bottom: 10px;
     }
     .segment_info {
+        width: 100%;
+    }
+    .user_badge_container{
         width: 100%;
     }
     
