@@ -2,7 +2,7 @@
     display: inline-block;
     width: 50%;
     vertical-align: top;
-    padding: 10px 5px 20px;
+    padding: 0 10px 35px;
     box-sizing:border-box;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .user_segments {
-    margin-top: 25px;
+    margin: 0 0 35px;
 }
 .user_header {
     font-weight: bold;

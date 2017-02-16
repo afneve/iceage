@@ -118,7 +118,7 @@ var iceAge = {
                 }
                 segmentCounter++;
 
-                segmentHTML += '<h3>' + ice_age_data[i].booksection + '</h3>';
+                segmentHTML += '<h2 class="county_name">' + ice_age_data[i].booksection + '</h2>';
 
                 if (i === 0) {
                     filterHTML += '<li class="selected">';
@@ -132,7 +132,7 @@ var iceAge = {
 
             segmentHTML += '<div class="segment_container">';
             segmentHTML += '<div class="segment" data-index="' + i + '">';
-            segmentHTML += '<h4 class="segment_name">' + ice_age_data[i].segment + '</h4>';
+            segmentHTML += '<h3 class="segment_name">' + ice_age_data[i].segment + '</h3>';
             segmentHTML += '<div class="segment_summary">' + ice_age_data[i].summary + '</div>';
 
             
@@ -360,7 +360,7 @@ var iceAge = {
 
             userName = progress_data.users[i].user;
             userHTML += '<div class="user_container">';
-            userHTML += '<h4>Hiker ' + progress_data.users[i].user + '</h4>';
+            userHTML += '<h2>Hiker ' + progress_data.users[i].user + '</h2>';
             for (var j = 0; j < ice_age_data.length; j++) {
 
 
@@ -389,17 +389,17 @@ var iceAge = {
 
             } //END ICE AGE DATA LOOP
             userHTML += '<div class="user_segments">';
-            userHTML += '<div class="user_header">Completed Segments ( ' + progress_data.users[i].completedSegmentIds.length + ' )</div>';
+            userHTML += '<h3 class="user_header">Completed Segments ( ' + progress_data.users[i].completedSegmentIds.length + ' )</h3>';
             userHTML += userCompleteList;
             userHTML += '</div>';
 
             userHTML += '<div class="user_segments">';
-            userHTML += '<div class="user_header">Partially Completed Segments ( ' + progress_data.users[i].partialSegments.length + ' )</div>';
+            userHTML += '<h3 class="user_header">Partially Completed Segments ( ' + progress_data.users[i].partialSegments.length + ' )</h3>';
             userHTML += userPartialList;
             userHTML += '</div>';
 
             userHTML += '<div class="user_segments">';
-            userHTML += '<div class="user_header">Distance:</div>';
+            userHTML += '<h3 class="user_header">Distance:</h3>';
             userHTML += '<div>Length of trails partially done is ' + userPartialMiles + ' miles</div>';
             userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
 
