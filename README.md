@@ -4,5 +4,5 @@ This was originally started simply to grab data from an Excel sheet to display o
 
 ## What's next
 
-Style improvements. Small updates to script.
+Adding a map with polylines marking the trail. Style Updates
 
