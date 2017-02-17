@@ -313,8 +313,8 @@ var iceAge = {
         var userArray = [];
 
         for (var i = 0; i < progress_data.users.length; i++) {
-                for (var k = 0; k < progress_data.users[i].completedSegmentIds.length; k++) {
-                    var id = progress_data.users[i].completedSegmentIds[k];
+                for (var k = 0; k < progress_data.users[i].completedSegments.length; k++) {
+                    var id = progress_data.users[i].completedSegments[k];
                     if (id == segmentId) {
                         userArray.push(progress_data.users[i].user);
                         break;
@@ -363,13 +363,12 @@ var iceAge = {
             userHTML += '<h2>Hiker ' + progress_data.users[i].user + '</h2>';
             for (var j = 0; j < ice_age_data.length; j++) {
 
-
-                for (var k = 0; k < progress_data.users[i].completedSegmentIds.length; k++) {
-                    var id = progress_data.users[i].completedSegmentIds[k];
+                for (var k = 0; k < progress_data.users[i].completedSegments.length; k++) {
+                    var id = progress_data.users[i].completedSegments[k].segmentId;
                     if (id == ice_age_data[j].segment_id) {
-
-                        userCompleteList += '<div class="segment_name">' + ice_age_data[j].segment + ' <span class="completion_data">( ' + progress_data.users[i].completedSegmentIds[k].dateOfCompletion + ' )</span></div>';
+                        userCompleteList += '<div class="segment_name">' + ice_age_data[j].segment + ' <span class="completion_data">( ' + progress_data.users[i].completedSegments[k].dateOfCompletion + ' )</span></div>';
                         userCompleteMiles += parseFloat(ice_age_data[j].iceagetraildistance);
+
                         break;
                     }
                 }
@@ -389,7 +388,7 @@ var iceAge = {
 
             } //END ICE AGE DATA LOOP
             userHTML += '<div class="user_segments">';
-            userHTML += '<h3 class="user_header">Completed Segments ( ' + progress_data.users[i].completedSegmentIds.length + ' )</h3>';
+            userHTML += '<h3 class="user_header">Completed Segments ( ' + progress_data.users[i].completedSegments.length + ' )</h3>';
             userHTML += userCompleteList;
             userHTML += '</div>';
 

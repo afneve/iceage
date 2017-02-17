@@ -22,6 +22,10 @@
     margin-bottom: 8px;
 }
 
+.user_container span.completion_data {
+    font-weight: normal;
+}
+
 .user_badge_container {
     width: 50%;
     display:inline-block;

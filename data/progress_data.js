@@ -3,7 +3,7 @@ progress_data = {
 		"user" : "A",
 		"userId" : "1",
 		"oldcompletedSegmentIds" : [33, 34, 36, 44, 45, 46, 47],
-		"completedSegmentIds" : [
+		"completedSegments" : [
 			{
 				"segmentId" : 33,
 				"dateOfCompletion" : "2016-03-09"
@@ -56,7 +56,7 @@ progress_data = {
 		"user" : "E",
 		"userId" : "2",
 		"oldcompletedSegmentIds" : [33, 45],
-		"completedSegmentIds" : [
+		"completedSegments" : [
 			{
 				"segmentId" : 33,
 				"dateOfCompletion" : "2016-03-09"
