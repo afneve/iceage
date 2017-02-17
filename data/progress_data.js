@@ -6,31 +6,31 @@ progress_data = {
 		"completedSegments" : [
 			{
 				"segmentId" : 33,
-				"dateOfCompletion" : "2016-03-09"
+				"dateOfCompletion" : "2016-04-16"
 			},
 			{
 				"segmentId" : 34,
-				"dateOfCompletion" : "2016-03-09"
+				"dateOfCompletion" : "2015-11-15"
 			},
 			{
 				"segmentId" : 36,
-				"dateOfCompletion" : "2016-03-09"
+				"dateOfCompletion" : "2016-03-20"
 			},
 			{
 				"segmentId" : 44,
-				"dateOfCompletion" : "2016-03-09"
+				"dateOfCompletion" : "2016-03-20"
 			},
 			{
 				"segmentId" : 45,
-				"dateOfCompletion" : "2016-03-09"
+				"dateOfCompletion" : "2015-11-08"
 			},
 			{
 				"segmentId" : 46,
-				"dateOfCompletion" : "2016-03-09"
+				"dateOfCompletion" : "2016-03-13?"
 			},
 			{
 				"segmentId" : 47,
-				"dateOfCompletion" : "2016-03-09"
+				"dateOfCompletion" : "2016-03-13"
 			}
 		],
 		"partialSegments" : [
@@ -59,7 +59,7 @@ progress_data = {
 		"completedSegments" : [
 			{
 				"segmentId" : 33,
-				"dateOfCompletion" : "2016-03-09"
+				"dateOfCompletion" : "2016-04-16"
 			},
 			{
 				"segmentId" : 45,
