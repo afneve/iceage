@@ -368,7 +368,7 @@ var iceAge = {
                     var id = progress_data.users[i].completedSegmentIds[k];
                     if (id == ice_age_data[j].segment_id) {
 
-                        userCompleteList += '<div class="segment_name">' + ice_age_data[j].segment + ' <span class="completion_data">( ' + progress_data.users[i].dateOfCompletion + ' )</span></div>';
+                        userCompleteList += '<div class="segment_name">' + ice_age_data[j].segment + ' <span class="completion_data">( ' + progress_data.users[i].completedSegmentIds[k].dateOfCompletion + ' )</span></div>';
                         userCompleteMiles += parseFloat(ice_age_data[j].iceagetraildistance);
                         break;
                     }
