@@ -314,7 +314,7 @@ var iceAge = {
 
         for (var i = 0; i < progress_data.users.length; i++) {
                 for (var k = 0; k < progress_data.users[i].completedSegments.length; k++) {
-                    var id = progress_data.users[i].completedSegments[k];
+                    var id = progress_data.users[i].completedSegments[k].segmentId;
                     if (id == segmentId) {
                         userArray.push(progress_data.users[i].user);
                         break;
