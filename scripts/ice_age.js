@@ -126,7 +126,7 @@ var iceAge = {
                     filterHTML += '<li>';
                 }
                 selectHTML += '<option value="' + (segmentCounter - 1) + '">' + ice_age_data[i].booksection + '</option>';
-                filterHTML += '<a href="' + (segmentCounter - 1) + '">' + ice_age_data[i].booksection + '</a>';
+                filterHTML += '<a data-index="'+ (segmentCounter - 1) +'" href="' + (segmentCounter - 1) + '">' + ice_age_data[i].booksection + '</a>';
                 filterHTML += '</li>';
             }
 
@@ -436,6 +436,8 @@ var iceAge = {
 
             $('.county[data-index="' + segment + '"]').attr('data-loaded', 'true');
 
+            //$('#segment_filter_container select option[value="' + segment + '"]')
+
             $('html, body').animate({
         	    scrollTop: 0 
         	});
@@ -447,6 +449,9 @@ var iceAge = {
 
             $('.county').hide();
             $('[data-index="' + segment + '"]').show(); 
+
+            $('#segment_filter li').removeClass('selected');
+            $('#segment_filter li a[data-index="' + segment + '"]').parent('li').addClass('selected');
 
             if(!$('.county[data-index="' + segment + '"]').attr('data-loaded')){
                 $('.county[data-index="' + segment + '"]').find(".getDistance").each(function() {
