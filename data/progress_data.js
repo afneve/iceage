@@ -69,7 +69,7 @@ progress_data = {
 		"partialSegments" : [
 			{
 				"segmentId" : 34,
-				"notes" : "Completed small portion at the start of New Wood County Park"
+				"notes" : "Completed everything down to the big tubes. Completed small portion at the start of New Wood County Park"
 			},
 			{
 				"segmentId" : 44,

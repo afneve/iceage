@@ -176,11 +176,6 @@ var iceAge = {
                         westLat = iceAge.convertCoord(segment_id_location_data[j].westLat),
                         westLong = iceAge.convertCoord(segment_id_location_data[j].westLong);
 
-                        if(segment_id_location_data[j].segment_id == '28'){
-                            console.log(segment_id_location_data[j].eastLat, segment_id_location_data[j].eastLong);
-                            console.log(segment_id_location_data[j].westLat, segment_id_location_data[j].westLong);
-                        }
-
                     segmentHTML += '<div class="map">';
                     if (westLat !== '') {
                         segmentHTML += '<div class="terminus_container">Western Terminus: <a class="location" target="_blank" href="https://www.google.com/maps/place/' + westLat + 'N+' + westLong + 'W" >' + ice_age_data[i].westernterminus + '</a></div>'
