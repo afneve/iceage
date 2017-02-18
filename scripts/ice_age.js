@@ -402,7 +402,7 @@ var iceAge = {
             userHTML += '<div>Length of trails partially done is ' + userPartialMiles + ' miles</div>';
             userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
 
-            userHTML += '<div>' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles remaining!</div>';
+            userHTML += '<div class="user_miles_remaining">' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles remaining!</div>';
             userHTML += '</div>';
 
             userHTML += '</div>';
