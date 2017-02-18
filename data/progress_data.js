@@ -40,7 +40,7 @@ progress_data = {
 			},
 			{
 				"segmentId" : 51,
-				"notes" : "Completed segment from Edminster Rd down to the end of the mountain bike trails in Hartman Creek State Park."
+				"notes" : "Completed segment from Edminster Rd down to the end of the mountain bike trails in Hartman Creek State Park"
 			},
 			{
 				"segmentId" : 63,
@@ -69,7 +69,7 @@ progress_data = {
 		"partialSegments" : [
 			{
 				"segmentId" : 34,
-				"notes" : "Completed everything down to the big tubes. Completed small portion at the start of New Wood County Park"
+				"notes" : "Completed everything down to the giant penstocks. Completed small portion by the start of New Wood County Park"
 			},
 			{
 				"segmentId" : 44,
@@ -77,7 +77,7 @@ progress_data = {
 			},
 			{
 				"segmentId" : 51,
-				"notes" : "Completed segment from Edminster Rd down to the end of the mountain bike trails in Hartman Creek State Park."
+				"notes" : "Completed segment from Edminster Rd down to the end of the mountain bike trails in Hartman Creek State Park"
 			},
 			{
 				"segmentId" : 63,
