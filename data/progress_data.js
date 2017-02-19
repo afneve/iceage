@@ -31,6 +31,14 @@ progress_data = {
 			{
 				"segmentId" : 47,
 				"dateOfCompletion" : "2016-03-13"
+			},
+			{
+				"segmentId" : 48,
+				"dateOfCompletion" : "2017-02-19"
+			},
+			{
+				"segmentId" : 49,
+				"dateOfCompletion" : "2017-02-19"
 			}
 		],
 		"partialSegments" : [
@@ -64,6 +72,14 @@ progress_data = {
 			{
 				"segmentId" : 45,
 				"dateOfCompletion" : "2017-02-11"
+			},
+			{
+				"segmentId" : 48,
+				"dateOfCompletion" : "2017-02-19"
+			},
+			{
+				"segmentId" : 49,
+				"dateOfCompletion" : "2017-02-19"
 			}
 		],
 		"partialSegments" : [
