@@ -170,6 +170,8 @@ var iceAge = {
                     segmentHTML += '</div>';
                 }
             }
+
+            segmentHTML += '<div class="atlas">Atlas Map: ' + ice_age_data[i].atlasmap + '</div>';
             
             
             for (var j = 0; j < segment_id_location_data.length; j++) {

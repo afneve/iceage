@@ -192,8 +192,8 @@ segment_id_location_data = [{
 	"westLong": "90 42.206",
 	"eastLat": "45 13.074",
 	"eastLong": "90 35.274",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "TA35",
+	"east_gps_id": "TA36"
 }, {
 	"segment_id": "23",
 	"segment": "Jerry Lake",
@@ -201,8 +201,8 @@ segment_id_location_data = [{
 	"westLong": "90 35.274",
 	"eastLat": "45 17.977",
 	"eastLong": "90 28.462",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "TA36",
+	"east_gps_id": "TA37"
 }, {
 	"segment_id": "24",
 	"segment": "Mondeax Esker",
@@ -210,8 +210,8 @@ segment_id_location_data = [{
 	"westLong": "90 28.462",
 	"eastLat": "45 18.448",
 	"eastLong": "90 22.362",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "TA37",
+	"east_gps_id": "TA12"
 }, {
 	"segment_id": "25",
 	"segment": "Pine Line ",
@@ -219,8 +219,8 @@ segment_id_location_data = [{
 	"westLong": "90 18.209",
 	"eastLat": "45 18.683",
 	"eastLong": "90 17.486",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "TA11",
+	"east_gps_id": "TA10"
 }, {
 	"segment_id": "26",
 	"segment": "East Lake",
@@ -228,8 +228,8 @@ segment_id_location_data = [{
 	"westLong": "90 17.462",
 	"eastLat": "45 20.693",
 	"eastLong": "90 12.973",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "TA38",
+	"east_gps_id": "TA39"
 }, {
 	"segment_id": "27",
 	"segment": "Rib Lake",
@@ -237,8 +237,8 @@ segment_id_location_data = [{
 	"westLong": "90 12.973",
 	"eastLat": "45 21.65",
 	"eastLong": "90 8.825",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "TA39",
+	"east_gps_id": "TA40"
 }, {
 	"segment_id": "28",
 	"segment": "Wood Lake",
@@ -246,8 +246,8 @@ segment_id_location_data = [{
 	"westLong": "90 8.825",
 	"eastLat": "45 20.434",
 	"eastLong": "90 2.416",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "TA40",
+	"east_gps_id": "TA27"
 }, {
 	"segment_id": "29",
 	"segment": "Timberlands Wilderness ",
@@ -255,8 +255,8 @@ segment_id_location_data = [{
 	"westLong": "90 2.416",
 	"eastLat": "45 18.611",
 	"eastLong": "90 1.920",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LI35",
+	"east_gps_id": "LI34"
 }, {
 	"segment_id": "30",
 	"segment": "Camp 27",
@@ -264,8 +264,8 @@ segment_id_location_data = [{
 	"westLong": "90 0.215",
 	"eastLat": "45 17.846",
 	"eastLong": "89 58.375",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LI33",
+	"east_gps_id": "LI29"
 }, {
 	"segment_id": "31",
 	"segment": "Newwood",
@@ -273,8 +273,8 @@ segment_id_location_data = [{
 	"westLong": "89 58.375",
 	"eastLat": "45 17.805",
 	"eastLong": "89 53.349",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LI29",
+	"east_gps_id": "LI44"
 }, {
 	"segment_id": "32",
 	"segment": "AverillKelly Creek Wilderness ",
@@ -282,15 +282,17 @@ segment_id_location_data = [{
 	"westLong": "89 53.337",
 	"eastLat": "45 18.508",
 	"eastLong": "89 49.629",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LI22",
+	"east_gps_id": "LI18"
 }, {
 	"segment_id": "33",
 	"segment": " Turtle Rock ",
 	"westLat": "45 18.508",
 	"westLong": "89 49.629",
 	"eastLat": "45 19.399",
-	"eastLong": "89 48.076"
+	"eastLong": "89 48.076",
+	"west_gps_id": "LI18",
+	"east_gps_id": "LI15"
 }, {
 	"segment_id": "34",
 	"segment": "Grandfather Falls ",
@@ -298,8 +300,8 @@ segment_id_location_data = [{
 	"westLong": "89 46.986",
 	"eastLat": "45 17.303",
 	"eastLong": "89 47.481",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LI14",
+	"east_gps_id": "LI10"
 }, {
 	"segment_id": "35",
 	"segment": "Underdown ",
@@ -307,8 +309,8 @@ segment_id_location_data = [{
 	"westLong": "89 37.848",
 	"eastLat": "45 19.807",
 	"eastLong": "89 33.735",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LI7",
+	"east_gps_id": "LI4"
 }, {
 	"segment_id": "36",
 	"segment": "Alta Junction",
@@ -316,8 +318,8 @@ segment_id_location_data = [{
 	"westLong": "89 32.929",
 	"eastLat": "45 21.104",
 	"eastLong": "89 33.558",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LI45",
+	"east_gps_id": "LI3"
 }, {
 	"segment_id": "37",
 	"segment": "Harrison Hills ",
@@ -325,8 +327,8 @@ segment_id_location_data = [{
 	"westLong": "89 33.558",
 	"eastLat": "45 26.021",
 	"eastLong": "89 25.511",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LI3",
+	"east_gps_id": "LI43"
 }, {
 	"segment_id": "38",
 	"segment": "Parrish Hills",
@@ -334,8 +336,8 @@ segment_id_location_data = [{
 	"westLong": "89 25.511",
 	"eastLat": "45 22.546",
 	"eastLong": "89 17.625",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LI43",
+	"east_gps_id": "LA33"
 }, {
 	"segment_id": "39",
 	"segment": "Highland Lakes Western",
@@ -343,8 +345,8 @@ segment_id_location_data = [{
 	"westLong": "89 17.625",
 	"eastLat": "45 18.815",
 	"eastLong": "89 15.690",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LA33",
+	"east_gps_id": "LA13"
 }, {
 	"segment_id": "40",
 	"segment": "Highland Lakes Eastern ",
@@ -352,8 +354,8 @@ segment_id_location_data = [{
 	"westLong": "89 12.424",
 	"eastLat": "45 20.893",
 	"eastLong": "89 9.413",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LA30",
+	"east_gps_id": "LA9"
 }, {
 	"segment_id": "41",
 	"segment": "Old Railroad ",
@@ -361,8 +363,8 @@ segment_id_location_data = [{
 	"westLong": "89 9.413",
 	"eastLat": "45 18.460",
 	"eastLong": "89 3.039",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LA9",
+	"east_gps_id": "LA6"
 }, {
 	"segment_id": "42",
 	"segment": "Lumbercamp ",
@@ -370,8 +372,8 @@ segment_id_location_data = [{
 	"westLong": "89 3.039",
 	"eastLat": "45 16.603",
 	"eastLong": "88 54.16",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LA6",
+	"east_gps_id": "LA34"
 }, {
 	"segment_id": "43",
 	"segment": "Kettlebowl",
@@ -379,8 +381,8 @@ segment_id_location_data = [{
 	"westLong": "88 54.16",
 	"eastLat": "45 11.072 ",
 	"eastLong": "88 55.676",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "LA34",
+	"east_gps_id": "LA26"
 }, {
 	"segment_id": "44",
 	"segment": "Plover River ",
