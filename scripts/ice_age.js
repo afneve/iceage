@@ -425,6 +425,16 @@ var iceAge = {
     ******************
     */
     attachEventListeners: function() {
+        $('#segment_list').on('click', '[data-icon="restrooms"] .yes', function(){
+            var segmentIndex = $(this).closest('.segment').attr('data-index');
+            alert(ice_age_data[segmentIndex - 1].restrooms);
+        });
+
+        $('#segment_list').on('click', '[data-icon="potablewater"] .yes', function(){
+            var segmentIndex = $(this).closest('.segment').attr('data-index');
+            alert(ice_age_data[segmentIndex - 1].potablewater);
+        });
+        
         //CHANGE SEGMENT ON CLICK
         $('#segment_filter').on('click', 'a', function(e) {
             e.preventDefault();

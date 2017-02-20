@@ -98,6 +98,7 @@ Styles for list of segments
     border-left: none;
     border-top: none;
     transform: rotate(38deg);
+    cursor: pointer;
 }
 
 .no:before {
