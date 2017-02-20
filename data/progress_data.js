@@ -5,12 +5,16 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 34, 36, 44, 45, 46, 47],
 		"completedSegments" : [
 			{
-				"segmentId" : 33,
-				"dateOfCompletion" : "2016-04-16"
+				"segmentId" : 48,
+				"dateOfCompletion" : "2017-02-19"
 			},
 			{
-				"segmentId" : 34,
-				"dateOfCompletion" : "2015-11-15"
+				"segmentId" : 49,
+				"dateOfCompletion" : "2017-02-19"
+			},
+			{
+				"segmentId" : 33,
+				"dateOfCompletion" : "2016-04-16"
 			},
 			{
 				"segmentId" : 36,
@@ -21,10 +25,6 @@ progress_data = {
 				"dateOfCompletion" : "2016-03-20"
 			},
 			{
-				"segmentId" : 45,
-				"dateOfCompletion" : "2015-11-08"
-			},
-			{
 				"segmentId" : 46,
 				"dateOfCompletion" : "2016-03-13?"
 			},
@@ -33,13 +33,14 @@ progress_data = {
 				"dateOfCompletion" : "2016-03-13"
 			},
 			{
-				"segmentId" : 48,
-				"dateOfCompletion" : "2017-02-19"
-			},
+				"segmentId" : 34,
+				"dateOfCompletion" : "2015-11-15"
+			},			
 			{
-				"segmentId" : 49,
-				"dateOfCompletion" : "2017-02-19"
+				"segmentId" : 45,
+				"dateOfCompletion" : "2015-11-08"
 			}
+			
 		],
 		"partialSegments" : [
 			{
@@ -66,20 +67,20 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 45],
 		"completedSegments" : [
 			{
-				"segmentId" : 33,
-				"dateOfCompletion" : "2016-04-16"
-			},
-			{
-				"segmentId" : 45,
-				"dateOfCompletion" : "2017-02-11"
-			},
-			{
 				"segmentId" : 48,
 				"dateOfCompletion" : "2017-02-19"
 			},
 			{
 				"segmentId" : 49,
 				"dateOfCompletion" : "2017-02-19"
+			},
+			{
+				"segmentId" : 45,
+				"dateOfCompletion" : "2017-02-11"
+			},
+			{
+				"segmentId" : 33,
+				"dateOfCompletion" : "2016-04-16"
 			}
 		],
 		"partialSegments" : [

@@ -3,6 +3,7 @@
 var iceAge = {
     iconArray: ["potablewater", "restrooms"],
     totalTrailDistance: 0,
+    totalSegments: 0,
     distanceArray: [],
     distanceObject: {},
     elevationArray: [],
@@ -97,9 +98,11 @@ var iceAge = {
             difficulty = '',
             usersArray = [],
             usersPartialArray = [],
-            segmentCounter = 1;
+            countyCounter = 1;
 
         selectHTML += '<select>';
+
+        iceAge.totalSegments = ice_age_data.length;
 
         for (var i = 0; i < ice_age_data.length; i++) {
             ice_age_data[i].segment_id = i + 1;
@@ -112,11 +115,11 @@ var iceAge = {
             //IF NEW COUNTY
             if (ice_age_data[i].booksection != previousSection) {
                 if (i === 0) {
-                    segmentHTML += '<div class="county" data-index="' + segmentCounter + '">';
+                    segmentHTML += '<div class="county" data-index="' + countyCounter + '">';
                 } else {
-                    segmentHTML += '<div class="county hide" data-index="' + segmentCounter + '">';
+                    segmentHTML += '<div class="county hide" data-index="' + countyCounter + '">';
                 }
-                segmentCounter++;
+                countyCounter++;
 
                 segmentHTML += '<h2 class="county_name">' + ice_age_data[i].booksection + '</h2>';
 
@@ -125,13 +128,13 @@ var iceAge = {
                 } else {
                     filterHTML += '<li>';
                 }
-                selectHTML += '<option value="' + (segmentCounter - 1) + '">' + ice_age_data[i].booksection + '</option>';
-                filterHTML += '<a data-index="'+ (segmentCounter - 1) +'" href="' + (segmentCounter - 1) + '">' + ice_age_data[i].booksection + '</a>';
+                selectHTML += '<option value="' + (countyCounter - 1) + '">' + ice_age_data[i].booksection + '</option>';
+                filterHTML += '<a data-index="'+ (countyCounter - 1) +'" href="' + (countyCounter - 1) + '">' + ice_age_data[i].booksection + '</a>';
                 filterHTML += '</li>';
             }
 
             segmentHTML += '<div class="segment_container">';
-            segmentHTML += '<div class="segment" data-index="' + i + '">';
+            segmentHTML += '<div class="segment" data-index="' + ( i + 1 ) + '">';
             segmentHTML += '<h3 class="segment_name">' + ice_age_data[i].segment + '</h3>';
             segmentHTML += '<div class="segment_summary">' + ice_age_data[i].summary + '</div>';
 
@@ -168,7 +171,7 @@ var iceAge = {
                 }
             }
             
-
+            
             for (var j = 0; j < segment_id_location_data.length; j++) {
                 if (segment_id_location_data[j].segment_id == ice_age_data[i].segment_id) {
                     var eastLat = iceAge.convertCoord(segment_id_location_data[j].eastLat),
@@ -178,10 +181,10 @@ var iceAge = {
 
                     segmentHTML += '<div class="map">';
                     if (westLat !== '') {
-                        segmentHTML += '<div class="terminus_container">Western Terminus: <a class="location" target="_blank" href="https://www.google.com/maps/place/' + westLat + 'N+' + westLong + 'W" >' + ice_age_data[i].westernterminus + '</a></div>'
+                        segmentHTML += '<div class="terminus_container">Western Terminus: <a class="location" target="_blank" href="https://www.google.com/maps/place/' + westLat + 'N+' + westLong + 'W" >' + ice_age_data[i].westernterminus + ' ( ' + segment_id_location_data[j].west_gps_id + ' )</a></div>';
                     }
                     if (eastLat !== '') {
-                        segmentHTML += '<div class="terminus_container">Eastern Terminus: <a class="location" target="_blank" href="https://www.google.com/maps/place/' + eastLat + 'N+' + eastLong + 'W" >' + ice_age_data[i].easternterminus + '</a></div>'
+                        segmentHTML += '<div class="terminus_container">Eastern Terminus: <a class="location" target="_blank" href="https://www.google.com/maps/place/' + eastLat + 'N+' + eastLong + 'W" >' + ice_age_data[i].easternterminus + ' ( ' + segment_id_location_data[j].east_gps_id + ' )</a></div>';
                     }
                     if (eastLat !== '' && westLat !== '') {
                         //egmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + eastLat + 'N+' + eastLong + 'W/' + westLat + 'N+' + westLong + 'W">Beginning to End</a>';
@@ -350,13 +353,15 @@ var iceAge = {
             userCompleteList = '',
             userPartialList = '',
             userCompleteMiles = 0,
-            userPartialMiles = 0;
+            userPartialMiles = 0,
+            userCompleteSegments = 0;
 
         for (var i = 0; i < progress_data.users.length; i++) {
             userCompleteList = '';
             userPartialList = '';
             userCompleteMiles = 0;
             userPartialMiles = 0;
+            userCompleteSegments = 0;
 
             userName = progress_data.users[i].user;
             userHTML += '<div class="user_container">';
@@ -368,6 +373,7 @@ var iceAge = {
                     if (id == ice_age_data[j].segment_id) {
                         userCompleteList += '<div class="segment_name">' + ice_age_data[j].segment + ' <span class="completion_data">( ' + progress_data.users[i].completedSegments[k].dateOfCompletion + ' )</span></div>';
                         userCompleteMiles += parseFloat(ice_age_data[j].iceagetraildistance);
+                        userCompleteSegments++;
 
                         break;
                     }
@@ -401,6 +407,7 @@ var iceAge = {
             userHTML += '<h3 class="user_header">Distance:</h3>';
             userHTML += '<div>Length of trails partially done is ' + userPartialMiles + ' miles</div>';
             userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
+            userHTML += '<div>' + (iceAge.totalSegments - userCompleteSegments) + ' segments remaining</div>';
 
             userHTML += '<div class="user_miles_remaining">' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles remaining!</div>';
             userHTML += '</div>';
