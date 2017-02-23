@@ -14,6 +14,8 @@ var iceAge = {
 	usingTrelloData: false,
 	boardId: "DVxLVaPD", 
     unfinishedListId: "58af2c5dd7bafea5adf572d4",   
+    partialListId: "58af2c61471ef75d38fc78d4",
+    completeListId: "58af2c62a582aace8e45d928",
     permissionId: ["id1", "id2"], 
     trelloCounter: 0,
     useGeo: false,
