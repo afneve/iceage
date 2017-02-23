@@ -11,6 +11,10 @@ var iceAge = {
     ruggednessArray: [],
     ruggednessObject: {},
     position: '',
+	usingTrelloData: false,
+	boardId: "DVxLVaPD", 
+    unfinishedListId: "56e1a4dd060da03bd2654c48",   
+    permissionId: ["id1", "id2"], 
     useGeo: false,
 
     /*
@@ -23,6 +27,8 @@ var iceAge = {
         if (loc.includes('afneve')) {
             iceAge.useGeo = true;
         }
+		
+		iceAge.AuthenticateTrello();
 
         if (navigator.geolocation && iceAge.useGeo) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -40,7 +46,70 @@ var iceAge = {
 
         iceAge.attachEventListeners();
     },
+	
+	AuthenticateTrello: function(){
+		Trello.authorize({
+            name: "Ice Age",
+            type: "popup",
+            expiration: "never",
+            persist: true,
+            iteractive: true,
+            key: "a4e071c48e784cee49ab732a869095d6",
+            success: function() {
+                iceAge.onAuthorizeSuccessful();
+            },
+            error: function(e) {
+                console.log(e);
+            },
+            scope: {
 
+                write: true,
+                read: true
+            },
+        });
+	},
+	
+	onAuthorizeSuccessful: function(){
+		iceAge.updateLoggedIn();
+        var token = Trello.token();
+
+        iceAge.usingTrelloData = true;
+	},
+
+	updateLoggedIn: function(){
+		 //Trello.unauthorize();
+        var isLoggedIn = Trello.authorized();
+        $("#loggedout").toggle(!isLoggedIn);
+        $("#loggedin").toggle(isLoggedIn);
+	}, 
+	createTrelloCards: function() {
+            var id = idFromData;
+			var segment = segmentFromData;
+            var desc = "";
+				
+			Trello.post("cards?name=" + segment + "&idList=" + trello.unfinishedListId + "&desc=ID: " + id, function(d) {
+					//Get cards in completed lists	  
+					if (trello.counter < trello.createAmount) {
+						trello.createCards();
+					} 
+			});
+     },
+	 debug: function(){
+			 $("#title").text("Debugging");
+
+                Trello.get("boards/" + trello.boardId + "/lists/", function(d) {
+                    console.log("LIST ID | LIST NAME")
+                    for (s in d) {
+                        console.log(d[s].id + " | " + d[s].name);
+                    }
+
+                    Trello.get("lists/" + trello.unfinishedListId + "/cards", function(d) {
+                        //Get cards in completed lists	
+                        console.log(d);
+
+                    });
+                });
+		},
     /*
     ******************
     Organize Trail Data into Arrays
