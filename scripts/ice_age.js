@@ -84,9 +84,9 @@ var iceAge = {
         $("#loggedin").toggle(isLoggedIn);
 	}, 
 	createTrelloCards: function() {
-            var id = idFromData;
-			var segment = segmentFromData;
-            var desc = "";
+            ///var id = idFromData;
+			//var segment = segmentFromData;
+            //var desc = "";
 
             
             if(iceAge.trelloCounter < ice_age_data.length){
