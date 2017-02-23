@@ -15,6 +15,7 @@ var iceAge = {
 	boardId: "DVxLVaPD", 
     unfinishedListId: "58af2c5dd7bafea5adf572d4",   
     permissionId: ["id1", "id2"], 
+    trelloCounter: 0,
     useGeo: false,
 
     /*
@@ -86,13 +87,19 @@ var iceAge = {
             var id = idFromData;
 			var segment = segmentFromData;
             var desc = "";
-				
-			Trello.post("cards?name=" + segment + "&idList=" + trello.unfinishedListId + "&desc=ID: " + id, function(d) {
+
+            
+            if(iceAge.trelloCounter < ice_age_data.length){
+                console.log(ice_age_data[iceAge.trelloCounter].booksection);
+                iceAge.trelloCounter++;
+                iceAge.createTrelloCards();
+                /*Trello.post("cards?name=" + segment + "&idList=" + trello.unfinishedListId + "&desc=ID: " + id, function(d) {
 					//Get cards in completed lists	  
 					if (trello.counter < trello.createAmount) {
-						trello.createCards();
+						iceAge.createTrelloCards();
 					} 
-			});
+			    });*/
+            }
      },
 	 debug: function(){
 			 $("#title").text("Debugging");
