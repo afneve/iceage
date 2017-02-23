@@ -89,8 +89,9 @@ var iceAge = {
             //var desc = "";
 
             
-            if(iceAge.trelloCounter < ice_age_data.length){
-                console.log(ice_age_data[iceAge.trelloCounter].booksection);
+            if(iceAge.trelloCounter <= ice_age_data.length){
+                console.log(ice_age_data[iceAge.trelloCounter].segment);
+                console.log(ice_age_data[iceAge.trelloCounter].segment_id)
                 iceAge.trelloCounter++;
                 iceAge.createTrelloCards();
                 /*Trello.post("cards?name=" + segment + "&idList=" + trello.unfinishedListId + "&desc=ID: " + id, function(d) {
