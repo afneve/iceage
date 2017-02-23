@@ -411,6 +411,17 @@ var iceAge = {
                 }
 
             } //END ICE AGE DATA LOOP
+
+            userHTML += '<div class="user_segments">';
+            userHTML += '<div>Distance of partially completed segments: ' + userPartialMiles + ' miles</div>';
+            userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
+            userHTML += '<div>' + (iceAge.totalSegments - userCompleteSegments) + ' segments remaining</div>';
+
+            userHTML += '<div class="user_miles_remaining">' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles remaining</div>';
+            userHTML += '</div>';
+
+
+
             userHTML += '<div class="user_segments">';
             userHTML += '<h3 class="user_header">Completed Segments ( ' + progress_data.users[i].completedSegments.length + ' )</h3>';
             userHTML += userCompleteList;
@@ -420,16 +431,16 @@ var iceAge = {
             userHTML += '<h3 class="user_header">Partially Completed Segments ( ' + progress_data.users[i].partialSegments.length + ' )</h3>';
             userHTML += userPartialList;
             userHTML += '</div>';
-
+/*
             userHTML += '<div class="user_segments">';
             userHTML += '<h3 class="user_header">Distance:</h3>';
-            userHTML += '<div>Length of trails partially done is ' + userPartialMiles + ' miles</div>';
+            userHTML += '<div>Distance of partially completed segments: ' + userPartialMiles + ' miles</div>';
             userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
             userHTML += '<div>' + (iceAge.totalSegments - userCompleteSegments) + ' segments remaining</div>';
 
             userHTML += '<div class="user_miles_remaining">' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles remaining!</div>';
             userHTML += '</div>';
-
+*/
             userHTML += '</div>';
         } //END USER LOOP
 
