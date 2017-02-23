@@ -23,7 +23,11 @@
 }
 
 #segment_filter .selected {
-    background: white;          
+    background: white !important;          
+}
+
+#segment_filter .complete {
+    background: #fce037;          
 }
 
 #segment_filter ul{

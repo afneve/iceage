@@ -11,7 +11,7 @@ var iceAge = {
     ruggednessArray: [],
     ruggednessObject: {},
     position: '',
-    useGeo: true,
+    useGeo: false,
 
     /*
     ******************
@@ -96,8 +96,9 @@ var iceAge = {
             previousSection = '',
             nextSection = '',
             difficulty = '',
-            usersArray = [],
+            usersCompleteArray = [],
             usersPartialArray = [],
+            countyCompleteArray = [],
             countyCounter = 1;
 
         selectHTML += '<select>';
@@ -107,7 +108,7 @@ var iceAge = {
         for (var i = 0; i < ice_age_data.length; i++) {
             ice_age_data[i].segment_id = i + 1;
 
-            usersArray = iceAge.usersWhoHaveCompletedSegment(i + 1);
+            usersCompleteArray = iceAge.usersWhoHaveCompletedSegment(i + 1);
             usersPartialArray = iceAge.usersWhoHavePartialSegment(i + 1);
 
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
@@ -119,8 +120,7 @@ var iceAge = {
                 } else {
                     segmentHTML += '<div class="county hide" data-index="' + countyCounter + '">';
                 }
-                countyCounter++;
-
+                
                 segmentHTML += '<h2 class="county_name">' + ice_age_data[i].booksection + '</h2>';
 
                 if (i === 0) {
@@ -128,9 +128,11 @@ var iceAge = {
                 } else {
                     filterHTML += '<li>';
                 }
-                selectHTML += '<option value="' + (countyCounter - 1) + '">' + ice_age_data[i].booksection + '</option>';
-                filterHTML += '<a data-index="'+ (countyCounter - 1) +'" href="' + (countyCounter - 1) + '">' + ice_age_data[i].booksection + '</a>';
+                selectHTML += '<option value="' + countyCounter + '">' + ice_age_data[i].booksection + '</option>';
+                filterHTML += '<a data-index="'+ countyCounter +'" href="' + countyCounter + '">' + ice_age_data[i].booksection + '</a>';
                 filterHTML += '</li>';
+
+                countyCounter++;
             }
 
             segmentHTML += '<div class="segment_container">';
@@ -144,36 +146,22 @@ var iceAge = {
             difficulty = iceAge.getDifficultyLevel(parseFloat(ice_age_data[i].iceagetraildistance), iceAge.distanceObject.shortCutoff, iceAge.distanceObject.midCutoff);          
             segmentHTML += '<div class="' + difficulty + '">Distance: ' + ice_age_data[i].iceagetraildistance + '</div>';
 
-
             difficulty = iceAge.getDifficultyLevel(parseFloat(ice_age_data[i].elevation), iceAge.elevationObject.shortCutoff, iceAge.elevationObject.midCutoff);          
             segmentHTML += '<div class="' + difficulty + '">Elevation: ' + ice_age_data[i].elevation + '</div>';
 
             difficulty = iceAge.getDifficultyLevel(parseFloat(ice_age_data[i].ruggedness), iceAge.ruggednessObject.shortCutoff, iceAge.ruggednessObject.midCutoff);          
             segmentHTML += '<div class="' + difficulty + '">Ruggedness: ' + ice_age_data[i].ruggedness + '</div>';
 
+            segmentHTML += iceAge.displayInfoWithIcon('potablewater', ice_age_data[i].potablewater);
+            segmentHTML += iceAge.displayInfoWithIcon('restrooms', ice_age_data[i].restrooms);
 
-            for (var l = 0; l < iceAge.iconArray.length; l++) {
-                var type = iceAge.iconArray[l];
-                var readableType = type;
-                var className = iceAge.iconArray[l].toLowerCase();
-
-                if (readableType == 'potablewater') {
-                    readableType = 'potable water';
-                }
-                if (ice_age_data[i][type].trim() !== '') {
-                    segmentHTML += '<div data-icon="' + className + '" class="segment_details">';
-                    segmentHTML += '<span class="yes">' + readableType + ':</span>';
-                    segmentHTML += '</div>';
-                } else {
-                    segmentHTML += '<div data-icon="' + className + '" class="segment_details">';
-                    segmentHTML += '<span class="no">' + readableType + ':</span>';
-                    segmentHTML += '</div>';
-                }
-            }
+            
 
             segmentHTML += '<div class="atlas">Atlas Map: ' + ice_age_data[i].atlasmap + '</div>';
             
-            
+            /*
+            *Loop to get Coordinates for Segment and display links
+            */
             for (var j = 0; j < segment_id_location_data.length; j++) {
                 if (segment_id_location_data[j].segment_id == ice_age_data[i].segment_id) {
                     var eastLat = iceAge.convertCoord(segment_id_location_data[j].eastLat),
@@ -200,7 +188,7 @@ var iceAge = {
                             segmentHTML += '</div>';
                         }
                         if (eastLat !== '') {
-                            segmentHTML += '<div class="location_based_info">'
+                            segmentHTML += '<div class="location_based_info">';
                             segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + eastLat + 'N+' + eastLong + 'W">Directions to East End</a>';
                             segmentHTML += '<div class="getDistance" data-lat="' + eastLat + '" data-long="' + eastLong + '"></div>'; 
                             segmentHTML += '</div>';
@@ -214,8 +202,9 @@ var iceAge = {
             segmentHTML += '</div>';
 
             segmentHTML += '<div class="user_badge_container">';
-            for(var u = 0; u < usersArray.length; u++){
-                segmentHTML += '<div class="badge" data-complete="'+ usersArray[u] +'"><img src="./images/' + usersArray[u] + '-complete.svg" alt="" /><span class="badge_label">' + usersArray[u] + '</span></div>';
+
+            for(var u = 0; u < usersCompleteArray.length; u++){
+                segmentHTML += '<div class="badge" data-complete="'+ usersCompleteArray[u] +'"><img src="./images/' + usersCompleteArray[u] + '-complete.svg" alt="" /><span class="badge_label">' + usersCompleteArray[u] + '</span></div>';
             }
             for(var up = 0; up < usersPartialArray.length; up++){
                 segmentHTML += '<div class="badge" data-partial="'+ usersPartialArray[up] +'"><img src="./images/' + usersPartialArray[up] + '-partial.svg" alt="" /><span class="badge_label">' + usersPartialArray[up] + '</span></div>';
@@ -236,8 +225,13 @@ var iceAge = {
                 nextSection = '';
             }
 
+
             if (ice_age_data[i].booksection != nextSection) {
                 segmentHTML += '</div>'; //END COUNTY DIV
+
+                if(usersCompleteArray.length == 2){
+                    countyCompleteArray.push(countyCounter - 1);
+                }
             }
 
             previousSection = ice_age_data[i].booksection;
@@ -249,16 +243,43 @@ var iceAge = {
         $('#segment_filter ul').html(filterHTML);
         $('#segment_filter_container').append(selectHTML);
 
+        for(var cc = 0; cc < countyCompleteArray.length; cc++){
+             $('#segment_filter li a[data-index="' + countyCompleteArray[cc] + '"]').parent('li').addClass('complete');
+        }
+                   
+
         iceAge.displayUserProgress();
     },
+
+    displayInfoWithIcon: function(stringValue, value){
+                var readableType = stringValue,
+                    className = stringValue.toLowerCase(),
+                    html = '';
+
+                if (stringValue == 'potablewater') {
+                    readableType = 'potable water';
+                }
+                if (value.trim() !== '') {
+                    html += '<div data-icon="' + className + '" class="segment_details">';
+                    html += '<span class="yes">' + readableType + ':</span>';
+                    html += '</div>';
+                } else {
+                    html += '<div data-icon="' + className + '" class="segment_details">';
+                    html += '<span class="no">' + readableType + ':</span>';
+                    html += '</div>';
+                }
+
+                return html;
+    }, 
+
     getDistanceFromCurrentLocation : function(htmlElement, currentPosLat, currentPosLong, destLat, destLong){
-        var origin1 = new google.maps.LatLng(currentPosLat,currentPosLong);
-        var destination1 = new google.maps.LatLng(destLat,-(destLong));
+        var origin = new google.maps.LatLng(currentPosLat,currentPosLong);
+        var destination = new google.maps.LatLng(destLat,-(destLong));
         var service = new google.maps.DistanceMatrixService();
         service.getDistanceMatrix(
         {
-            origins: [origin1],
-            destinations: [destination1],
+            origins: [origin],
+            destinations: [destination],
             unitSystem: google.maps.UnitSystem.IMPERIAL,
             travelMode: google.maps.DirectionsTravelMode.DRIVING
         }, function(response, status){
@@ -279,28 +300,23 @@ var iceAge = {
                 }
             }
         });
-
     },
+
     convertCoord : function(coord){
         var decimalCoord;
         var degree = 0,
             min = 0,
             sec = 0;
         if(coord !== ''){
-            //45° 23.979'
-            //-92° 38.973'
             coord = coord.split(' ');
             degree = parseFloat(coord[0]);
             min = parseFloat(coord[1]);
 
-
             decimalCoord = degree + (min/60);
             
-            //DD = d + (min/60) + (sec/3600)
             return decimalCoord;
         }
     }, 
-
 
     getDifficultyLevel: function(iceAgeDistance, shortCutoff, midCutoff){
         var difficulty = '';
@@ -492,9 +508,9 @@ var iceAge = {
 
         //ARROW THROUGH COUNTIES ON SEGMENT VIEW
         $('body').on('keyup', function(e) {
-
+            var nextElement = null;
             if (e.keyCode == 39) {
-                var nextElement = $('#segment_filter li.selected');
+                nextElement = $('#segment_filter li.selected');
 
                 if ($(nextElement).next().length > 0) {
                     $('#segment_filter li').removeClass('selected');
@@ -503,7 +519,7 @@ var iceAge = {
                 }
 
             } else if (e.keyCode == 37) {
-                var nextElement = $('#segment_filter li.selected');
+                nextElement = $('#segment_filter li.selected');
 
                 if ($(nextElement).prev().length > 0) {
                     $('#segment_filter li').removeClass('selected');
