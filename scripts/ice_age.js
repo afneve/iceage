@@ -93,7 +93,7 @@ var iceAge = {
                 var segment = ice_age_data[iceAge.trelloCounter].segment;
                 var id = ice_age_data[iceAge.trelloCounter].segment_id;
                 
-                Trello.post("cards?name=" + segment + "&idList=" + trello.unfinishedListId + "&desc=ID: " + id + " |", function(d) {  
+                Trello.post("cards?name=" + segment + "&idList=" + iceAge.unfinishedListId + "&desc=ID: " + id + " |", function(d) {  
                         iceAge.trelloCounter++;
 						iceAge.createTrelloCards();
 			    });
