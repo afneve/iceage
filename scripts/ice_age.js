@@ -13,7 +13,7 @@ var iceAge = {
     position: '',
 	usingTrelloData: false,
 	boardId: "DVxLVaPD", 
-    unfinishedListId: "56e1a4dd060da03bd2654c48",   
+    unfinishedListId: "58af2c5dd7bafea5adf572d4",   
     permissionId: ["id1", "id2"], 
     useGeo: false,
 
@@ -97,13 +97,13 @@ var iceAge = {
 	 debug: function(){
 			 $("#title").text("Debugging");
 
-                Trello.get("boards/" + trello.boardId + "/lists/", function(d) {
+                Trello.get("boards/" + iceAge.boardId + "/lists/", function(d) {
                     console.log("LIST ID | LIST NAME")
                     for (s in d) {
                         console.log(d[s].id + " | " + d[s].name);
                     }
 
-                    Trello.get("lists/" + trello.unfinishedListId + "/cards", function(d) {
+                    Trello.get("lists/" + iceAge.unfinishedListId + "/cards", function(d) {
                         //Get cards in completed lists	
                         console.log(d);
 
