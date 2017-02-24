@@ -66,7 +66,7 @@ var iceAge = {
                     var tempArray = [];
 
                     for(var j=0; j < pl.length; j++){
-                        tempArray = cl[i].desc.split('|');
+                        tempArray = pl[i].desc.split('|');
                         partialId = tempArray[0];
                         partialDate = tempArray[1];
                         if(partialId !== ""){
