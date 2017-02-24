@@ -549,7 +549,10 @@ var iceAge = {
             } //END ICE AGE DATA LOOP
 
             userHTML += '<div class="user_segments">';
-            userHTML += '<div>Distance of partially completed segments: ' + userPartialMiles + ' miles</div>';
+            if(userPartialMiles > 0){
+                userHTML += '<div>Distance of partially completed segments: ' + userPartialMiles + ' miles</div>';
+            }
+            
             userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
             userHTML += '<div>' + (iceAge.totalSegments - userCompleteSegments) + ' segments remaining</div>';
 
@@ -563,10 +566,12 @@ var iceAge = {
             userHTML += userCompleteList;
             userHTML += '</div>';
 
-            userHTML += '<div class="user_segments">';
-            userHTML += '<h3 class="user_header">Partially Completed Segments ( ' + progress_data.users[i].partialSegments.length + ' )</h3>';
-            userHTML += userPartialList;
-            userHTML += '</div>';
+            if(userPartialMiles > 0){
+                userHTML += '<div class="user_segments">';
+                userHTML += '<h3 class="user_header">Partially Completed Segments ( ' + progress_data.users[i].partialSegments.length + ' )</h3>';
+                userHTML += userPartialList;
+                userHTML += '</div>';
+            }
 /*
             userHTML += '<div class="user_segments">';
             userHTML += '<h3 class="user_header">Distance:</h3>';
