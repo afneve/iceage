@@ -16,6 +16,8 @@ var iceAge = {
     unfinishedListId: "58af2c5dd7bafea5adf572d4",   
     partialListId: "58af2c61471ef75d38fc78d4",
     completeListId: "58af2c62a582aace8e45d928",
+    trelloCompleteArray: [],
+    trelloPartialArray: [],
     permissionId: ["id1", "id2"], 
     trelloCounter: 0,
     useGeo: false,
@@ -31,8 +33,32 @@ var iceAge = {
             iceAge.useGeo = true;
         }
 		
-		iceAge.AuthenticateTrello();
+        if(iceAge.usingTrelloData){
+            Trello.get("lists/" + iceAge.completeListId + "/cards", function(cl) {
+                for(var i=0; i < cl.length; i++){
+                    console.log(cl[i]);
+                }
+                        
 
+                Trello.get("lists/" + iceAge.completeListId + "/cards", function(pl) {
+                    for(var j=0; j < pl.length; j++){
+                        console.log(pl[j]);
+                    }
+                        
+
+                });
+
+            });
+            //Loop through complete 
+                //Loop through partial
+                    //iceAge.startLoadingData
+        }
+        else{
+            iceAge.startLoadingData();
+        }     
+    },
+
+    startLoadingData: function(){
         if (navigator.geolocation && iceAge.useGeo) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 iceAge.position = position;
@@ -59,24 +85,21 @@ var iceAge = {
             iteractive: true,
             key: "a4e071c48e784cee49ab732a869095d6",
             success: function() {
-                iceAge.onAuthorizeSuccessful();
+                iceAge.updateLoggedIn();
+                var token = Trello.token();
+
+                iceAge.usingTrelloData = true;
+                iceAge.init();
             },
             error: function(e) {
-                console.log(e);
+                iceAge.usingTrelloData = false;
+                iceAge.init();
             },
             scope: {
-
                 write: true,
                 read: true
             },
         });
-	},
-	
-	onAuthorizeSuccessful: function(){
-		iceAge.updateLoggedIn();
-        var token = Trello.token();
-
-        iceAge.usingTrelloData = true;
 	},
 
 	updateLoggedIn: function(){
@@ -85,21 +108,16 @@ var iceAge = {
         $("#loggedout").toggle(!isLoggedIn);
         $("#loggedin").toggle(isLoggedIn);
 	}, 
-	createTrelloCards: function() {
-            ///var id = idFromData;
-			//var segment = segmentFromData;
-            //var desc = "";
-
+	createTrelloCards: function() {           
+        if(iceAge.trelloCounter < ice_age_data.length){
+            var segment = ice_age_data[iceAge.trelloCounter].segment;
+            var id = ice_age_data[iceAge.trelloCounter].segment_id;
             
-            if(iceAge.trelloCounter < ice_age_data.length){
-                var segment = ice_age_data[iceAge.trelloCounter].segment;
-                var id = ice_age_data[iceAge.trelloCounter].segment_id;
-                
-                Trello.post("cards?name=" + segment + "&idList=" + iceAge.unfinishedListId + "&desc=ID: " + id + " |", function(d) {  
-                        iceAge.trelloCounter++;
-						iceAge.createTrelloCards();
-			    });
-            }
+            Trello.post("cards?name=" + segment + "&idList=" + iceAge.unfinishedListId + "&desc=ID: " + id + " |", function(d) {  
+                    iceAge.trelloCounter++;
+                    iceAge.createTrelloCards();
+            });
+        }
      },
 	 debug: function(){
 			 $("#title").text("Debugging");
@@ -116,7 +134,7 @@ var iceAge = {
 
                     });
                 });
-		},
+	},
     /*
     ******************
     Organize Trail Data into Arrays
