@@ -34,9 +34,19 @@ var iceAge = {
         }
 		
         if(iceAge.usingTrelloData){
+            var completeId = '',
+                completeDate = '',
+                partialId = '',
+                partialNote = '';
             Trello.get("lists/" + iceAge.completeListId + "/cards", function(cl) {
+                var tempArray = [];
                 for(var i=0; i < cl.length; i++){
                     console.log(cl[i]);
+                    tempArray = cl[i].desc.split('|');
+                    console.log(tempArray);
+
+
+                    //iceAge.trelloPartialArray.push();
                 }
                         
 
@@ -45,13 +55,10 @@ var iceAge = {
                         console.log(pl[j]);
                     }
                         
-
+                    //iceAge.startLoadingData();
                 });
 
             });
-            //Loop through complete 
-                //Loop through partial
-                    //iceAge.startLoadingData
         }
         else{
             iceAge.startLoadingData();
