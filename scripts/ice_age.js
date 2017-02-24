@@ -84,7 +84,10 @@ var iceAge = {
                     }
 
                     for (var u = 0; u < progress_data.users.length; u++) {
-                        console.log(progress_data.users[u]);
+                        if(progress_data.users[u].userId == 2){
+                            progress_data.users[u].completedSegments = iceAge.trelloCompleteArray;
+                            progress_data.users[u].partialSegments = iceAge.trelloPartialArray;
+                        }
                     }
                         
                     iceAge.startLoadingData();
