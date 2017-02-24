@@ -78,12 +78,11 @@ var iceAge = {
                             partialNote = partialNote.split(':')[1].trim();
                         }
 
-                        var complete = {segmentId:partialId, notes:partialDate};
+                        var complete = {segmentId:partialId, notes:partialNote};
                         iceAge.trelloPartialArray.push(complete);
                         
                     }
 
-                    sfazzAA
                     for (var u = 0; u < progress_data.users.length; u++) {
                         console.log(progress_data.users[u]);
                     }
