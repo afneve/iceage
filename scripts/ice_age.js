@@ -69,8 +69,13 @@ var iceAge = {
                         tempArray = cl[i].desc.split('|');
                         partialId = tempArray[0];
                         partialDate = tempArray[1];
-                        partialId = partialId.split(':')[1].trim();
-                        partialDate = partialDate.split(':')[1].trim();
+                        if(partialId !== ""){
+                            partialId = partialId.split(':')[1].trim();
+                        }
+                        if(partialDate !== ""){
+                            partialDate = partialDate.split(':')[1].trim();
+                        }
+                        
                         console.log(partialId, partialDate);
                     }
                         
