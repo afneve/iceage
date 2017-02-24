@@ -73,10 +73,10 @@ var iceAge = {
                             partialId = partialId.split(':')[1].trim();
                         }
                         if(partialDate !== ""){
-                            partialDate = partialDate.split(':')[1].trim();
+                            partialDate = partialNote.split(':')[1].trim();
                         }
                         
-                        console.log(partialId, partialDate);
+                        console.log(partialId, partialNote);
                     }
                         
                     iceAge.startLoadingData();
