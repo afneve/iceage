@@ -46,8 +46,14 @@ var iceAge = {
                     completeId = tempArray[0];
                     completeDate = tempArray[1];
                     console.log(completeDate);
-                    completeId = completeId.split(':')[1].trim();
-                    completeDate = completeDate.split(':')[1].trim();
+                    if(completeId !== ""){
+                        completeId = completeId.split(':')[1].trim();
+                    }
+                    if(completeDate !== ""){
+                        completeDate = completeDate.split(':')[1].trim();
+                    }
+                    
+                    
                     console.log(completeId, completeDate);
 
 
