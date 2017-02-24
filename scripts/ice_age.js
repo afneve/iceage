@@ -41,6 +41,8 @@ var iceAge = {
             Trello.get("lists/" + iceAge.completeListId + "/cards", function(cl) {
                 var tempArray = [];
 
+                iceAge.trelloCompleteArray = [];
+
                 for(var i=0; i < cl.length; i++){
                     tempArray = cl[i].desc.split('|');
                     completeId = tempArray[0];
@@ -53,10 +55,8 @@ var iceAge = {
                         completeDate = completeDate.split(':')[1].trim();
                     }
                     
-                    
-                    console.log(completeId, completeDate);
-
-
+                    var complete = {segmentId:completeId, dateOfCompletion:completeDate};
+                    iceAge.trelloCompleteArray.push(complete);
 
                     //iceAge.trelloPartialArray.push();
                 }
