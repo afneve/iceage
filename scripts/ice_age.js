@@ -35,9 +35,9 @@ var iceAge = {
 		
         if(iceAge.usingTrelloData){
             var completeId = '',
-                completeDate = '',
+                completeExtra = '',
                 partialId = '',
-                partialNote = '';
+                partialExtra = '';
             Trello.get("lists/" + iceAge.completeListId + "/cards", function(cl) {
                 var tempArray = [];
 
@@ -46,16 +46,16 @@ var iceAge = {
                 for(var i=0; i < cl.length; i++){
                     tempArray = cl[i].desc.split('|');
                     completeId = tempArray[0];
-                    completeDate = tempArray[1];
-                    console.log(completeDate);
+                    completeExtra = tempArray[1];
+
                     if(completeId !== ""){
                         completeId = completeId.split(':')[1].trim();
                     }
-                    if(completeDate !== ""){
-                        completeDate = completeDate.split(':')[1].trim();
+                    if(completeExtra !== ""){
+                        completeExtra = completeExtra.trim();
                     }
                     
-                    var complete = {segmentId:completeId, dateOfCompletion:completeDate};
+                    var complete = {segmentId:completeId, dateOfCompletion:completeExtra};
                     iceAge.trelloCompleteArray.push(complete);
 
                     //iceAge.trelloPartialArray.push();
@@ -70,15 +70,15 @@ var iceAge = {
                     for(var j=0; j < pl.length; j++){
                         tempArray = pl[j].desc.split('|');
                         partialId = tempArray[0];
-                        partialNote = tempArray[1];
+                        partialExtra = tempArray[1];
                         if(partialId !== ""){
                             partialId = partialId.split(':')[1].trim();
                         }
-                        if(partialNote !== ""){
-                            partialNote = partialNote.split(':')[1].trim();
+                        if(partialExtra !== ""){
+                            partialExtra = partialExtra.trim();
                         }
 
-                        var partial = {segmentId:partialId, notes:partialNote};
+                        var partial = {segmentId:partialId, notes:partialExtra};
                         iceAge.trelloPartialArray.push(partial);
                         
                     }
@@ -549,9 +549,8 @@ var iceAge = {
             } //END ICE AGE DATA LOOP
 
             userHTML += '<div class="user_segments">';
-            if(userPartialMiles > 0){
-                userHTML += '<div>Distance of partially completed segments: ' + userPartialMiles + ' miles</div>';
-            }
+            userHTML += '<div>Distance of partially completed segments: ' + userPartialMiles + ' miles</div>';
+        
             
             userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
             userHTML += '<div>' + (iceAge.totalSegments - userCompleteSegments) + ' segments remaining</div>';
