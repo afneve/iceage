@@ -65,6 +65,8 @@ var iceAge = {
                 Trello.get("lists/" + iceAge.completeListId + "/cards", function(pl) {
                     var tempArray = [];
 
+                    iceAge.trelloPartialArray = [];
+
                     for(var j=0; j < pl.length; j++){
                         tempArray = pl[j].desc.split('|');
                         partialId = tempArray[0];
@@ -75,8 +77,15 @@ var iceAge = {
                         if(partialNote !== ""){
                             partialNote = partialNote.split(':')[1].trim();
                         }
+
+                        var complete = {segmentId:partialId, notes:partialDate};
+                        iceAge.trelloPartialArray.push(complete);
                         
-                        console.log(partialId, partialNote);
+                    }
+
+                    sfazzAA
+                    for (var u = 0; u < progress_data.users.length; u++) {
+                        console.log(progress_data.users[u]);
                     }
                         
                     iceAge.startLoadingData();
