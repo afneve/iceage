@@ -43,7 +43,12 @@ var iceAge = {
                 for(var i=0; i < cl.length; i++){
                     console.log(cl[i]);
                     tempArray = cl[i].desc.split('|');
-                    console.log(tempArray);
+                    completeId = tempArray[0];
+                    completeDate = tempArray[1];
+                    completeId = completeId.split(':')[1].trim();
+                    completeDate = completeData.split(':')[1].trim();
+                    console.log(completeId, completeDate);
+
 
 
                     //iceAge.trelloPartialArray.push();
@@ -55,7 +60,7 @@ var iceAge = {
                         console.log(pl[j]);
                     }
                         
-                    //iceAge.startLoadingData();
+                    iceAge.startLoadingData();
                 });
 
             });
