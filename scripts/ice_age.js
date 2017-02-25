@@ -36,6 +36,9 @@ var iceAge = {
         if (iceAge.usingTrelloData) {
             iceAge.AuthenticateTrello();
             alert('test 1');
+            if(!iceAge.usingTrelloData){
+                iceAge.loadApp();
+            }
         } else {
             iceAge.loadApp();
             alert('test 2');
