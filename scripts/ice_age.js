@@ -47,6 +47,7 @@ var iceAge = {
     },
     AuthenticateTrello: function() {
         alert('test 3');
+        iceAge.usingTrelloData = false;
         Trello.authorize({
             name: "Ice Age",
             type: "popup",
@@ -56,6 +57,7 @@ var iceAge = {
             key: "a4e071c48e784cee49ab732a869095d6",
             success: function() {
                 alert('test 4');
+                iceAge.usingTrelloData = true;
                 iceAge.updateLoggedIn();
                 var token = Trello.token();
                 iceAge.loadTrelloData();
