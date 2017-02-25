@@ -35,7 +35,6 @@ var iceAge = {
 
         if (iceAge.usingTrelloData) {
             iceAge.AuthenticateTrello();
-            alert('test 1');
             if(!iceAge.usingTrelloData){
                 iceAge.loadApp();
             }
@@ -46,11 +45,10 @@ var iceAge = {
 
     },
     AuthenticateTrello: function() {
-        alert('test 3');
         iceAge.usingTrelloData = false;
         Trello.authorize({
             name: "Ice Age",
-            type: "popup",
+            type: "redirect",
             expiration: "never",
             persist: true,
             iteractive: true,
@@ -68,7 +66,6 @@ var iceAge = {
                 iceAge.loadApp();
             },
             scope: {
-                write: true,
                 read: true
             },
         });
