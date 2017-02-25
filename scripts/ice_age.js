@@ -40,7 +40,6 @@ var iceAge = {
             }
         } else {
             iceAge.loadApp();
-            alert('test 2');
         }
 
     },
@@ -54,7 +53,6 @@ var iceAge = {
             iteractive: true,
             key: "a4e071c48e784cee49ab732a869095d6",
             success: function() {
-                alert('test 4');
                 iceAge.usingTrelloData = true;
                 iceAge.updateLoggedIn();
                 var token = Trello.token();
@@ -62,7 +60,7 @@ var iceAge = {
             },
             error: function(e) {
                 iceAge.usingTrelloData = false;
-                alert(e);
+                console.log(e);
                 iceAge.loadApp();
             },
             scope: {
@@ -72,7 +70,6 @@ var iceAge = {
     },
     updateLoggedIn: function() {
         //Trello.unauthorize();
-        alert('test 5');
         var isLoggedIn = Trello.authorized();
         $("#loggedout").toggle(!isLoggedIn);
         $("#loggedin").toggle(isLoggedIn);
@@ -82,10 +79,10 @@ var iceAge = {
             completeExtra = '',
             partialId = '',
             partialExtra = '';
-alert('test 6');
+
         Trello.get("lists/" + iceAge.completeListId + "/cards", function(cl) {
             var tempArray = [];
-alert('test 7');
+
             iceAge.trelloCompleteArray = [];
 
             for (var i = 0; i < cl.length; i++) {
@@ -110,7 +107,7 @@ alert('test 7');
 
             Trello.get("lists/" + iceAge.partialListId + "/cards", function(pl) {
                 var tempArray = [];
-alert('test 8');
+
                 iceAge.trelloPartialArray = [];
 
                 for (var j = 0; j < pl.length; j++) {
