@@ -32,6 +32,9 @@ var iceAge = {
         if (loc.includes('afneve')) {
             iceAge.useGeo = true;
         }
+        else{
+            iceAge.usingTrelloData = false
+        }
 
         if (iceAge.usingTrelloData) {
             iceAge.AuthenticateTrello();
@@ -576,12 +579,16 @@ var iceAge = {
     attachEventListeners: function() {
         $('#segment_list').on('click', '[data-icon="restrooms"] .yes', function() {
             var segmentIndex = $(this).closest('.segment').attr('data-index');
-            alert(ice_age_data[segmentIndex - 1].restrooms);
+            // alert(ice_age_data[segmentIndex - 1].restrooms);
+            var heading = '<h4 class="overlay_heading">' + ice_age_data[segmentIndex - 1].segment + ' ' + $(this).text() + '</h4>';
+            iceAge.openOverlay(heading + ice_age_data[segmentIndex - 1].restrooms);
         });
 
         $('#segment_list').on('click', '[data-icon="potablewater"] .yes', function() {
             var segmentIndex = $(this).closest('.segment').attr('data-index');
-            alert(ice_age_data[segmentIndex - 1].potablewater);
+            //alert(ice_age_data[segmentIndex - 1].potablewater);
+            var heading = '<h4 class="overlay_heading">' + ice_age_data[segmentIndex - 1].segment + ' ' + $(this).text() + '</h4>';
+            iceAge.openOverlay(heading + ice_age_data[segmentIndex - 1].potablewater); 
         });
 
         //CHANGE SEGMENT ON CLICK
@@ -668,4 +675,22 @@ var iceAge = {
 
         });
     },
+    openOverlay: function(overlayHTML){
+        var $overlay = $('#ice_age_overlay');
+
+        $('body').prepend('<div id="overlay_screen"></div>');
+        $overlay.html(overlayHTML);
+        
+        var overlayHeight = $overlay.height();
+
+        $('#overlay_screen').height($(window).height())
+        $overlay.css("top", $(window).height() / 2 - overlayHeight / 2);
+        $overlay.show();
+
+        $('#overlay_screen').one('click', iceAge.closeOverlay);
+    },
+    closeOverlay: function(){
+        $('#overlay_screen').remove();
+        $('#ice_age_overlay').hide();
+    }
 };

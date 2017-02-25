@@ -190,6 +190,31 @@ span.badge_label {
     margin: 16px 0;
 }
 
+#ice_age_overlay{
+    padding: 20px;
+    width: 60%;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: black;
+    font-size: 18px;
+    z-index: 50;
+    background-color: white;
+}
+
+#overlay_screen{
+    background-color: #000;
+    opacity: 0.8;
+    width: 100%;
+    position: fixed;
+    z-index: 30;
+}
+.overlay_heading{
+    text-align: left;
+    text-transform: capitalize;
+}
 @media (max-width: 1000px) {
     .badge img{
         width: 75%;
