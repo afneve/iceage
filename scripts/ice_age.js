@@ -215,6 +215,7 @@ var iceAge = {
         var segmentHTML = '',
             filterHTML = '',
             selectHTML = '',
+            weatherHTML = '',
             previousSection = '',
             nextSection = '',
             difficulty = '',
@@ -317,7 +318,16 @@ var iceAge = {
                         }
                     }
 
-                    segmentHTML += '<div class="weather"><a target="_blank" href ="https://www.google.com/#q=' + ice_age_data[i].segment + '+wi+weather">' + ice_age_data[i].segment + ' weather</a></div>';
+                    if(ice_age_data[i].booksection.includes('/')){
+                        weatherHTML = ice_age_data[i].booksection.split('/')[1];
+                    }
+                    else if(ice_age_data[i].booksection.includes('&')){
+                        weatherHTML = ice_age_data[i].booksection.split('&')[1];
+                    }
+                    else{
+                        weatherHTML = ice_age_data[i].booksection;
+                    }
+                    segmentHTML += '<div class="weather"><a target="_blank" href ="https://www.google.com/#q=' + weatherHTML + '+wi+weather">' + weatherHTML + ' weather</a></div>';
 
                     segmentHTML += '</div>';
                 }
