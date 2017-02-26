@@ -299,7 +299,7 @@ var iceAge = {
                         segmentHTML += '<div class="terminus_container">Eastern Terminus: <a class="location" target="_blank" href="https://www.google.com/maps/place/' + eastLat + 'N+' + eastLong + 'W" >' + ice_age_data[i].easternterminus + ' ( ' + segment_id_location_data[j].east_gps_id + ' )</a></div>';
                     }
                     if (eastLat !== '' && westLat !== '') {
-                        //egmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + eastLat + 'N+' + eastLong + 'W/' + westLat + 'N+' + westLong + 'W">Beginning to End</a>';
+                        //segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + eastLat + 'N+' + eastLong + 'W/' + westLat + 'N+' + westLong + 'W">Beginning to End</a>';
                     }
 
                     if (iceAge.position !== '') {
@@ -316,6 +316,8 @@ var iceAge = {
                             segmentHTML += '</div>';
                         }
                     }
+
+                    segmentHTML += '<div class="weather"><a target="_blank" href ="https://www.google.com/#q=' + ice_age_data[i].segment + '+wi+weather">' + ice_age_data[i].segment + ' weather</a></div>';
 
                     segmentHTML += '</div>';
                 }
