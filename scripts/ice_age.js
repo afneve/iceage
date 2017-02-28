@@ -48,28 +48,30 @@ var iceAge = {
     },
     AuthenticateTrello: function() {
         iceAge.usingTrelloData = false;
-        Trello.authorize({
-            name: "Ice Age",
-            type: "redirect",
-            expiration: "never",
-            persist: true,
-            iteractive: true,
-            key: "a4e071c48e784cee49ab732a869095d6",
-            success: function() {
-                iceAge.usingTrelloData = true;
-                iceAge.updateLoggedIn();
-                var token = Trello.token();
-                iceAge.loadTrelloData();
-            },
-            error: function(e) {
-                iceAge.usingTrelloData = false;
-                console.log(e);
-                iceAge.loadApp();
-            },
-            scope: {
-                read: true
-            },
-        });
+		if(typeof Trello != 'undefined'){
+			Trello.authorize({
+				name: "Ice Age",
+				type: "redirect",
+				expiration: "never",
+				persist: true,
+				iteractive: true,
+				key: "a4e071c48e784cee49ab732a869095d6",
+				success: function() {
+					iceAge.usingTrelloData = true;
+					iceAge.updateLoggedIn();
+					var token = Trello.token();
+					iceAge.loadTrelloData();
+				},
+				error: function(e) {
+					iceAge.usingTrelloData = false;
+					console.log(e);
+					iceAge.loadApp();
+				},
+				scope: {
+					read: true
+				},
+			});
+		}
     },
     updateLoggedIn: function() {
         //Trello.unauthorize();
