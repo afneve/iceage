@@ -72,6 +72,9 @@ var iceAge = {
 				},
 			});
 		}
+		else{
+			iceAge.loadApp();
+		}
     },
     updateLoggedIn: function() {
         //Trello.unauthorize();
