@@ -5,8 +5,8 @@ segment_id_location_data = [{
 	"westLong": "92 38.973",
 	"eastLat": "45 27.001",
 	"eastLong": "92 38.929",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BP27",
+	"east_gps_id": "BP18"
 }, {
 	"segment_id": "2",
 	"segment": "Gandy Dancer",
@@ -14,8 +14,8 @@ segment_id_location_data = [{
 	"westLong": "92 33.950",
 	"eastLat": "45 37.950",
 	"eastLong": "92 28.037",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BP33",
+	"east_gps_id": "BP34"
 }, {
 	"segment_id": "3",
 	"segment": "Trade River",
@@ -23,8 +23,8 @@ segment_id_location_data = [{
 	"westLong": "92 28.037",
 	"eastLat": "45 36.739",
 	"eastLong": "92 25.756",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BP34",
+	"east_gps_id": "BP35"
 }, {
 	"segment_id": "4",
 	"segment": "Straight Lake",
@@ -32,8 +32,8 @@ segment_id_location_data = [{
 	"westLong": "92 25.756",
 	"eastLat": "45 35.722",
 	"eastLong": "92 22.617",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BP35",
+	"east_gps_id": "BP15"
 }, {
 	"segment_id": "5",
 	"segment": "Straight River ",
@@ -41,8 +41,8 @@ segment_id_location_data = [{
 	"westLong": "92 21.963",
 	"eastLat": "45 34.576",
 	"eastLong": "92 19.796",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BP13",
+	"east_gps_id": "BP8"
 }, {
 	"segment_id": "6",
 	"segment": "Pine Lake",
@@ -50,8 +50,8 @@ segment_id_location_data = [{
 	"westLong": "92 19.796",
 	"eastLat": "45 35.508",
 	"eastLong": "92 18.264",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BP8",
+	"east_gps_id": "BP36"
 }, {
 	"segment_id": "7",
 	"segment": "McKenzie Creek ",
@@ -59,8 +59,8 @@ segment_id_location_data = [{
 	"westLong": "92 17.793",
 	"eastLat": "45 40.568",
 	"eastLong": "92 15.48",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BP37",
+	"east_gps_id": "BP29"
 }, {
 	"segment_id": "8",
 	"segment": "Indian Creek",
@@ -68,8 +68,8 @@ segment_id_location_data = [{
 	"westLong": "92 15.48",
 	"eastLat": "45 40.379",
 	"eastLong": "92 11.161",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BP29",
+	"east_gps_id": "BP32"
 }, {
 	"segment_id": "9",
 	"segment": "Sand Creek",
@@ -77,8 +77,8 @@ segment_id_location_data = [{
 	"westLong": "92 11.161",
 	"eastLat": "45 38.397",
 	"eastLong": "92 7.121",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BP32",
+	"east_gps_id": "BW19"
 }, {
 	"segment_id": "10",
 	"segment": "Timberland Hills",
@@ -86,8 +86,8 @@ segment_id_location_data = [{
 	"westLong": "92 7.121",
 	"eastLat": "45 39.666",
 	"eastLong": "92 1.009",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BW19",
+	"east_gps_id": "BW10"
 }, {
 	"segment_id": "11",
 	"segment": "Grassy Lake ",
@@ -95,15 +95,17 @@ segment_id_location_data = [{
 	"westLong": "91 58.897",
 	"eastLat": "45 38.334",
 	"eastLong": "91 52.688",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BW16",
+	"east_gps_id": "BW20"
 }, {
 	"segment_id": "12",
 	"segment": "Bear Lake",
 	"westLat": "45 38.334",
 	"westLong": "91 52.688",
 	"eastLat": "45 37.117",
-	"eastLong": "91 49.629"
+	"eastLong": "91 49.629",
+	"west_gps_id": "BW20",
+	"east_gps_id": "BW5"
 }, {
 	"segment_id": "13",
 	"segment": "Tuscobia ",
@@ -111,8 +113,8 @@ segment_id_location_data = [{
 	"westLong": "91 45.608",
 	"eastLat": "45 38.491",
 	"eastLong": "91 35.023",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BW21",
+	"east_gps_id": "BW22"
 }, {
 	"segment_id": "14",
 	"segment": "Blueberry",
@@ -120,8 +122,8 @@ segment_id_location_data = [{
 	"westLong": "91 35.023",
 	"eastLat": "45 38.666",
 	"eastLong": "91 34.03",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BW22",
+	"east_gps_id": "BW23"
 }, {
 	"segment_id": "15",
 	"segment": "Hemlock Creek ",
@@ -129,8 +131,8 @@ segment_id_location_data = [{
 	"westLong": "91 34.014",
 	"eastLat": "45 34.273",
 	"eastLong": "91 30.494",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "BW24",
+	"east_gps_id": "BW18"
 }, {
 	"segment_id": "16",
 	"segment": "Northern Blue Hills ",
@@ -138,8 +140,8 @@ segment_id_location_data = [{
 	"westLong": "91 30.108",
 	"eastLat": "45 30.052",
 	"eastLong": "91 26.744",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "RU14",
+	"east_gps_id": "RU11"
 }, {
 	"segment_id": "17",
 	"segment": "Southern Blue Hills ",
@@ -147,8 +149,8 @@ segment_id_location_data = [{
 	"westLong": "91 26.348",
 	"eastLat": "45 25.318",
 	"eastLong": "91 28.563",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "RU10",
+	"east_gps_id": "RU15"
 }, {
 	"segment_id": "18",
 	"segment": "Chippewa Moraine ",
@@ -156,8 +158,8 @@ segment_id_location_data = [{
 	"westLong": "91 26.222",
 	"eastLat": "45 13.15",
 	"eastLong": "91 20.501",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "CH16",
+	"east_gps_id": "CH18"
 }, {
 	"segment_id": "19",
 	"segment": "Harwood Lakes",
@@ -174,8 +176,8 @@ segment_id_location_data = [{
 	"westLong": "91 15.585",
 	"eastLat": "45 11.282",
 	"eastLong": "91 10.393",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "CH18",
+	"east_gps_id": "CH19"
 }, {
 	"segment_id": "21",
 	"segment": "Chippewa River",
@@ -183,8 +185,8 @@ segment_id_location_data = [{
 	"westLong": "91 10.393",
 	"eastLat": "45 10.260",
 	"eastLong": "91 10.674",
-	"west_gps_id": "",
-	"east_gps_id": ""
+	"west_gps_id": "CH20",
+	"east_gps_id": "CH1"
 }, {
 	"segment_id": "22",
 	"segment": "Lake Eleven ",
