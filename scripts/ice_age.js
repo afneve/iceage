@@ -371,6 +371,7 @@ var iceAge = {
             }
 
             previousSection = ice_age_data[i].booksection;
+            countyCompleteArray = [];
         }
 
         selectHTML += '</select>';
