@@ -137,6 +137,9 @@ Styles for list of segments
     display:inline-block;
 }
 
+#segment_list a{
+    color: #236B8E;
+}
 a.location{
     color: #236B8E;
     display: block;
