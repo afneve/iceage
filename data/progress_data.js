@@ -5,6 +5,18 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 34, 36, 44, 45, 46, 47],
 		"completedSegments" : [
 			{
+				"segmentId" : 15,
+				"dateOfCompletion" : "2017-03-05"
+			},
+			{
+				"segmentId" : 14,
+				"dateOfCompletion" : "2017-03-04"
+			},
+			{
+				"segmentId" : 14,
+				"dateOfCompletion" : "2017-03-04"
+			},
+			{
 				"segmentId" : 48,
 				"dateOfCompletion" : "2017-02-19"
 			},
@@ -44,6 +56,10 @@ progress_data = {
 		],
 		"partialSegments" : [
 			{
+				"segmentId" : 16,
+				"notes" : "Completed Western segment to Stout Road."
+			},
+			{
 				"segmentId" : 28,
 				"notes" : "Completed segment around lake"
 			},
@@ -67,6 +83,18 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 45],
 		"completedSegments" : [
 			{
+				"segmentId" : 15,
+				"dateOfCompletion" : "2017-03-05"
+			},
+			{
+				"segmentId" : 14,
+				"dateOfCompletion" : "2017-03-04"
+			},
+			{
+				"segmentId" : 14,
+				"dateOfCompletion" : "2017-03-04"
+			},
+			{
 				"segmentId" : 48,
 				"dateOfCompletion" : "2017-02-19"
 			},
@@ -84,6 +112,10 @@ progress_data = {
 			}
 		],
 		"partialSegments" : [
+			{
+				"segmentId" : 16,
+				"notes" : "Completed Western segment to Stout Road."
+			},
 			{
 				"segmentId" : 34,
 				"notes" : "Completed everything down to the giant penstocks. Completed small portion by the start of New Wood County Park"
