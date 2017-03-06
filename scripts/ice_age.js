@@ -380,7 +380,8 @@ var iceAge = {
         $('#segment_filter_container').append(selectHTML);
 
         for (var cc = 0; cc < countyCompleteArray.length; cc++) {
-            $('#segment_filter li a[data-index="' + countyCompleteArray[cc] + '"]').parent('li').addClass('complete');
+            console.log("COMPLETE " + countyCompleteArray[cc]);
+            //$('#segment_filter li a[data-index="' + countyCompleteArray[cc] + '"]').parent('li').addClass('complete');
         }
 
 
