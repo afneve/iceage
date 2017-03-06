@@ -13,7 +13,7 @@ progress_data = {
 				"dateOfCompletion" : "2017-03-04"
 			},
 			{
-				"segmentId" : 14,
+				"segmentId" : 13,
 				"dateOfCompletion" : "2017-03-04"
 			},
 			{
@@ -91,7 +91,7 @@ progress_data = {
 				"dateOfCompletion" : "2017-03-04"
 			},
 			{
-				"segmentId" : 14,
+				"segmentId" : 13,
 				"dateOfCompletion" : "2017-03-04"
 			},
 			{
