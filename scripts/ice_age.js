@@ -279,8 +279,7 @@ var iceAge = {
 
             segmentHTML += iceAge.displayInfoWithIcon('potablewater', ice_age_data[i].potablewater);
             segmentHTML += iceAge.displayInfoWithIcon('restrooms', ice_age_data[i].restrooms);
-
-
+            segmentHTML += '<div>Connecting route distance: ' + ice_age_data[i].connectingroutedistance + '</div>';
 
             segmentHTML += '<div class="atlas">Atlas Map: ' + ice_age_data[i].atlasmap + '</div>';
 
@@ -381,8 +380,7 @@ var iceAge = {
         $('#segment_filter_container').append(selectHTML);
         console.log(countyCompleteArray);
         for (var cc = 0; cc < countyCompleteArray.length; cc++) {
-            console.log("COMPLETE " + countyCompleteArray[cc]);
-            //$('#segment_filter li a[data-index="' + countyCompleteArray[cc] + '"]').parent('li').addClass('complete');
+            $('#segment_filter li a[data-index="' + countyCompleteArray[cc] + '"]').parent('li').addClass('complete');
         }
 
 
