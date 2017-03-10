@@ -11,7 +11,7 @@ var iceAge = {
     ruggednessArray: [],
     ruggednessObject: {},
     position: '',
-    usingTrelloData: true,
+    usingTrelloData: false,
     boardId: "DVxLVaPD",
     unfinishedListId: "58af2c5dd7bafea5adf572d4",
     partialListId: "58af2c61471ef75d38fc78d4",
