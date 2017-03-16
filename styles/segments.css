@@ -174,8 +174,23 @@ a.location{
     text-align: center;
     position: relative;
 }
-.badge img{
+.badge img, .badge svg{
     width: 125px;
+}
+
+#segment_list .badge[data-complete="E"] path.fill, #segment_list .badge[data-partial="E"] path.fill, #segment_list .badge[data-complete="E"] polygon.fill, #segment_list .badge[data-partial="E"] polygon.fill{
+    fill: #790301 !important;
+}
+
+#segment_list .badge[data-complete="E"] path.stroke, #segment_list .badge[data-partial="E"] path.stroke, #segment_list .badge[data-complete="E"] polygon.stroke, #segment_list .badge[data-partial="E"] polygon.stroke{
+    stroke: #790301 !important;
+}
+
+#segment_list .county.complete .badge svg path.fill, #segment_list .county.complete .badge svg polygon.fill{
+    fill: #fce037 !important;
+}
+#segment_list .county.complete .badge svg path.stroke, #segment_list .county.complete .badge svg polygon.stroke{
+    stroke: #fce037 !important;
 }
 span.badge_label {
     position: absolute;
@@ -219,7 +234,7 @@ span.badge_label {
     text-transform: capitalize;
 }
 @media (max-width: 1000px) {
-    .badge img{
+    .badge img, .badge svg{
         width: 75%;
     }
     span.badge_label {

@@ -339,10 +339,35 @@ var iceAge = {
             segmentHTML += '<div class="user_badge_container">';
 
             for (var u = 0; u < usersCompleteArray.length; u++) {
-                segmentHTML += '<div class="badge" data-complete="' + usersCompleteArray[u] + '"><img src="./images/' + usersCompleteArray[u] + '-complete.svg" alt="" /><span class="badge_label">' + usersCompleteArray[u] + '</span></div>';
+                //segmentHTML += '<div class="badge" data-complete="' + usersCompleteArray[u] + '">';
+                //segmentHTML += '<img src="./images/' + usersCompleteArray[u] + '-complete.svg" alt="" /><span class="badge_label">' + usersCompleteArray[u] + '</span></div>';
+
+                segmentHTML += '<div class="badge" data-complete="' + usersCompleteArray[u] + '">';
+
+                segmentHTML += '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 293.938 301.906" enable-background="new 0 0 293.938 301.906" xml:space="preserve">';
+                segmentHTML += '<polygon class="fill" fill="#062335" points="185.238,107.453 152.818,107.453 152.818,117.953 141.119,117.953 141.119,107.453 108.699,107.453	117.989,94.243 114.209,94.243 121.309,84.143 113.969,84.143 121.049,74.073 116.149,74.073 125.419,60.883 119.659,60.883	146.969,22.043 174.278,60.883 168.519,60.883 177.789,74.073 172.889,74.073 179.969,84.143 172.629,84.143 179.729,94.243	175.949,94.243 "/>';
+                segmentHTML += '<path class="stroke" fill="none" stroke="#790301" stroke-width="4" stroke-miterlimit="10" d="M146.889,169.438"/>';
+                segmentHTML += '<path class="stroke" fill="none" stroke="#082C46" stroke-width="4" stroke-miterlimit="10" d="M270.68,169.438 c0,62.976-55.424,114.025-123.791,114.025c-68.368,0-123.791-51.051-123.791-114.025"/>';
+                segmentHTML += '<path class="stroke fill" fill="#082C46" stroke="#082C46" stroke-width="8" stroke-miterlimit="10" d="M146.969,154.938c-78.959,0-142.969,0-142.969,0	c0,78.959,64.009,142.97,142.969,142.97c78.959,0,142.969-64.011,142.969-142.97C289.938,154.938,225.928,154.938,146.969,154.938z M146.969,294.771C70.218,294.771,8,233.568,8,158.073c0,0,62.218,0,138.969,0c76.75,0,138.969,0,138.969,0 C285.938,233.568,223.719,294.771,146.969,294.771z"/>';
+                segmentHTML += '<path class="fill" fill="#082C46" d="M286.129,184.934h-136.16l41.4,104.119c-23.98,6.67-44.4,5.73-44.4,5.73h-0.08c0,0-20.42,0.939-44.41-5.73 l41.41-104.119H11.969v-67.96h85.99v-4.6h-25.03l7.17-11.42h-2.92l5.48-8.72h-5.66l5.46-8.71h-3.78l7.16-11.4h-4.45l21.09-33.58 l21.09,33.58h-4.45l7.16,11.4h-3.78l5.46,8.71h-5.66l5.48,8.72h-2.92l7.17,11.42h-25.03v4.6h85.96v-7.94h-25.03l7.17-10.59h-2.92 l5.48-8.1h-5.66l5.46-8.07h-3.78l7.16-10.58h-4.45l21.09-31.15l21.09,31.15h-4.449l7.159,10.58h-3.779l5.46,8.07h-5.66l5.479,8.1 h-2.92l7.17,10.59h-25.029v7.94h84.13V184.934z"/>';
+                segmentHTML += '<path class="stroke" fill="none" stroke="#082C46" stroke-width="4" stroke-miterlimit="10" d="M270.68,132.469 c0-62.975-55.424-114.025-123.791-114.025c-68.368,0-123.791,51.051-123.791,114.025"/>';
+                segmentHTML += '<path class="stroke fill" fill="#082C46" stroke="#082C46" stroke-width="8" stroke-miterlimit="10" d="M289.938,146.969 C289.938,68.01,225.928,4,146.969,4C68.009,4,4,68.01,4,146.969c0,0,64.009,0,142.969,0 C225.928,146.969,289.938,146.969,289.938,146.969z M285.938,143.833c0,0-62.219,0-138.969,0S8,143.833,8,143.833 C8,68.338,70.218,7.136,146.969,7.136C223.719,7.136,285.938,68.338,285.938,143.833z"/>';
+                segmentHTML += '</svg>';
+                segmentHTML += '<span class="badge_label">' + usersCompleteArray[u] + '</span>';
+                segmentHTML += '</div>';
             }
             for (var up = 0; up < usersPartialArray.length; up++) {
-                segmentHTML += '<div class="badge" data-partial="' + usersPartialArray[up] + '"><img src="./images/' + usersPartialArray[up] + '-partial.svg" alt="" /><span class="badge_label">' + usersPartialArray[up] + '</span></div>';
+                //segmentHTML += '<div class="badge" data-partial="' + usersPartialArray[up] + '"><img src="./images/' + usersPartialArray[up] + '-partial.svg" alt="" /><span class="badge_label">' + usersPartialArray[up] + '</span></div>';
+                
+                segmentHTML += '<div class="badge" data-partial="' + usersPartialArray[up] + '">';
+                    segmentHTML += '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 293.938 301.906" enable-background="new 0 0 293.938 301.906" xml:space="preserve">';
+                    segmentHTML += '<path class="stroke" fill="none" stroke="#790301" stroke-width="4" stroke-miterlimit="10" d="M146.889,169.438"/>';
+                    segmentHTML += '<path class="stroke" fill="none" stroke="#082C46" stroke-width="4" stroke-miterlimit="10" d="M23.099,169.434c0,5.26,0.39,10.43,1.13,15.5 c6.39,43.279,39.14,78.85,82.87,92.51"/>';
+                    segmentHTML += '<path class="stroke" fill="none" stroke="#082C46" stroke-width="4" stroke-miterlimit="10" d="M186.749,277.423 c43.7-13.68,76.41-49.229,82.8-92.489c0.74-5.07,1.13-10.24,1.13-15.5"/>';
+                    segmentHTML += '<path class="stroke fill" fill="#082C46" stroke="#082C46" stroke-width="8" stroke-miterlimit="10" d="M146.969,154.938c-78.959,0-142.969,0-142.969,0	c0,78.959,64.009,142.97,142.969,142.97c78.959,0,142.969-64.011,142.969-142.97C289.938,154.938,225.928,154.938,146.969,154.938z M146.969,294.771C70.218,294.771,8,233.568,8,158.073c0,0,62.218,0,138.969,0c76.75,0,138.969,0,138.969,0 C285.938,233.568,223.719,294.771,146.969,294.771z"/>';
+                    segmentHTML += '<path class="fill" fill="#082C46" d="M286.129,150.953v33.98h-136.16l36.78,92.489l4.62,11.63c-23.98,6.67-44.4,5.73-44.4,5.73h-0.08 c0,0-20.42,0.939-44.41-5.73l4.62-11.609l36.79-92.51H11.969v-33.98H286.129z"/></svg>';
+                    segmentHTML += '<span class="badge_label">' + usersPartialArray[up] + '</span>';
+                segmentHTML += '</div>';
             }
 
             segmentHTML += '</div>';
@@ -359,7 +384,6 @@ var iceAge = {
             } else {
                 nextSection = '';
             }
-
 
             if (ice_age_data[i].booksection != nextSection) {
                 segmentHTML += '</div>'; //END COUNTY DIV
@@ -381,8 +405,8 @@ var iceAge = {
         
         for (var cc = 0; cc < countyCompleteArray.length; cc++) {
             $('#segment_filter li a[data-index="' + countyCompleteArray[cc] + '"]').parent('li').addClass('complete');
+            $('#segment_list .county[data-index="' + countyCompleteArray[cc] + '"]').addClass('complete');
         }
-
 
         iceAge.displayUserProgress();
     },
