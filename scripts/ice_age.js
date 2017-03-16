@@ -65,6 +65,7 @@ var iceAge = {
 					iceAge.loadTrelloData();
 				},
 				error: function(e) {
+                    alert("ERROR");
 					iceAge.usingTrelloData = false;
 					console.log(e);
 					iceAge.loadApp();
