@@ -33,6 +33,7 @@ header nav {
     cursor: pointer;
     height: 40px;
     z-index: 10;
+    overflow: hidden;
 }
 header nav .selected{
     background: #0C78C5;
