@@ -54,7 +54,8 @@ var iceAge = {
 				type: "redirect",
 				expiration: "never",
 				persist: true,
-				iteractive: true, 
+				iteractive: true,
+                return_url: "https://afneve.github.io/iceage/", 
 				key: "a4e071c48e784cee49ab732a869095d6",
 				success: function() {
 					iceAge.usingTrelloData = true;
