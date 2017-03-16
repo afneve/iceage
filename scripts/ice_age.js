@@ -51,7 +51,7 @@ var iceAge = {
 		if(typeof Trello != 'undefined'){
 			Trello.authorize({
 				name: "Ice Age",
-				type: "redirect",
+				type: "popup",
 				expiration: "never",
 				persist: true,
 				iteractive: true,
