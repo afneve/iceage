@@ -51,12 +51,12 @@ var iceAge = {
 		if(typeof Trello != 'undefined'){
 			Trello.authorize({
 				name: "Ice Age",
-				type: "popup",
+				type: "redirect",
 				expiration: "never",
 				persist: true,
 				iteractive: true,
                 return_url: "https://afneve.github.io/iceage/",
-                callback_method: "post_message", 
+                callback_method: "fragment", 
 				key: "a4e071c48e784cee49ab732a869095d6",
 				success: function() {
 					iceAge.usingTrelloData = true;
