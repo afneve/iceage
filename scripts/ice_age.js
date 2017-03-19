@@ -227,7 +227,8 @@ var iceAge = {
             usersCompleteArray = [],
             usersPartialArray = [],
             countyCompleteArray = [],
-            countyCounter = 1;
+            countyCounter = 1,
+            allComplete = true;
 
         selectHTML += '<select>';
 
@@ -241,8 +242,20 @@ var iceAge = {
 
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
 
+            if (usersCompleteArray.length == 2 && allComplete) {
+                allComplete = true;
+            }
+            else{
+                allComplete = false;
+            }
+
             //IF NEW COUNTY
             if (ice_age_data[i].booksection != previousSection) {
+
+                if (usersCompleteArray.length == 2) {
+                    allComplete = true;
+                }
+
                 if (i === 0) {
                     segmentHTML += '<div class="county" data-index="' + countyCounter + '">';
                 } else {
@@ -391,13 +404,13 @@ var iceAge = {
             if (ice_age_data[i].booksection != nextSection) {
                 segmentHTML += '</div>'; //END COUNTY DIV
 
-                if (usersCompleteArray.length == 2) {
+                if (allComplete) {
                     countyCompleteArray.push(countyCounter - 1);
                 }
             }
 
             previousSection = ice_age_data[i].booksection;
-            countyCompleteArray = [];
+            usersCompleteArray = [];
         }
 
         selectHTML += '</select>';
@@ -575,7 +588,7 @@ var iceAge = {
             } //END ICE AGE DATA LOOP
 
             userHTML += '<div class="user_segments">';
-            userHTML += '<div>Distance of partially completed segments: ' + userPartialMiles + ' miles</div>';
+            userHTML += '<div>Distance of partially completed segments: ' + parseFloat(userPartialMiles.toFixed(2)) + ' miles</div>';
 
 
             userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
