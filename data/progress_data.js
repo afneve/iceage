@@ -5,6 +5,18 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 34, 36, 44, 45, 46, 47],
 		"completedSegments" : [
 			{
+				"segmentId" : 50,
+				"dateOfCompletion" : "2017-03-19"
+			},
+			{
+				"segmentId" : 51,
+				"dateOfCompletion" : "2017-03-19"
+			},
+			{
+				"segmentId" : 52,
+				"dateOfCompletion" : "2017-03-19"
+			},
+			{
 				"segmentId" : 15,
 				"dateOfCompletion" : "2017-03-05"
 			},
@@ -64,10 +76,6 @@ progress_data = {
 				"notes" : "Completed segment around lake"
 			},
 			{
-				"segmentId" : 51,
-				"notes" : "Completed segment from Edminster Rd down to the end of the mountain bike trails in Hartman Creek State Park"
-			},
-			{
 				"segmentId" : 63,
 				"notes" : "Completed segment from the North of Devil's Lake down to the Eastern end that meets with the Merrimac segment"
 			},
@@ -82,6 +90,18 @@ progress_data = {
 		"userId" : "2",
 		"oldcompletedSegmentIds" : [33, 45],
 		"completedSegments" : [
+			{
+				"segmentId" : 50,
+				"dateOfCompletion" : "2017-03-19"
+			},
+			{
+				"segmentId" : 51,
+				"dateOfCompletion" : "2017-03-19"
+			},
+			{
+				"segmentId" : 52,
+				"dateOfCompletion" : "2017-03-19"
+			},
 			{
 				"segmentId" : 15,
 				"dateOfCompletion" : "2017-03-05"
@@ -123,10 +143,6 @@ progress_data = {
 			{
 				"segmentId" : 44,
 				"notes" : "Completed everything from the West end to the end of the boardwalk north of HWY 52"
-			},
-			{
-				"segmentId" : 51,
-				"notes" : "Completed segment from Edminster Rd down to the end of the mountain bike trails in Hartman Creek State Park"
 			},
 			{
 				"segmentId" : 63,
