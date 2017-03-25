@@ -262,7 +262,17 @@ var iceAge = {
                     segmentHTML += '<div class="county hide" data-index="' + countyCounter + '">';
                 }
 
-                segmentHTML += '<h2 class="county_name">' + ice_age_data[i].booksection + '</h2>';
+                if(ice_age_data[i].booksection.includes('/')){
+                    weatherHTML = ice_age_data[i].booksection.split('/')[1];
+                }
+                else if(ice_age_data[i].booksection.includes('&')){
+                    weatherHTML = ice_age_data[i].booksection.split('&')[1];
+                }
+                else{
+                    weatherHTML = ice_age_data[i].booksection;
+                }
+
+                segmentHTML += '<h2 class="county_name"><a target="_blank" href ="https://www.google.com/#q=' + weatherHTML + '+wi+weather">' + ice_age_data[i].booksection + '</a></h2>';
 
                 if (i === 0) {
                     filterHTML += '<li class="selected">';
@@ -334,17 +344,6 @@ var iceAge = {
                             segmentHTML += '</div>';
                         }
                     }
-
-                    if(ice_age_data[i].booksection.includes('/')){
-                        weatherHTML = ice_age_data[i].booksection.split('/')[1];
-                    }
-                    else if(ice_age_data[i].booksection.includes('&')){
-                        weatherHTML = ice_age_data[i].booksection.split('&')[1];
-                    }
-                    else{
-                        weatherHTML = ice_age_data[i].booksection;
-                    }
-                    segmentHTML += '<div class="weather"><a target="_blank" href ="https://www.google.com/#q=' + weatherHTML + '+wi+weather">' + weatherHTML + ' weather</a></div>';
 
                     segmentHTML += '</div>';
                 }
