@@ -5,6 +5,18 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 34, 36, 44, 45, 46, 47],
 		"completedSegments" : [
 			{
+				"segmentId" : 118,
+				"dateOfCompletion" : "2017-03-27"
+			},
+			{
+				"segmentId" : 120,
+				"dateOfCompletion" : "2017-03-27"
+			},
+			{
+				"segmentId" : 119,
+				"dateOfCompletion" : "2017-03-26"
+			},
+			{
 				"segmentId" : 50,
 				"dateOfCompletion" : "2017-03-19"
 			},
@@ -67,6 +79,10 @@ progress_data = {
 			
 		],
 		"partialSegments" : [
+			{
+				"segmentId" : 117,
+				"notes" : "Completed Western segment from B to Bb"
+			},
 			{
 				"segmentId" : 16,
 				"notes" : "Completed Western segment to Stout Road."
