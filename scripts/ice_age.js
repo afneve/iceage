@@ -466,6 +466,8 @@ var iceAge = {
     },
 
     getDistanceFromCurrentLocation: function(htmlElement, currentPosLat, currentPosLong, destLat, destLong) {
+        console.log(currentPosLat);
+        console.log(currentPosLong);
         var origin = new google.maps.LatLng(currentPosLat, currentPosLong);
         var destination = new google.maps.LatLng(destLat, -(destLong));
         var service = new google.maps.DistanceMatrixService();
@@ -481,8 +483,10 @@ var iceAge = {
 
                 for (var i = 0; i < origins.length; i++) {
                     var results = response.rows[i].elements;
+                    console.log(results);
                     for (var j = 0; j < results.length; j++) {
                         var element = results[j];
+                        console.log(element);
                         var distance = element.distance.text;
                         var duration = element.duration.text;
                         var from = origins[i];
