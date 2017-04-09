@@ -11,6 +11,7 @@ var iceAge = {
     ruggednessArray: [],
     ruggednessObject: {},
     position: '',
+    secondaryPosition: '',
     usingTrelloData: true,
     boardId: "DVxLVaPD",
     unfinishedListId: "58af2c5dd7bafea5adf572d4",
@@ -151,9 +152,18 @@ var iceAge = {
 
     },
     loadApp: function() {
+        var parameters = window.location.search;
         if (navigator.geolocation && iceAge.useGeo) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 iceAge.position = position;
+
+                if(parameters.includes('lat') && parameters.includes('long')){
+                    var lat = parameters.substring(parameters.indexOf('lat=') + 4, parameters.indexOf('long'));
+                    var long = parameters.substring(parameters.indexOf('long=') + 5, parameters.length);
+
+                    iceAge.secondaryPosition.latitude = lat;
+                    iceAge.secondaryPosition.longitude = long;
+                }
                 iceAge.dataCollection();
                 iceAge.displaySegmentList();
             }, function() {
@@ -327,7 +337,7 @@ var iceAge = {
                         segmentHTML += '<div class="terminus_container">Eastern Terminus: <a class="location" target="_blank" href="https://www.google.com/maps/place/' + eastLat + 'N+' + eastLong + 'W" >' + ice_age_data[i].easternterminus + ' ( ' + segment_id_location_data[j].east_gps_id + ' )</a></div>';
                     }
                     if (eastLat !== '' && westLat !== '') {
-                        //segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + eastLat + 'N+' + eastLong + 'W/' + westLat + 'N+' + westLong + 'W">Beginning to End</a>';
+                        segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + eastLat + 'N+' + eastLong + 'W/' + westLat + 'N+' + westLong + 'W">Beginning to End</a>';
                     }
 
                     if (iceAge.position !== '') {
@@ -335,14 +345,22 @@ var iceAge = {
                             segmentHTML += '<div class="location_based_info">';
                             segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + westLat + 'N+' + westLong + 'W">Directions to West End</a>';
                             segmentHTML += '<div class="getDistance" data-lat="' + westLat + '" data-long="' + westLong + '"></div>';
+                            if(iceAge.secondaryPosition !== ''){
+                                segmentHTML += '<div class="getSecondaryDistance" data-lat="' + eastLat + '" data-long="' + eastLong + '"></div>';
+                            }
                             segmentHTML += '</div>';
                         }
+
                         if (eastLat !== '') {
                             segmentHTML += '<div class="location_based_info">';
                             segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + eastLat + 'N+' + eastLong + 'W">Directions to East End</a>';
                             segmentHTML += '<div class="getDistance" data-lat="' + eastLat + '" data-long="' + eastLong + '"></div>';
+                            if(iceAge.secondaryPosition !== ''){
+                                segmentHTML += '<div class="getSecondaryDistance" data-lat="' + eastLat + '" data-long="' + eastLong + '"></div>';
+                            }
                             segmentHTML += '</div>';
                         }
+                        
                     }
 
                     segmentHTML += '</div>';
@@ -660,6 +678,10 @@ var iceAge = {
                 $('.county[data-index="' + segment + '"]').find(".getDistance").each(function() {
                     iceAge.getDistanceFromCurrentLocation($(this), iceAge.position.coords.latitude, iceAge.position.coords.longitude, $(this).attr('data-lat'), $(this).attr('data-long'));
                 });
+                $('.county[data-index="' + segment + '"]').find(".getSecondaryDistance").each(function() {
+                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.secondaryPosition.latitude, iceAge.secondaryPosition.longitude, $(this).attr('data-lat'), $(this).attr('data-long'));
+                });
+
             }
 
             $('.county[data-index="' + segment + '"]').attr('data-loaded', 'true');
@@ -684,6 +706,9 @@ var iceAge = {
             if (!$('.county[data-index="' + segment + '"]').attr('data-loaded')) {
                 $('.county[data-index="' + segment + '"]').find(".getDistance").each(function() {
                     iceAge.getDistanceFromCurrentLocation($(this), iceAge.position.coords.latitude, iceAge.position.coords.longitude, $(this).attr('data-lat'), $(this).attr('data-long'));
+                });
+                $('.county[data-index="' + segment + '"]').find(".getSecondaryDistance").each(function() {
+                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.secondaryPosition.latitude, iceAge.secondaryPosition.longitude, $(this).attr('data-lat'), $(this).attr('data-long'));
                 });
             }
 
