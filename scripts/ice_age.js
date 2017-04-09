@@ -493,11 +493,11 @@ var iceAge = {
                         var from = origins[i];
                         var to = destinations[j];
 
-                        if(secondary){
-                            $(htmlElement).html("<div>Drive Distance: " + distance + "</div><div>Drive Time: " + duration + "</div>");
+                        if(!secondary){
+                            $(htmlElement).html("<div>Drive Distance: " + distance + "</div><div>Drive Time: " + duration + "</div>");      
                         }
                         else{
-                            $(htmlElement).html("<div>Other Drive Distance: " + distance + "</div><div> Other Drive Time: " + duration + "</div>");
+                            $(htmlElement).html("<div>Other Drive Distance: " + distance + "</div><div>Other Drive Time: " + duration + "</div>");
                         }
                         
                     }
