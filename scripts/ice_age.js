@@ -465,7 +465,7 @@ var iceAge = {
         return html;
     },
 
-    getDistanceFromCurrentLocation: function(htmlElement, currentPosLat, currentPosLong, destLat, destLong) {
+    getDistanceFromCurrentLocation: function(htmlElement, currentPosLat, currentPosLong, destLat, destLong, secondary) {
         console.log(currentPosLat);
         console.log(currentPosLong);
         var origin = new google.maps.LatLng(currentPosLat, currentPosLong);
@@ -492,7 +492,14 @@ var iceAge = {
                         var duration = element.duration.text;
                         var from = origins[i];
                         var to = destinations[j];
-                        $(htmlElement).html("<div>Drive Distance: " + distance + "</div><div>Drive Time: " + duration + "</div>");
+
+                        if(secondary){
+                            $(htmlElement).html("<div>Drive Distance: " + distance + "</div><div>Drive Time: " + duration + "</div>");
+                        }
+                        else{
+                            $(htmlElement).html("<div>Other Drive Distance: " + distance + "</div><div> Other Drive Time: " + duration + "</div>");
+                        }
+                        
                     }
                 }
             }
@@ -681,10 +688,10 @@ var iceAge = {
 
             if (!$('.county[data-index="' + segment + '"]').attr('data-loaded')) {
                 $('.county[data-index="' + segment + '"]').find(".getDistance").each(function() {
-                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.position.coords.latitude, iceAge.position.coords.longitude, $(this).attr('data-lat'), $(this).attr('data-long'));
+                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.position.coords.latitude, iceAge.position.coords.longitude, $(this).attr('data-lat'), $(this).attr('data-long'), false);
                 });
                 $('.county[data-index="' + segment + '"]').find(".getSecondaryDistance").each(function() {
-                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.secondaryPosition.latitude, iceAge.secondaryPosition.longitude, $(this).attr('data-lat'), $(this).attr('data-long'));
+                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.secondaryPosition.latitude, iceAge.secondaryPosition.longitude, $(this).attr('data-lat'), $(this).attr('data-long'), true);
                 });
 
             }
@@ -710,10 +717,10 @@ var iceAge = {
 
             if (!$('.county[data-index="' + segment + '"]').attr('data-loaded')) {
                 $('.county[data-index="' + segment + '"]').find(".getDistance").each(function() {
-                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.position.coords.latitude, iceAge.position.coords.longitude, $(this).attr('data-lat'), $(this).attr('data-long'));
+                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.position.coords.latitude, iceAge.position.coords.longitude, $(this).attr('data-lat'), $(this).attr('data-long'), false);
                 });
                 $('.county[data-index="' + segment + '"]').find(".getSecondaryDistance").each(function() {
-                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.secondaryPosition.latitude, iceAge.secondaryPosition.longitude, $(this).attr('data-lat'), $(this).attr('data-long'));
+                    iceAge.getDistanceFromCurrentLocation($(this), iceAge.secondaryPosition.latitude, iceAge.secondaryPosition.longitude, $(this).attr('data-lat'), $(this).attr('data-long'), true);
                 });
             }
 

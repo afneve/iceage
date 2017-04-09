@@ -171,6 +171,10 @@ a.location{
     font-weight: bold;
 }
 
+.getSecondaryDistance{
+    margin-top: 10px;
+}
+
 
 .badge{
     display:inline-block;
