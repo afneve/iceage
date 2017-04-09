@@ -346,7 +346,10 @@ var iceAge = {
                             segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + westLat + 'N+' + westLong + 'W">Directions to West End</a>';
                             segmentHTML += '<div class="getDistance" data-lat="' + westLat + '" data-long="' + westLong + '"></div>';
                             if(iceAge.secondaryPosition !== ''){
+                                segmentHTML += '<div class="secondary_location">'
+                                segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.secondaryPosition.latitude + '+' + iceAge.secondaryPosition.longitude + '/' + westLat + 'N+' + westLong + 'W">Secondary Directions to West End</a>';
                                 segmentHTML += '<div class="getSecondaryDistance" data-lat="' + westLat + '" data-long="' + westLong + '"></div>';
+                                segmentHTML += '</div>';
                             }
                             segmentHTML += '</div>';
                         }
@@ -356,7 +359,10 @@ var iceAge = {
                             segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.position.coords.latitude + '+' + iceAge.position.coords.longitude + '/' + eastLat + 'N+' + eastLong + 'W">Directions to East End</a>';
                             segmentHTML += '<div class="getDistance" data-lat="' + eastLat + '" data-long="' + eastLong + '"></div>';
                             if(iceAge.secondaryPosition !== ''){
+                                segmentHTML += '<div class="secondary_location">'
+                                segmentHTML += '<a class="location" target="_blank" href="https://www.google.com/maps/dir/' + iceAge.psecondaryPosition.latitude + '+' + iceAge.secondaryPosition.longitude + '/' + eastLat + 'N+' + eastLong + 'W">Secondary Directions to East End</a>';
                                 segmentHTML += '<div class="getSecondaryDistance" data-lat="' + eastLat + '" data-long="' + eastLong + '"></div>';
+                                segmentHTML += '</div>';
                             }
                             segmentHTML += '</div>';
                         }
@@ -466,8 +472,7 @@ var iceAge = {
     },
 
     getDistanceFromCurrentLocation: function(htmlElement, currentPosLat, currentPosLong, destLat, destLong, secondary) {
-        console.log(currentPosLat);
-        console.log(currentPosLong);
+
         var origin = new google.maps.LatLng(currentPosLat, currentPosLong);
         var destination = new google.maps.LatLng(destLat, -(destLong));
         var service = new google.maps.DistanceMatrixService();
