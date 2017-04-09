@@ -158,8 +158,8 @@ var iceAge = {
                 iceAge.position = position;
 
                 if(parameters.includes('lat') && parameters.includes('long')){
-                    var lat = parameters.substring(parameters.indexOf('lat=') + 4, parameters.indexOf('long'));
-                    var long = parameters.substring(parameters.indexOf('long=') + 5, parameters.length);
+                    var lat = parseFloat(parameters.substring(parameters.indexOf('lat=') + 4, parameters.indexOf('&long')));
+                    var long = parseFloat(parameters.substring(parameters.indexOf('long=') + 5, parameters.length));
                     var latLongObj = {'latitude': lat, 'longitude': long};
 
                     iceAge.secondaryPosition = latLongObj;
