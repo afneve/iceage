@@ -29,9 +29,14 @@ var iceAge = {
     ******************
     */
     init: function() {
-        var loc = window.location.host;
+        var loc = window.location.host,
+            parameters = window.location.search;
         if (loc.includes('afneve')) {
             iceAge.useGeo = true;
+
+            if(parameters.includes('disableData')){
+                iceAge.usingTrelloData = false;
+            }
         }
         else{
             iceAge.usingTrelloData = false
