@@ -5,6 +5,14 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 34, 36, 44, 45, 46, 47],
 		"completedSegments" : [
 			{
+				"segmentId" : 59,
+				"dateOfCompletion" : "2017-10-21"
+			},
+			{
+				"segmentId" : 63,
+				"dateOfCompletion" : "2017-10-21"
+			},
+			{
 				"segmentId" : 53,
 				"dateOfCompletion" : "2017-08-19"
 			},
@@ -102,10 +110,6 @@ progress_data = {
 			{
 				"segmentId" : 28,
 				"notes" : "Completed segment around lake"
-			},
-			{
-				"segmentId" : 63,
-				"notes" : "Completed segment from the North of Devil's Lake down to the Eastern end that meets with the Merrimac segment"
 			}
 		]
 	},
