@@ -9,6 +9,10 @@ progress_data = {
 				"dateOfCompletion" : "2017-10-21"
 			},
 			{
+				"segmentId" : 64,
+				"dateOfCompletion" : "2017-10-21"
+			},
+			{
 				"segmentId" : 63,
 				"dateOfCompletion" : "2017-10-21"
 			},
