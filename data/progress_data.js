@@ -5,6 +5,18 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 34, 36, 44, 45, 46, 47],
 		"completedSegments" : [
 			{
+				"segmentId" : 56,
+				"dateOfCompletion" : "2018-01-20"
+			},
+			{
+				"segmentId" : 57,
+				"dateOfCompletion" : "2018-01-20"
+			},
+			{
+				"segmentId" : 58,
+				"dateOfCompletion" : "2018-01-20"
+			},
+			{
 				"segmentId" : 59,
 				"dateOfCompletion" : "2017-10-21"
 			},
@@ -122,6 +134,30 @@ progress_data = {
 		"userId" : "2",
 		"oldcompletedSegmentIds" : [33, 45],
 		"completedSegments" : [
+			{
+				"segmentId" : 56,
+				"dateOfCompletion" : "2018-01-20"
+			},
+			{
+				"segmentId" : 57,
+				"dateOfCompletion" : "2018-01-20"
+			},
+			{
+				"segmentId" : 58,
+				"dateOfCompletion" : "2018-01-20"
+			},
+			{
+				"segmentId" : 59,
+				"dateOfCompletion" : "2017-10-21"
+			},
+			{
+				"segmentId" : 62,
+				"dateOfCompletion" : "2017-10-21"
+			},
+			{
+				"segmentId" : 63,
+				"dateOfCompletion" : "2017-10-21"
+			},
 			{
 				"segmentId" : 53,
 				"dateOfCompletion" : "2017-08-19"
