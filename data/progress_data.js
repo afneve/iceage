@@ -5,6 +5,18 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 34, 36, 44, 45, 46, 47],
 		"completedSegments" : [
 			{
+				"segmentId" : 60,
+				"dateOfCompletion" : "2018-01-26"
+			},
+			{
+				"segmentId" : 61,
+				"dateOfCompletion" : "2018-01-26"
+			},
+			{
+				"segmentId" : 63,
+				"dateOfCompletion" : "2018-01-26"
+			},
+			{
 				"segmentId" : 56,
 				"dateOfCompletion" : "2018-01-20"
 			},
