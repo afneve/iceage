@@ -259,13 +259,8 @@ var iceAge = {
             usersPartialArray = iceAge.usersWhoHavePartialSegment(i + 1);
 
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
-
-            if(usersCompleteArray.length > 0){
-                console.log(usersCompleteArray);
-                console.log($.inArray('E', usersCompleteArray));
-            }
             
-            if (usersCompleteArray.length == 2 && allComplete) {
+            if ($.inArray('E', usersCompleteArray) > -1 && allComplete) {
                 allComplete = true;
             }
             else{
