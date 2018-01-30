@@ -31,6 +31,8 @@ var iceAge = {
     init: function() {
         var loc = window.location.host,
             parameters = window.location.search;
+
+        //IF NOT WORKING LOCALLY
         if (loc.includes('afneve')) {
             iceAge.useGeo = true;
 
@@ -252,12 +254,14 @@ var iceAge = {
         for (var i = 0; i < ice_age_data.length; i++) {
             ice_age_data[i].segment_id = i + 1;
 
+            
             usersCompleteArray = iceAge.usersWhoHaveCompletedSegment(i + 1);
             usersPartialArray = iceAge.usersWhoHavePartialSegment(i + 1);
 
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
 
-            if (usersCompleteArray.length == 2 && allComplete) {
+            console.log(usersCompleteArray.contains('2'));
+            if (usersCompleteArray.length == 2 && usersCompleteArray.contains('2') && allComplete) {
                 allComplete = true;
             }
             else{
