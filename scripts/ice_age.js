@@ -260,8 +260,12 @@ var iceAge = {
 
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
 
-            console.log(usersCompleteArray.contains('2'));
-            if (usersCompleteArray.length == 2 && usersCompleteArray.contains('2') && allComplete) {
+            if(usersCompleteArray.length > 0){
+                console.log(usersCompleteArray);
+                console.log(usersCompleteArray.contains('2'));
+            }
+            
+            if (usersCompleteArray.length == 2 && allComplete) {
                 allComplete = true;
             }
             else{
