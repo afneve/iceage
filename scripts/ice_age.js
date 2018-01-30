@@ -262,7 +262,6 @@ var iceAge = {
 
             if(usersCompleteArray.length > 0){
                 console.log(usersCompleteArray);
-                console.log(usersCompleteArray.contains('2'));
                 console.log($.inArray('E', usersCompleteArray));
             }
             
