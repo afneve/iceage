@@ -5,6 +5,10 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 34, 36, 44, 45, 46, 47],
 		"completedSegments" : [
 			{
+				"segmentId" : 12,
+				"dateOfCompletion" : "2018-02-17"
+			},
+			{
 				"segmentId" : 60,
 				"dateOfCompletion" : "2018-01-26"
 			},
@@ -136,6 +140,10 @@ progress_data = {
 				"notes" : "Completed Western segment to Stout Road."
 			},
 			{
+				"segmentId" : 17,
+				"notes" : "Completed North section to about 2 miles North of North Lake. Stopped where trail left snowmobile trail on the East side"
+			},
+			{
 				"segmentId" : 28,
 				"notes" : "Completed segment around lake"
 			}
@@ -146,6 +154,10 @@ progress_data = {
 		"userId" : "2",
 		"oldcompletedSegmentIds" : [33, 45],
 		"completedSegments" : [
+			{
+				"segmentId" : 12,
+				"dateOfCompletion" : "2018-02-17"
+			},
 			{
 				"segmentId" : 60,
 				"dateOfCompletion" : "2018-01-26"
@@ -255,6 +267,10 @@ progress_data = {
 			{
 				"segmentId" : 16,
 				"notes" : "Completed Western segment to Stout Road."
+			},
+			{
+				"segmentId" : 17,
+				"notes" : "Completed North section to about 2 miles North of North Lake. Stopped where trail left snowmobile trail on the East side"
 			},
 			{
 				"segmentId" : 34,
