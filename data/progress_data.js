@@ -311,10 +311,6 @@ progress_data = {
 			{
 				"segmentId" : 44,
 				"notes" : "Completed everything from the West end to the end of the boardwalk north of HWY 52"
-			},
-			{
-				"segmentId" : 63,
-				"notes" : "Completed segment from the North of Devil's Lake down to the Eastern end that meets with the Merrimac segment"
 			}
 		]
 	}]
