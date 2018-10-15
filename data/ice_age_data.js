@@ -2535,7 +2535,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Southern Columbia County",
-	"segment": "Fern Glen (Closed)",
+	"segment": "Fern Glen",
 	"atlasmap": "63f",
 	"totaldistance": "1.3",
 	"iceagetraildistance": "1.3",
