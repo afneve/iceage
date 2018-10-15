@@ -585,7 +585,7 @@ segment_id_location_data = [{
 	"east_gps_id": "SC11"
 }, {
 	"segment_id": "66",
-	"segment": "GrovesPertzborn ",
+	"segment": "Fern Glen",
 	"westLat": "43 19.748",
 	"westLong": "89 34.783",
 	"eastLat": "43 19.332",

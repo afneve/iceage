@@ -5,6 +5,34 @@ progress_data = {
 		"oldcompletedSegmentIds" : [33, 34, 36, 44, 45, 46, 47],
 		"completedSegments" : [
 			{
+				"segmentId" : 65,
+				"dateOfCompletion" : "2018-10-13"
+			},
+			{
+				"segmentId" : 66,
+				"dateOfCompletion" : "2018-10-13"
+			},
+			{
+				"segmentId" : 67,
+				"dateOfCompletion" : "2018-10-13"
+			},
+			{
+				"segmentId" : 68,
+				"dateOfCompletion" : "2018-10-13"
+			},
+			{
+				"segmentId" : 69,
+				"dateOfCompletion" : "2018-10-13"
+			},
+			{
+				"segmentId" : 115,
+				"dateOfCompletion" : "2018-09-29"
+			},
+			{
+				"segmentId" : 21,
+				"dateOfCompletion" : "2018-06-25"
+			},
+			{
 				"segmentId" : 76,
 				"dateOfCompletion" : "2018-03-26"
 			},
@@ -147,6 +175,34 @@ progress_data = {
 			
 		],
 		"partialSegments" : [
+			{
+				"segmentId" : 65,
+				"dateOfCompletion" : "2018-10-13"
+			},
+			{
+				"segmentId" : 66,
+				"dateOfCompletion" : "2018-10-13"
+			},
+			{
+				"segmentId" : 67,
+				"dateOfCompletion" : "2018-10-13"
+			},
+			{
+				"segmentId" : 68,
+				"dateOfCompletion" : "2018-10-13"
+			},
+			{
+				"segmentId" : 69,
+				"dateOfCompletion" : "2018-10-13"
+			},
+			{
+				"segmentId" : 115,
+				"dateOfCompletion" : "2018-09-29"
+			},
+			{
+				"segmentId" : 21,
+				"dateOfCompletion" : "2018-06-25"
+			},
 			{
 				"segmentId" : 117,
 				"notes" : "Completed Western segment from B to Bb"
