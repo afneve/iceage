@@ -1,5 +1,6 @@
 ice_age_data = [{
 	"booksection": "Polk & Burnett Counties",
+	"countyId": 1,
 	"segment": "St. Croix Falls",
 	"atlasmap": "1f",
 	"totaldistance": "7.8",
@@ -39,6 +40,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Polk & Burnett Counties",
+	"countyId": 1,
 	"segment": "Gandy Dancer",
 	"atlasmap": "1f, 2f, 3f",
 	"totaldistance": "15.6",
@@ -78,6 +80,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Polk & Burnett Counties",
+	"countyId": 1,
 	"segment": "Trade River",
 	"atlasmap": "3f",
 	"totaldistance": "4.3",
@@ -117,6 +120,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Polk & Burnett Counties",
+	"countyId": 1,
 	"segment": "Straight Lake",
 	"atlasmap": "3f",
 	"totaldistance": "3.6",
@@ -156,6 +160,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Polk & Burnett Counties",
+	"countyId": 1,
 	"segment": "Straight River",
 	"atlasmap": "3f, 4f",
 	"totaldistance": "3.4",
@@ -195,6 +200,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Polk & Burnett Counties",
+	"countyId": 1,
 	"segment": "Pine Lake",
 	"atlasmap": "3f, 4f",
 	"totaldistance": "2.9",
@@ -234,6 +240,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Polk & Burnett Counties",
+	"countyId": 1,
 	"segment": "McKenzie Creek",
 	"atlasmap": "4f, 5f",
 	"totaldistance": "9.4",
@@ -273,6 +280,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Polk & Burnett Counties",
+	"countyId": 1,
 	"segment": "Indian Creek",
 	"atlasmap": "5f",
 	"totaldistance": "5.4",
@@ -312,6 +320,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Polk & Burnett Counties",
+	"countyId": 1,
 	"segment": "Sand Creek",
 	"atlasmap": "5f, 6f",
 	"totaldistance": "6",
@@ -351,6 +360,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Barron & Washburn Counties",
+	"countyId": 2,
 	"segment": "Timberland Hills",
 	"atlasmap": "6f",
 	"totaldistance": "10.9",
@@ -390,6 +400,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Barron & Washburn Counties",
+	"countyId": 2,
 	"segment": "Grassy Lake",
 	"atlasmap": "7f",
 	"totaldistance": "8.2",
@@ -429,6 +440,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Barron & Washburn Counties",
+	"countyId": 2,
 	"segment": "Bear Lake",
 	"atlasmap": "8f",
 	"totaldistance": "5.3",
@@ -468,6 +480,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Barron & Washburn Counties",
+	"countyId": 2,
 	"segment": "Tuscobia",
 	"atlasmap": "8f, 9f, 10f",
 	"totaldistance": "10.3",
@@ -507,6 +520,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Barron & Washburn Counties",
+	"countyId": 2,
 	"segment": "Blueberry",
 	"atlasmap": "10f",
 	"totaldistance": "0.9",
@@ -546,6 +560,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Barron & Washburn Counties",
+	"countyId": 2,
 	"segment": "Hemlock Creek",
 	"atlasmap": "10f",
 	"totaldistance": "6.2",
@@ -585,6 +600,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Rusk County",
+	"countyId": 3,
 	"segment": "Northern Blue Hills",
 	"atlasmap": "11f",
 	"totaldistance": "9.3",
@@ -624,6 +640,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Rusk County",
+	"countyId": 3,
 	"segment": "Southern Blue Hills",
 	"atlasmap": "12f",
 	"totaldistance": "7.2",
@@ -663,6 +680,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Chippewa County",
+	"countyId": 4,
 	"segment": "Chippewa Moraine",
 	"atlasmap": "15f",
 	"totaldistance": "7.6",
@@ -702,6 +720,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Chippewa County",
+	"countyId": 4,
 	"segment": "Harwood Lakes",
 	"atlasmap": "15f, 16f",
 	"totaldistance": "5.8",
@@ -741,6 +760,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Chippewa County",
+	"countyId": 4,
 	"segment": "Firth Lake",
 	"atlasmap": "16f",
 	"totaldistance": "6.5",
@@ -780,6 +800,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Chippewa County",
+	"countyId": 4,
 	"segment": "Chippewa River",
 	"atlasmap": "16f",
 	"totaldistance": "1.8",
@@ -819,6 +840,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Taylor County",
+	"countyId": 5,
 	"segment": "Lake Eleven Segment",
 	"atlasmap": "21f, 22f",
 	"totaldistance": "14.1",
@@ -858,6 +880,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Taylor County",
+	"countyId": 5,
 	"segment": "Jerry Lake",
 	"atlasmap": "22f, 23f",
 	"totaldistance": "15.1",
@@ -897,6 +920,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Taylor County",
+	"countyId": 5,
 	"segment": "Mondeaux Esker",
 	"atlasmap": "23f",
 	"totaldistance": "11.4",
@@ -936,6 +960,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Taylor County",
+	"countyId": 5,
 	"segment": "Pine Line",
 	"atlasmap": "24f, 25f",
 	"totaldistance": "0.9",
@@ -975,6 +1000,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Taylor County",
+	"countyId": 5,
 	"segment": "East Lake",
 	"atlasmap": "24f, 25f",
 	"totaldistance": "6.4",
@@ -1014,6 +1040,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Taylor County",
+	"countyId": 5,
 	"segment": "Rib Lake",
 	"atlasmap": "25f",
 	"totaldistance": "5.8",
@@ -1053,6 +1080,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Taylor County",
+	"countyId": 5,
 	"segment": "Wood Lake",
 	"atlasmap": "25f, 26f",
 	"totaldistance": "13.5",
@@ -1092,6 +1120,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Lincoln County",
+	"countyId": 6,
 	"segment": "Timberland Wilderness",
 	"atlasmap": "26f",
 	"totaldistance": "3.9",
@@ -1131,6 +1160,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Lincoln County",
+	"countyId": 6,
 	"segment": "Camp 27",
 	"atlasmap": "26f, 27f",
 	"totaldistance": "2.9",
@@ -1170,6 +1200,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Lincoln County",
+	"countyId": 6,
 	"segment": "Newwood",
 	"atlasmap": "26f, 27f",
 	"totaldistance": "6.5",
@@ -1209,6 +1240,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Lincoln County",
+	"countyId": 6,
 	"segment": "Averill-Kelly Creek Wilderness",
 	"atlasmap": "27f, 28f",
 	"totaldistance": "4.8",
@@ -1248,6 +1280,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Lincoln County",
+	"countyId": 6,
 	"segment": "Turtle Rock",
 	"atlasmap": "28f",
 	"totaldistance": "5.1",
@@ -1287,6 +1320,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Lincoln County",
+	"countyId": 6,
 	"segment": "Grandfather Falls",
 	"atlasmap": "28f",
 	"totaldistance": "4",
@@ -1326,6 +1360,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Lincoln County",
+	"countyId": 6,
 	"segment": "Underdown",
 	"atlasmap": "29f, 30f",
 	"totaldistance": "6.3",
@@ -1365,6 +1400,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Lincoln County",
+	"countyId": 6,
 	"segment": "Alta Junction",
 	"atlasmap": "29f, 30f",
 	"totaldistance": "1.2",
@@ -1404,6 +1440,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Lincoln County",
+	"countyId": 6,
 	"segment": "Harrison Hills",
 	"atlasmap": "30f, 31f",
 	"totaldistance": "14.4",
@@ -1443,6 +1480,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Langlade County",
+	"countyId": 7,
 	"segment": "Parrish Hills",
 	"atlasmap": "31f, 32f",
 	"totaldistance": "11.6",
@@ -1482,6 +1520,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Langlade County",
+	"countyId": 7,
 	"segment": "Highland Lakes Western",
 	"atlasmap": "32f, 33f",
 	"totaldistance": "5.9",
@@ -1521,6 +1560,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Langlade County",
+	"countyId": 7,
 	"segment": "Highland Lakes Eastern",
 	"atlasmap": "33f",
 	"totaldistance": "3.4",
@@ -1560,6 +1600,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Langlade County",
+	"countyId": 7,
 	"segment": "Old Railroad",
 	"atlasmap": "33f, 34f",
 	"totaldistance": "9.2",
@@ -1599,6 +1640,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Langlade County",
+	"countyId": 7,
 	"segment": "Lumbercamp",
 	"atlasmap": "34f, 35f",
 	"totaldistance": "12",
@@ -1638,6 +1680,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Langlade County",
+	"countyId": 7,
 	"segment": "Kettlebowl",
 	"atlasmap": "35f, 36f",
 	"totaldistance": "9.9",
@@ -1677,6 +1720,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Marathon County",
+	"countyId": 8,
 	"segment": "Plover River",
 	"atlasmap": "39f",
 	"totaldistance": "5.7",
@@ -1716,6 +1760,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Marathon County",
+	"countyId": 8,
 	"segment": "Dells of the Eau Claire",
 	"atlasmap": "40f, 41f",
 	"totaldistance": "2.6",
@@ -1755,6 +1800,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Marathon County",
+	"countyId": 8,
 	"segment": "Thornapple Creek",
 	"atlasmap": "40f, 41f",
 	"totaldistance": "3.9",
@@ -1794,6 +1840,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Marathon County",
+	"countyId": 8,
 	"segment": "Ringle",
 	"atlasmap": "41f",
 	"totaldistance": "9.4",
@@ -1833,6 +1880,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Portage & Waupaca Counties",
+	"countyId": 9,
 	"segment": "New Hope-Iola Ski Hill",
 	"atlasmap": "45f",
 	"totaldistance": "5.7",
@@ -1872,6 +1920,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Portage & Waupaca Counties",
+	"countyId": 9,
 	"segment": "Skunk and Foster Lakes",
 	"atlasmap": "47f",
 	"totaldistance": "4.4",
@@ -1911,6 +1960,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Portage & Waupaca Counties",
+	"countyId": 9,
 	"segment": "Waupaca River",
 	"atlasmap": "47f",
 	"totaldistance": "4.9",
@@ -1950,6 +2000,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Portage & Waupaca Counties",
+	"countyId": 9,
 	"segment": "Hartman Creek",
 	"atlasmap": "48f",
 	"totaldistance": "5.6",
@@ -1989,6 +2040,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Portage & Waupaca Counties",
+	"countyId": 9,
 	"segment": "Emmons Creek",
 	"atlasmap": "48f",
 	"totaldistance": "2.6",
@@ -2028,6 +2080,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waushara County",
+	"countyId": 10,
 	"segment": "Deerfield",
 	"atlasmap": "50f",
 	"totaldistance": "3.7",
@@ -2067,6 +2120,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waushara County",
+	"countyId": 10,
 	"segment": "Bohn Lake",
 	"atlasmap": "51f",
 	"totaldistance": "1.2",
@@ -2106,6 +2160,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waushara County",
+	"countyId": 10,
 	"segment": "Greenwood",
 	"atlasmap": "51f",
 	"totaldistance": "4.7",
@@ -2145,6 +2200,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waushara County",
+	"countyId": 10,
 	"segment": "Mecan River",
 	"atlasmap": "52f",
 	"totaldistance": "7.2",
@@ -2184,6 +2240,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waushara County",
+	"countyId": 10,
 	"segment": "Wedde Creek",
 	"atlasmap": "52f",
 	"totaldistance": "1.2",
@@ -2223,6 +2280,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waushara County",
+	"countyId": 10,
 	"segment": "Chaffee Creek",
 	"atlasmap": "52f",
 	"totaldistance": "2.5",
@@ -2262,6 +2320,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Marquette County",
+	"countyId": 11,
 	"segment": "John Muir Park",
 	"atlasmap": "56f",
 	"totaldistance": "1.7",
@@ -2301,6 +2360,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Northern Columbia County",
+	"countyId": 12,
 	"segment": "Portage Canal",
 	"atlasmap": "57f",
 	"totaldistance": "2.9",
@@ -2340,6 +2400,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Sauk County",
+	"countyId": 13,
 	"segment": "Baraboo",
 	"atlasmap": "60f",
 	"totaldistance": "4",
@@ -2379,6 +2440,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Sauk County",
+	"countyId": 13,
 	"segment": "Sauk Point",
 	"atlasmap": "61f",
 	"totaldistance": "3.8",
@@ -2418,6 +2480,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Sauk County",
+	"countyId": 13,
 	"segment": "Devil's Lake",
 	"atlasmap": "61f",
 	"totaldistance": "10.9",
@@ -2457,6 +2520,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Sauk County",
+	"countyId": 13,
 	"segment": "Merrimac",
 	"atlasmap": "61f",
 	"totaldistance": "3.6",
@@ -2496,6 +2560,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Southern Columbia County",
+	"countyId": 14,
 	"segment": "Gibraltar",
 	"atlasmap": "62f",
 	"totaldistance": "4.8",
@@ -2535,6 +2600,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Southern Columbia County",
+	"countyId": 14,
 	"segment": "Fern Glen",
 	"atlasmap": "63f",
 	"totaldistance": "1.3",
@@ -2574,6 +2640,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Southern Columbia County",
+	"countyId": 14,
 	"segment": "City of Lodi",
 	"atlasmap": "63f",
 	"totaldistance": "1.8",
@@ -2613,6 +2680,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Southern Columbia County",
+	"countyId": 14,
 	"segment": "Eastern Lodi Marsh",
 	"atlasmap": "63f",
 	"totaldistance": "3.2",
@@ -2652,6 +2720,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Southern Columbia County/Dane County",
+	"countyId": 15,
 	"segment": "Lodi Marsh",
 	"atlasmap": "63f",
 	"totaldistance": "1.6",
@@ -2691,6 +2760,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Dane County",
+	"countyId": 16,
 	"segment": "Indian Lake",
 	"atlasmap": "64f",
 	"totaldistance": "2.9",
@@ -2730,6 +2800,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Dane County",
+	"countyId": 16,
 	"segment": "Table Bluff",
 	"atlasmap": "65f",
 	"totaldistance": "2.5",
@@ -2769,6 +2840,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Dane County",
+	"countyId": 16,
 	"segment": "Cross Plains",
 	"atlasmap": "65f",
 	"totaldistance": "2.8",
@@ -2808,6 +2880,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Dane County",
+	"countyId": 16,
 	"segment": "Valley View",
 	"atlasmap": "66f",
 	"totaldistance": "1.8",
@@ -2847,6 +2920,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Dane County",
+	"countyId": 16,
 	"segment": "Madison",
 	"atlasmap": "66f",
 	"totaldistance": "3.2",
@@ -2886,6 +2960,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Dane County",
+	"countyId": 16,
 	"segment": "Verona",
 	"atlasmap": "66f",
 	"totaldistance": "6.4",
@@ -2925,6 +3000,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Dane County",
+	"countyId": 16,
 	"segment": "Montrose",
 	"atlasmap": "67f",
 	"totaldistance": "7.5",
@@ -2964,6 +3040,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Dane County",
+	"countyId": 16,
 	"segment": "Brooklyn Wildlife",
 	"atlasmap": "68f",
 	"totaldistance": "3.5",
@@ -3003,6 +3080,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Green County",
+	"countyId": 17,
 	"segment": "Monticello",
 	"atlasmap": "68f, 69f",
 	"totaldistance": "6.5",
@@ -3042,6 +3120,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Green County",
+	"countyId": 17,
 	"segment": "Albany",
 	"atlasmap": "69f, 70f",
 	"totaldistance": "9.4",
@@ -3081,6 +3160,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Rock County",
+	"countyId": 18,
 	"segment": "Arbor Ridge",
 	"atlasmap": "74f",
 	"totaldistance": "2.1",
@@ -3120,6 +3200,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Rock County",
+	"countyId": 18,
 	"segment": "Devil's Staircase",
 	"atlasmap": "74f",
 	"totaldistance": "1.7",
@@ -3159,6 +3240,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Rock County",
+	"countyId": 18,
 	"segment": "Janesville",
 	"atlasmap": "74f",
 	"totaldistance": "10.4",
@@ -3198,6 +3280,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": "Rotary Botanical Gardens and Lions Beach: Just west of the Trails western intersection with PalmerDrive (608-752-3885, rotarybotanicalgardens.org).  The 20-acre Rotary Botanical Gardens, dedicated to international peace and friendship, showcase 18 different thematic gardens, many with an international theme, along with award-winning roses, unusual plant combinations, special collections of annuals and more. There is an admission fee. Just west of the Gardens is Lions Pond and Beach, with its large swimming area and changing rooms."
 }, {
 	"booksection": "Rock County",
+	"countyId": 18,
 	"segment": "Janesville to Milton",
 	"atlasmap": "75f",
 	"totaldistance": "3.2",
@@ -3237,6 +3320,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Rock County",
+	"countyId": 18,
 	"segment": "Milton",
 	"atlasmap": "75f",
 	"totaldistance": "4.3",
@@ -3276,6 +3360,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Rock County",
+	"countyId": 18,
 	"segment": "Storrs Lake",
 	"atlasmap": "75f",
 	"totaldistance": "1.9",
@@ -3315,6 +3400,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Walworth & Jefferson Counties",
+	"countyId": 19,
 	"segment": "Clover Valley",
 	"atlasmap": "77f",
 	"totaldistance": "1.6",
@@ -3354,6 +3440,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Walworth & Jefferson Counties",
+	"countyId": 19,
 	"segment": "Whitewater Lake",
 	"atlasmap": "78f",
 	"totaldistance": "4.6",
@@ -3393,6 +3480,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Walworth & Jefferson Counties",
+	"countyId": 19,
 	"segment": "Blackhawk",
 	"atlasmap": "79f",
 	"totaldistance": "7",
@@ -3432,6 +3520,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Walworth & Jefferson Counties",
+	"countyId": 19,
 	"segment": "Blue Spring Lake",
 	"atlasmap": "79f",
 	"totaldistance": "7.1",
@@ -3471,6 +3560,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waukesha County",
+	"countyId": 20,
 	"segment": "Stony Ridge",
 	"atlasmap": "80f",
 	"totaldistance": "3.1",
@@ -3510,6 +3600,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waukesha County",
+	"countyId": 20,
 	"segment": "Eagle",
 	"atlasmap": "80f",
 	"totaldistance": "5.6",
@@ -3549,6 +3640,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waukesha County",
+	"countyId": 20,
 	"segment": "Scuppernong",
 	"atlasmap": "80f, 81f",
 	"totaldistance": "5.6",
@@ -3588,6 +3680,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waukesha County",
+	"countyId": 20,
 	"segment": "Waterville",
 	"atlasmap": "81f",
 	"totaldistance": "3.8",
@@ -3627,6 +3720,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waukesha County",
+	"countyId": 20,
 	"segment": "Lapham Peak",
 	"atlasmap": "81f, 82f",
 	"totaldistance": "7.6",
@@ -3666,6 +3760,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waukesha County",
+	"countyId": 20,
 	"segment": "Delafield",
 	"atlasmap": "81f, 82f",
 	"totaldistance": "2.8",
@@ -3705,6 +3800,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waukesha County",
+	"countyId": 20,
 	"segment": "Hartland",
 	"atlasmap": "82f",
 	"totaldistance": "6.8",
@@ -3744,6 +3840,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waukesha County",
+	"countyId": 20,
 	"segment": "Merton",
 	"atlasmap": "83f",
 	"totaldistance": "5.2",
@@ -3783,6 +3880,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Waukesha County",
+	"countyId": 20,
 	"segment": "Monches",
 	"atlasmap": "83f",
 	"totaldistance": "3.1",
@@ -3822,6 +3920,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Washington County",
+	"countyId": 21,
 	"segment": "Loew Lake",
 	"atlasmap": "83f, 84f",
 	"totaldistance": "4.8",
@@ -3861,6 +3960,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Washington County",
+	"countyId": 21,
 	"segment": "Holy Hill",
 	"atlasmap": "84f",
 	"totaldistance": "6.9",
@@ -3900,6 +4000,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Washington County",
+	"countyId": 21,
 	"segment": "Pike Lake",
 	"atlasmap": "84f, 85f",
 	"totaldistance": "3.3",
@@ -3939,6 +4040,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Washington County",
+	"countyId": 21,
 	"segment": "Slinger",
 	"atlasmap": "84f, 85f",
 	"totaldistance": "1.5",
@@ -3978,6 +4080,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Washington County",
+	"countyId": 21,
 	"segment": "Cedar Lakes",
 	"atlasmap": "84f, 85f",
 	"totaldistance": "2.8",
@@ -4017,6 +4120,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Washington County",
+	"countyId": 21,
 	"segment": "West Bend",
 	"atlasmap": "85f, 86f",
 	"totaldistance": "6.5",
@@ -4056,6 +4160,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Washington County",
+	"countyId": 21,
 	"segment": "Southern Kewaskum",
 	"atlasmap": "85f, 86f",
 	"totaldistance": "1.1",
@@ -4095,6 +4200,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Washington County",
+	"countyId": 21,
 	"segment": "Kewaskum",
 	"atlasmap": "86f, 87f",
 	"totaldistance": "2.1",
@@ -4134,6 +4240,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Washington County",
+	"countyId": 21,
 	"segment": "Milwaukee River",
 	"atlasmap": "86f, 87f",
 	"totaldistance": "6.8",
@@ -4173,6 +4280,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Fond du Lac & Sheboygan Counties",
+	"countyId": 22,
 	"segment": "Milwaukee River",
 	"atlasmap": "87f",
 	"totaldistance": "4.3",
@@ -4212,6 +4320,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Fond du Lac & Sheboygan Counties",
+	"countyId": 22,
 	"segment": "Parnell",
 	"atlasmap": "87f, 88f, 89f",
 	"totaldistance": "13.9",
@@ -4251,6 +4360,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Fond du Lac & Sheboygan Counties",
+	"countyId": 22,
 	"segment": "Greenbush",
 	"atlasmap": "89f",
 	"totaldistance": "8.8",
@@ -4290,6 +4400,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Fond du Lac & Sheboygan Counties",
+	"countyId": 22,
 	"segment": "LaBudde Creek",
 	"atlasmap": "90f",
 	"totaldistance": "3.5",
@@ -4329,6 +4440,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Manitowoc County",
+	"countyId": 23,
 	"segment": "City of Manitowoc",
 	"atlasmap": "95f",
 	"totaldistance": "7.3",
@@ -4368,6 +4480,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Manitowoc County",
+	"countyId": 23,
 	"segment": "Dunes",
 	"atlasmap": "95f, 96f",
 	"totaldistance": "2.6",
@@ -4407,6 +4520,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Manitowoc County",
+	"countyId": 23,
 	"segment": "City of Two Rivers",
 	"atlasmap": "95f, 96f",
 	"totaldistance": "2.8",
@@ -4446,6 +4560,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Manitowoc County",
+	"countyId": 23,
 	"segment": "Point Beach",
 	"atlasmap": "96f",
 	"totaldistance": "10",
@@ -4485,6 +4600,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Manitowoc County",
+	"countyId": 23,
 	"segment": "Mishicot",
 	"atlasmap": "97f",
 	"totaldistance": "2.9",
@@ -4524,6 +4640,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Manitowoc County/Kewaunee County",
+	"countyId": 24,
 	"segment": "Tisch Mills",
 	"atlasmap": "98f",
 	"totaldistance": "2.6",
@@ -4563,6 +4680,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Kewaunee & Door Counties",
+	"countyId": 25,
 	"segment": "Kewaunee River",
 	"atlasmap": "100f, 101f",
 	"totaldistance": "11.2",
@@ -4602,6 +4720,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Kewaunee & Door Counties",
+	"countyId": 25,
 	"segment": "Forestville",
 	"atlasmap": "103f, 104f",
 	"totaldistance": "9.1",
@@ -4641,6 +4760,7 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail2": " "
 }, {
 	"booksection": "Kewaunee & Door Counties",
+	"countyId": 25,
 	"segment": "Sturgeon Bay",
 	"atlasmap": "104f, 105f",
 	"totaldistance": "13.7",
