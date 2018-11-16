@@ -807,7 +807,7 @@ var iceAge = {
             $('.county[data-index="' + segment + '"]').attr('data-loaded', 'true');
         });
 
-        $('.countyContainer h3').on('click', function() {
+        $('#ice_age .countyContainer').on('click', 'h3', function() {
             $(this).parent().find('.countySegments').toggle();
         });
 
