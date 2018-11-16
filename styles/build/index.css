@@ -1,0 +1,344 @@
+body {
+  background: #fff;
+  color: #666;
+  font-family: "Oxygen", Arial, sans-serif;
+  margin: 0;
+}
+
+h2 {
+  color: #0C78C5;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+h4 {
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+header nav {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  background: black;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  height: 40px;
+  z-index: 10;
+  overflow: hidden;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+header nav .selected {
+  background: #0C78C5;
+}
+header nav .nav_item {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#microphone {
+  width: 10%;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  border-left: 2px solid white;
+}
+#microphone.active i {
+  color: #0C78C5;
+}
+
+#ice_age {
+  padding: 60px 12px 0;
+}
+
+.hide {
+  display: none;
+}
+
+.user_container {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+  padding: 0 10px 35px;
+  box-sizing: border-box;
+}
+
+.progressBarContainer {
+  height: 6px;
+  width: 100%;
+  border-right: 2px solid #26bf42;
+  box-sizing: border-box;
+}
+
+.progressBar {
+  height: 100%;
+  background: #fce037;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #fce037 0%, #26bf42 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #fce037 0%, #26bf42 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #fce037 0%, #26bf42 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fce037", endColorstr="#26bf42",GradientType=1 );
+}
+
+.countyContainer {
+  margin-bottom: 15px;
+}
+.countyContainer h3 {
+  margin: 0;
+  cursor: pointer;
+  font-size: 1em;
+}
+.countyContainer .segment_name {
+  font-size: 0.9em;
+  padding: 3px;
+}
+
+.countySegments {
+  display: none;
+}
+
+.user_segment_container {
+  margin-bottom: 15px;
+}
+
+#progress_view h4 {
+  text-align: left;
+}
+
+.user_segments {
+  margin: 0 0 35px;
+}
+
+.user_header {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.user_container h4 {
+  font-size: 22px;
+}
+
+.user_container span.completion_data, .seg_notes {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.user_badge_container {
+  width: 50%;
+  display: inline-block;
+}
+
+.user_miles_remaining {
+  color: #0C78C5;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .user_container {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+  }
+}
+.segment_container {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 45px;
+}
+
+.county_name a {
+  text-decoration: none !important;
+  color: #0077d4 !important;
+}
+
+#segment_filter_container {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Oxygen", sans-serif;
+  width: 30%;
+  background: #eee;
+  float: left;
+  box-sizing: border-box;
+}
+#segment_filter_container select {
+  display: none;
+  border: none;
+  font-size: 19px;
+  font-weight: bold;
+  padding: 5px 0;
+  font-family: "Oxygen", sans-serif;
+  color: #666;
+}
+
+.terminus_container {
+  margin: 10px 0;
+}
+
+#segment_filter {
+  background: #eee;
+  box-sizing: border-box;
+}
+#segment_filter .selected {
+  background: white !important;
+}
+#segment_filter .complete {
+  background: #fce037;
+}
+#segment_filter ul {
+  list-style: none;
+  padding: 0;
+}
+#segment_filter ul > li > a {
+  font-size: 14px;
+  display: block;
+  padding: 8px;
+  color: black;
+  text-decoration: none;
+}
+
+/*
+Styles for list of segments
+*/
+#segment_list {
+  float: left;
+  width: 70%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.segment_name {
+  text-align: left;
+  font-weight: bold;
+}
+
+.segment_summary {
+  margin-bottom: 20px;
+}
+
+.segment {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 150px;
+}
+
+.segment_details {
+  position: relative;
+  text-transform: capitalize;
+}
+.segment_details span {
+  position: relative;
+  margin-right: 5px;
+}
+
+.yes + i {
+  color: #26bf42;
+}
+
+.no + i {
+  color: #C50401;
+}
+
+.nohiking {
+  margin: 15px 0 5px;
+}
+
+.segment_info {
+  width: 50%;
+  display: inline-block;
+}
+
+#segment_list a {
+  color: #236B8E;
+}
+
+a.location {
+  color: #236B8E;
+  display: block;
+  clear: both;
+}
+
+.easy {
+  color: #017927;
+}
+
+.difficult {
+  color: #C50401;
+}
+
+.user_segments_view {
+  margin-bottom: 15px;
+}
+
+.county h3 {
+  margin: 0 0 5px;
+}
+
+.secondary_location {
+  margin-top: 10px;
+}
+
+.location_based_info {
+  margin: 16px 0;
+}
+
+#ice_age_overlay {
+  padding: 20px;
+  width: 80%;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: black;
+  font-size: 16px;
+  z-index: 50;
+  background-color: white;
+}
+
+#overlay_screen {
+  background-color: #000;
+  opacity: 0.8;
+  width: 100%;
+  position: fixed;
+  z-index: 30;
+}
+
+.overlay_heading {
+  text-align: left;
+  text-transform: capitalize;
+}
+
+@media (max-width: 600px) {
+  #segment_filter_container {
+    background: white;
+    width: 100%;
+  }
+  #segment_filter_container select {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  #segment_filter {
+    width: 100%;
+    display: none;
+  }
+
+  #segment_list {
+    width: 100%;
+  }
+
+  .segment_info {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

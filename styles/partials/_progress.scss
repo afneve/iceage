@@ -24,21 +24,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fce037', end
 
 .countyContainer {
     margin-bottom: 15px;
+
+    h3 {
+        margin: 0;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    .segment_name {
+        font-size: 0.9em;
+        padding: 3px;
+    }
 }
 
 .countySegments {
     display: none;
-}
-
-.countyContainer h3 {
-    margin: 0;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-.countyContainer .segment_name {
-    font-size: 0.9em;
-    padding: 3px;
 }
 
 .user_segment_container{
@@ -57,6 +57,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fce037', end
     margin-bottom: 8px;
 }
 
+.user_container {
+    h4 {
+        font-size:22px;
+    }
+}
+
 .user_container span.completion_data, .seg_notes {
     font-weight: normal;
 	font-size: 14px; 
@@ -67,12 +73,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fce037', end
     display:inline-block;
 }
 
-.user_container h4{
-    font-size:22px;
-}
-
 .user_miles_remaining{
-    color: #0C78C5;
+    color: $ice_blue;
     font-weight: bold;
 }
 
