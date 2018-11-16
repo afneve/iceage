@@ -49,7 +49,17 @@ header nav .nav_item {
 
 #microphone{
     width: 10%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    border-left: 2px solid white;
 }
+
+#microphone.active i{
+    color: #0C78C5;
+}
+
+
 
 /*
 *

@@ -32,6 +32,10 @@ var iceAge = {
         var loc = window.location.host,
             parameters = window.location.search;
 
+        if (('webkitSpeechRecognition' in window)) {
+            $('#microphone').show();
+        }
+
         //IF NOT WORKING LOCALLY
         if (loc.includes('afneve')) {
             iceAge.useGeo = true;
@@ -259,6 +263,9 @@ var iceAge = {
             usersPartialArray = iceAge.usersWhoHavePartialSegment(i + 1);
 
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
+
+            console.log(usersCompleteArray);
+            // console.log(allComplete)
             
             if ($.inArray('E', usersCompleteArray) > -1 && allComplete) {
                 allComplete = true;
@@ -267,13 +274,14 @@ var iceAge = {
                 allComplete = false;
             }
 
+            //console.log(allComplete);
+
             //IF NEW COUNTY
             if (ice_age_data[i].booksection != previousSection) {
 
-                if (usersCompleteArray.length == 2) {
+                if (usersCompleteArray.length == 1) {
                     allComplete = true;
                 }
-
                 if (i === 0) {
                     segmentHTML += '<div class="county" data-index="' + countyCounter + '">';
                 } else {
@@ -379,42 +387,6 @@ var iceAge = {
 
                     segmentHTML += '</div>';
                 }
-            }
-
-            segmentHTML += '</div>';
-
-            segmentHTML += '<div class="user_badge_container">';
-
-            for (var u = 0; u < usersCompleteArray.length; u++) {
-                //segmentHTML += '<div class="badge" data-complete="' + usersCompleteArray[u] + '">';
-                //segmentHTML += '<img src="./images/' + usersCompleteArray[u] + '-complete.svg" alt="" /><span class="badge_label">' + usersCompleteArray[u] + '</span></div>';
-
-                segmentHTML += '<div class="badge" data-complete="' + usersCompleteArray[u] + '">';
-
-                segmentHTML += '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 293.938 301.906" enable-background="new 0 0 293.938 301.906" xml:space="preserve">';
-                segmentHTML += '<polygon class="fill" fill="#062335" points="185.238,107.453 152.818,107.453 152.818,117.953 141.119,117.953 141.119,107.453 108.699,107.453	117.989,94.243 114.209,94.243 121.309,84.143 113.969,84.143 121.049,74.073 116.149,74.073 125.419,60.883 119.659,60.883	146.969,22.043 174.278,60.883 168.519,60.883 177.789,74.073 172.889,74.073 179.969,84.143 172.629,84.143 179.729,94.243	175.949,94.243 "/>';
-                segmentHTML += '<path class="stroke" fill="none" stroke="#790301" stroke-width="4" stroke-miterlimit="10" d="M146.889,169.438"/>';
-                segmentHTML += '<path class="stroke" fill="none" stroke="#082C46" stroke-width="4" stroke-miterlimit="10" d="M270.68,169.438 c0,62.976-55.424,114.025-123.791,114.025c-68.368,0-123.791-51.051-123.791-114.025"/>';
-                segmentHTML += '<path class="stroke fill" fill="#082C46" stroke="#082C46" stroke-width="8" stroke-miterlimit="10" d="M146.969,154.938c-78.959,0-142.969,0-142.969,0	c0,78.959,64.009,142.97,142.969,142.97c78.959,0,142.969-64.011,142.969-142.97C289.938,154.938,225.928,154.938,146.969,154.938z M146.969,294.771C70.218,294.771,8,233.568,8,158.073c0,0,62.218,0,138.969,0c76.75,0,138.969,0,138.969,0 C285.938,233.568,223.719,294.771,146.969,294.771z"/>';
-                segmentHTML += '<path class="fill" fill="#082C46" d="M286.129,184.934h-136.16l41.4,104.119c-23.98,6.67-44.4,5.73-44.4,5.73h-0.08c0,0-20.42,0.939-44.41-5.73 l41.41-104.119H11.969v-67.96h85.99v-4.6h-25.03l7.17-11.42h-2.92l5.48-8.72h-5.66l5.46-8.71h-3.78l7.16-11.4h-4.45l21.09-33.58 l21.09,33.58h-4.45l7.16,11.4h-3.78l5.46,8.71h-5.66l5.48,8.72h-2.92l7.17,11.42h-25.03v4.6h85.96v-7.94h-25.03l7.17-10.59h-2.92 l5.48-8.1h-5.66l5.46-8.07h-3.78l7.16-10.58h-4.45l21.09-31.15l21.09,31.15h-4.449l7.159,10.58h-3.779l5.46,8.07h-5.66l5.479,8.1 h-2.92l7.17,10.59h-25.029v7.94h84.13V184.934z"/>';
-                segmentHTML += '<path class="stroke" fill="none" stroke="#082C46" stroke-width="4" stroke-miterlimit="10" d="M270.68,132.469 c0-62.975-55.424-114.025-123.791-114.025c-68.368,0-123.791,51.051-123.791,114.025"/>';
-                segmentHTML += '<path class="stroke fill" fill="#082C46" stroke="#082C46" stroke-width="8" stroke-miterlimit="10" d="M289.938,146.969 C289.938,68.01,225.928,4,146.969,4C68.009,4,4,68.01,4,146.969c0,0,64.009,0,142.969,0 C225.928,146.969,289.938,146.969,289.938,146.969z M285.938,143.833c0,0-62.219,0-138.969,0S8,143.833,8,143.833 C8,68.338,70.218,7.136,146.969,7.136C223.719,7.136,285.938,68.338,285.938,143.833z"/>';
-                segmentHTML += '</svg>';
-                segmentHTML += '<span class="badge_label">' + usersCompleteArray[u] + '</span>';
-                segmentHTML += '</div>';
-            }
-            for (var up = 0; up < usersPartialArray.length; up++) {
-                //segmentHTML += '<div class="badge" data-partial="' + usersPartialArray[up] + '"><img src="./images/' + usersPartialArray[up] + '-partial.svg" alt="" /><span class="badge_label">' + usersPartialArray[up] + '</span></div>';
-                
-                segmentHTML += '<div class="badge" data-partial="' + usersPartialArray[up] + '">';
-                    segmentHTML += '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 293.938 301.906" enable-background="new 0 0 293.938 301.906" xml:space="preserve">';
-                    segmentHTML += '<path class="stroke" fill="none" stroke="#790301" stroke-width="4" stroke-miterlimit="10" d="M146.889,169.438"/>';
-                    segmentHTML += '<path class="stroke" fill="none" stroke="#082C46" stroke-width="4" stroke-miterlimit="10" d="M23.099,169.434c0,5.26,0.39,10.43,1.13,15.5 c6.39,43.279,39.14,78.85,82.87,92.51"/>';
-                    segmentHTML += '<path class="stroke" fill="none" stroke="#082C46" stroke-width="4" stroke-miterlimit="10" d="M186.749,277.423 c43.7-13.68,76.41-49.229,82.8-92.489c0.74-5.07,1.13-10.24,1.13-15.5"/>';
-                    segmentHTML += '<path class="stroke fill" fill="#082C46" stroke="#082C46" stroke-width="8" stroke-miterlimit="10" d="M146.969,154.938c-78.959,0-142.969,0-142.969,0	c0,78.959,64.009,142.97,142.969,142.97c78.959,0,142.969-64.011,142.969-142.97C289.938,154.938,225.928,154.938,146.969,154.938z M146.969,294.771C70.218,294.771,8,233.568,8,158.073c0,0,62.218,0,138.969,0c76.75,0,138.969,0,138.969,0 C285.938,233.568,223.719,294.771,146.969,294.771z"/>';
-                    segmentHTML += '<path class="fill" fill="#082C46" d="M286.129,150.953v33.98h-136.16l36.78,92.489l4.62,11.63c-23.98,6.67-44.4,5.73-44.4,5.73h-0.08 c0,0-20.42,0.939-44.41-5.73l4.62-11.609l36.79-92.51H11.969v-33.98H286.129z"/></svg>';
-                    segmentHTML += '<span class="badge_label">' + usersPartialArray[up] + '</span>';
-                segmentHTML += '</div>';
             }
 
             segmentHTML += '</div>';
@@ -546,17 +518,20 @@ var iceAge = {
     },
 
     usersWhoHaveCompletedSegment: function(segmentId) {
-        var userArray = [];
+        var userArray = [],
+            users = progress_data.users;
 
-        for (var i = 0; i < progress_data.users.length; i++) {
-            for (var k = 0; k < progress_data.users[i].completedSegments.length; k++) {
-                var id = progress_data.users[i].completedSegments[k].segmentId;
+        for (var i = 0; i < users.length; i++) {
+            for (var k = 0; k < users[i].completedSegments.length; k++) {
+                var id = users[i].completedSegments[k].segmentId;
+
                 if (id == segmentId) {
-                    userArray.push(progress_data.users[i].user);
+                    userArray.push(users[i].user);
                     break;
                 }
             }
         }
+
         return userArray;
     },
 
@@ -581,89 +556,183 @@ var iceAge = {
     ******************
     */
     displayUserProgress: function() {
-        var userName = '',
-            userHTML = '',
+        var progressHTML = '',
             userCompleteList = '',
             userPartialList = '',
             userCompleteMiles = 0,
             userPartialMiles = 0,
-            userCompleteSegments = 0;
+            userCompleteSegments = 0,
+            countyComplete = false,
+            countyHTML = '',
+            users = progress_data.users;
 
-        for (var i = 0; i < progress_data.users.length; i++) {
+        //LOOP THROUGH USERS
+        for (var i = 0; i < users.length; i++) {
             userCompleteList = '';
             userPartialList = '';
             userCompleteMiles = 0;
             userPartialMiles = 0;
             userCompleteSegments = 0;
+            countyComplete = false;
+            
+            var userName = users[i].user;
 
-            userName = progress_data.users[i].user;
-            userHTML += '<div class="user_container">';
-            userHTML += '<h2>Hiker ' + progress_data.users[i].user + '</h2>';
-            for (var j = 0; j < ice_age_data.length; j++) {
+            progressHTML += '<div class="user_container">';
 
-                for (var k = 0; k < progress_data.users[i].completedSegments.length; k++) {
-                    var id = progress_data.users[i].completedSegments[k].segmentId;
-                    if (id == ice_age_data[j].segment_id) {
-                        userCompleteList += '<div class="segment_name">' + ice_age_data[j].segment + ' <span class="completion_data">( ' + progress_data.users[i].completedSegments[k].dateOfCompletion + ' )</span></div>';
-                        userCompleteMiles += parseFloat(ice_age_data[j].iceagetraildistance);
-                        userCompleteSegments++;
+            //LOOP THROUGH COUNTIES
+            for (var a = 0; a < county_data.length; a++) {
+                var segmentHTML = '',
+                    countyDistance = 0,
+                    countyCompletedDistance = 0;
 
-                        break;
+                segmentHTML += '<div class="countySegments">';
+
+                // LOOP THROUGH SEGMENTS
+                for (var b = 0; b < ice_age_data.length; b++) {
+
+                    // ONLY LOOP THROUGH SEGMENTS THAT ARE IN THE CURRENT COUNTY
+                    if(ice_age_data[b].countyId == county_data[a].countyId) {
+                        countyComplete = true;
+                        
+                        // KEEP TRACK OF MILES IN COUNTY
+                        countyDistance += parseFloat(ice_age_data[b].iceagetraildistance);
+                        segmentHTML += '<div class="segment_name">' + ice_age_data[b].segment;
+                        
+
+                        // [1, 2]
+                        // [1, 3, 5]
+                        // LOOP THROUGH USERS COMPLETED SEGMENTS TO SEE IF THEY COMPLETED CURRENT SEGMENT
+                        for(var c = 0; c < users[i].completedSegments.length; c++) {
+                            if(users[i].completedSegments[c].segmentId == ice_age_data[b].segment_id){
+                                userCompleteMiles += parseFloat(ice_age_data[b].iceagetraildistance);
+                                countyCompletedDistance += parseFloat(ice_age_data[b].iceagetraildistance);
+                                segmentHTML += '<span class="completion_data"> (' + users[i].completedSegments[c].dateOfCompletion + ')</span>';
+                                userCompleteSegments++;
+
+                                countyComplete = countyComplete ? true : false;
+                                break;
+                            } else {
+                                countyComplete = false;
+                            }
+                        }
+                        for(var d = 0; d < users[i].partialSegments.length; d++) {
+                            if(users[i].partialSegments[d].segmentId == ice_age_data[b].segment_id){
+                                userPartialMiles += parseFloat(ice_age_data[b].iceagetraildistance);
+                                segmentHTML += '<div class="seg_notes">' + users[i].partialSegments[d].notes + '</div>'
+                                break;
+                            }
+                        }
+
+                        segmentHTML += '</div>';
+                        
+                       
                     }
+                    
                 }
+                segmentHTML += '</div>';
+                // segmentHTML += "countComplete- " + countyComplete;
 
-                for (var l = 0; l < progress_data.users[i].partialSegments.length; l++) {
-                    var id = progress_data.users[i].partialSegments[l].segmentId;
-                    if (id == ice_age_data[j].segment_id) {
-                        userPartialList += '<div class="user_segment_container">';
-                        userPartialList += '<div class="segment_name">' + ice_age_data[j].segment + '</div>';
-                        userPartialList += '<div class="seg_notes">' + progress_data.users[i].partialSegments[l].notes + '</div>';
-                        userPartialList += '</div>';
-                        userPartialMiles += parseFloat(ice_age_data[j].iceagetraildistance);
-
-                        break;
-                    }
-                }
-
-            } //END ICE AGE DATA LOOP
-
-            userHTML += '<div class="user_segments">';
-            userHTML += '<div>Distance of partially completed segments: ' + parseFloat(userPartialMiles.toFixed(2)) + ' miles</div>';
-
-
-            userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
-            userHTML += '<div>' + (iceAge.totalSegments - userCompleteSegments) + ' segments remaining</div>';
-
-            userHTML += '<div class="user_miles_remaining">' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles remaining</div>';
-            userHTML += '</div>';
-
-
-
-            userHTML += '<div class="user_segments">';
-            userHTML += '<h3 class="user_header">Completed Segments ( ' + progress_data.users[i].completedSegments.length + ' )</h3>';
-            userHTML += userCompleteList;
-            userHTML += '</div>';
-
-            if (userPartialMiles > 0) {
-                userHTML += '<div class="user_segments">';
-                userHTML += '<h3 class="user_header">Partially Completed Segments ( ' + progress_data.users[i].partialSegments.length + ' )</h3>';
-                userHTML += userPartialList;
-                userHTML += '</div>';
+                countyHTML += '<div class="countyContainer">';
+                countyHTML += '<h3>' + county_data[a].countyName + '</h3>';
+                // countyHTML += countyDistance + ' miles';
+                countyHTML += '<div class="progressBarContainer">';
+                countyHTML += '<div class="progressBar" style="width:' + parseFloat(countyCompletedDistance) / countyDistance * 100 + '%"></div>';
+                countyHTML += '</div>';
+                countyHTML += segmentHTML;
+                countyHTML += '</div>';
+                
             }
-            /*
-                        userHTML += '<div class="user_segments">';
-                        userHTML += '<h3 class="user_header">Distance:</h3>';
-                        userHTML += '<div>Distance of partially completed segments: ' + userPartialMiles + ' miles</div>';
-                        userHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
-                        userHTML += '<div>' + (iceAge.totalSegments - userCompleteSegments) + ' segments remaining</div>';
 
-                        userHTML += '<div class="user_miles_remaining">' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles remaining!</div>';
-                        userHTML += '</div>';
-            */
-            userHTML += '</div>';
+            progressHTML += '<div class="user_segments">';
+            progressHTML += '<h2 class="user_miles_remaining">' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles to go</h2>';
+           
+            progressHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
+            progressHTML += '<div>' + (iceAge.totalSegments - users[i].completedSegments.length) + ' segments remaining</div>';
+            progressHTML += '<div>Distance of partially completed segments: ' + parseFloat(userPartialMiles.toFixed(2)) + ' miles</div>';
+            
+            progressHTML += '</div>';
+
+            progressHTML += '<div class="user_segments">';
+            progressHTML += countyHTML;
+            progressHTML += '</div>';
+            
+            progressHTML += '</div>';
         } //END USER LOOP
 
-        $('#progress_view').html(userHTML);
+        $('#progress_view').html(progressHTML);
+    },
+    enableSpeech: function() {
+        console.log("enabled");
+        var ignore_onend;
+
+        // new instance of speech recognition
+        var recognition = new webkitSpeechRecognition();
+        // set params
+        recognition.continuous = true;
+        recognition.interimResults = false;
+        recognition.start();
+        $('#microphone').addClass('active');
+
+        recognition.onresult = function(event) {
+            $('#microphone').removeClass('active');
+            // delve into words detected results & get the latest
+            // total results detected
+            console.log(event.results);
+            
+            var resultsLength = event.results.length - 1;
+
+            // get length of latest results
+            var ArrayLength = event.results[resultsLength].length - 1;
+
+            // get last word detected
+            var saidWord = event.results[resultsLength][ArrayLength].transcript;
+            saidWord = saidWord.trim().toLowerCase();
+
+            console.log(saidWord);
+
+            for (var i = 0; i < ice_age_data.length; i++) {
+                //console.log(ice_age_data[i].booksection);
+                // console.log(ice_age_data[i].segment);
+                if(ice_age_data[i].booksection.toLowerCase().includes(saidWord)) {
+                    // alert(saidWord);
+                }
+
+                if(ice_age_data[i].segment.toLowerCase().includes(saidWord)) {
+                    console.log(ice_age_data[i].countyId);
+                    $('#segments').click();
+                    $('#segment_filter a[data-index="' + ice_age_data[i].countyId + '"]').click();
+                    // alert(saidWord);
+                }
+            }
+        }
+
+        // speech error handling
+        recognition.onerror = function(event) {
+            console.log(event.error);
+            if (event.error == 'no-speech') {
+                ignore_onend = true;
+                console.log("TESTIGN");
+            }
+            if (event.error == 'audio-capture') {
+                ignore_onend = true;
+            }
+            if (event.error == 'not-allowed') {
+                ignore_onend = true;
+            }
+            console.log(event);
+        }
+        
+        recognition.onend = function(event) {
+            console.log(event);
+            $('#microphone').removeClass('active');
+            var ignore_onend = true; 
+        console.log(ignore_onend);
+            if (ignore_onend) {
+                console.log("RETURN");
+                // recognition.start();
+            return false;
+            }
+        }
     },
     /*
     ******************
@@ -738,7 +807,16 @@ var iceAge = {
             $('.county[data-index="' + segment + '"]').attr('data-loaded', 'true');
         });
 
+        $('.countyContainer h3').on('click', function() {
+            $(this).parent().find('.countySegments').toggle();
+        });
+
         $('nav').on('click', '.nav_item', function(e) {
+
+            if($(this).attr('id') == 'microphone'){
+                iceAge.enableSpeech();
+                return false;
+            }
             $('.view').hide();
             $('.nav_item').removeClass('selected');
 
@@ -769,11 +847,6 @@ var iceAge = {
                 }
 
             }
-
-            if (e.keyCode == 83) {
-                iceAge.enableSpeech();
-            }
-
         });
     },
     openOverlay: function(overlayHTML){
