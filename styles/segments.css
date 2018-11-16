@@ -230,14 +230,14 @@ span.badge_label {
 
 #ice_age_overlay{
     padding: 20px;
-    width: 60%;
+    width: 80%;
     box-sizing: border-box;
     position: fixed;
     left: 0;
     right: 0;
     margin: auto;
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     z-index: 50;
     background-color: white;
 }
