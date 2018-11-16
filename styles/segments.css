@@ -91,12 +91,22 @@ Styles for list of segments
 
 .segment_details span{
     position: relative;
+    margin-right: 5px;
 }
 
 #segment_filter_container select{
     display: none;
 }
 
+.yes+i {
+    color: #26bf42;
+}
+
+.no+i {
+    color: #C50401;
+}
+
+/*
 .yes:after{
     content: "";
     border: 3px solid #017927;
@@ -131,6 +141,7 @@ Styles for list of segments
     position: absolute;
     transform: rotate(-45deg);
 }
+*/
 
 .nohiking{
     margin: 15px 0 5px;

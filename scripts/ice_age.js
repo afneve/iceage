@@ -450,11 +450,11 @@ var iceAge = {
         }
         if (value.trim() !== '') {
             html += '<div data-icon="' + className + '" class="segment_details">';
-            html += '<span class="yes">' + readableType + ':</span>';
+            html += '<span class="yes">' + readableType + '</span><i class="fas fa-check-circle"></i>';
             html += '</div>';
         } else {
             html += '<div data-icon="' + className + '" class="segment_details">';
-            html += '<span class="no">' + readableType + ':</span>';
+            html += '<span class="no">' + readableType + '</span><i class="fas fa-times-circle"></i>';
             html += '</div>';
         }
 
