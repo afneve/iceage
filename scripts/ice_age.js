@@ -315,6 +315,16 @@ var iceAge = {
             segmentHTML += '<div class="segment_container">';
             segmentHTML += '<div class="segment" data-index="' + (i + 1) + '">';
             segmentHTML += '<h3 class="segment_name">' + ice_age_data[i].segment + '</h3>';
+            for (var u = 0; u < usersCompleteArray.length; u++) {
+                segmentHTML += '<div class="progressBarContainer">';
+                segmentHTML += '<div class="progressBar" style="width:100%"></div>';
+                segmentHTML += '</div>';
+            }
+            for (var up = 0; up < usersPartialArray.length; up++) {
+                segmentHTML += '<div class="progressBarContainer">';
+                segmentHTML += '<div class="progressBar" style="width:50%"></div>';
+                segmentHTML += '</div>';
+            }
             segmentHTML += '<div class="segment_summary">' + ice_age_data[i].summary + '</div>';
 
 
@@ -648,7 +658,7 @@ var iceAge = {
            
             progressHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
             progressHTML += '<div>' + (iceAge.totalSegments - users[i].completedSegments.length) + ' segments remaining</div>';
-            progressHTML += '<div>Distance of partially completed segments: ' + parseFloat(userPartialMiles.toFixed(2)) + ' miles</div>';
+            progressHTML += '<div>' + parseFloat(userPartialMiles.toFixed(2)) + ' miles of partially completed segments</div>';
             
             progressHTML += '</div>';
 
@@ -668,7 +678,7 @@ var iceAge = {
         // new instance of speech recognition
         var recognition = new webkitSpeechRecognition();
         // set params
-        recognition.continuous = true;
+        recognition.continuous = false;
         recognition.interimResults = false;
         recognition.start();
         $('#microphone').addClass('active');
@@ -701,6 +711,7 @@ var iceAge = {
                     console.log(ice_age_data[i].countyId);
                     $('#segments').click();
                     $('#segment_filter a[data-index="' + ice_age_data[i].countyId + '"]').click();
+                    $('select').val(ice_age_data[i].countyId);
                     // alert(saidWord);
                 }
             }
