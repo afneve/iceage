@@ -41,7 +41,7 @@ var iceAge = {
         $('#segments').on('click', function(e){
             $('#progress_container').hide();
             $('#segment_container').show();
-            $('#nav div').removeClass('selected');
+            $('nav div').removeClass('selected');
             $(this).addClass('selected');
             
         });
@@ -49,7 +49,7 @@ var iceAge = {
         $('#progress').on('click', function(e){
             $('#segment_container').hide();
             $('#progress_container').show();
-            $('#nav div').removeClass('selected');
+            $('nav div').removeClass('selected');
             $(this).addClass('selected');
         });
 

@@ -34,7 +34,7 @@ header nav {
 header nav .selected {
   background: #0C78C5;
 }
-header nav .nav_item {
+header nav .nav-item {
   width: 50%;
   padding: 10px;
   box-sizing: border-box;

@@ -19,7 +19,6 @@ var iceAge = {
     completeListId: "58af2c62a582aace8e45d928",
     trelloCompleteArray: [],
     trelloPartialArray: [],
-    permissionId: ["id1", "id2"],
     trelloCounter: 0,
     useGeo: false,
 
@@ -263,9 +262,6 @@ var iceAge = {
             usersPartialArray = iceAge.usersWhoHavePartialSegment(i + 1);
 
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
-
-            console.log(usersCompleteArray);
-            // console.log(allComplete)
             
             if ($.inArray('E', usersCompleteArray) > -1 && allComplete) {
                 allComplete = true;
@@ -502,8 +498,8 @@ var iceAge = {
     convertCoord: function(coord) {
         var decimalCoord;
         var degree = 0,
-            min = 0,
-            sec = 0;
+            min = 0;
+
         if (coord !== '') {
             coord = coord.split(' ');
             degree = parseFloat(coord[0]);
@@ -530,6 +526,8 @@ var iceAge = {
     usersWhoHaveCompletedSegment: function(segmentId) {
         var userArray = [],
             users = progress_data.users;
+
+
 
         for (var i = 0; i < users.length; i++) {
             for (var k = 0; k < users[i].completedSegments.length; k++) {
@@ -585,8 +583,6 @@ var iceAge = {
             userCompleteSegments = 0;
             countyComplete = false;
             
-            var userName = users[i].user;
-
             progressHTML += '<div class="user_container">';
 
             //LOOP THROUGH COUNTIES
@@ -712,6 +708,10 @@ var iceAge = {
                     $('#segments').click();
                     $('#segment_filter a[data-index="' + ice_age_data[i].countyId + '"]').click();
                     $('select').val(ice_age_data[i].countyId);
+                    console.log(i);
+                    $('html, body').animate({
+                        scrollTop: $('#segments_view .segment[data-index="' + (i+1) + '"]').position().top - $('nav').height() - 20
+                    }, 0);
                     // alert(saidWord);
                 }
             }
@@ -822,14 +822,14 @@ var iceAge = {
             $(this).parent().find('.countySegments').toggle();
         });
 
-        $('nav').on('click', '.nav_item', function(e) {
+        $('nav').on('click', '.nav-item', function(e) {
 
             if($(this).attr('id') == 'microphone'){
                 iceAge.enableSpeech();
                 return false;
             }
             $('.view').hide();
-            $('.nav_item').removeClass('selected');
+            $('.nav-item').removeClass('selected');
 
             $(this).addClass('selected');
             $('#' + $(this).attr('id') + '_view').show();
