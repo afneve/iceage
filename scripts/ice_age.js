@@ -788,8 +788,6 @@ var iceAge = {
 
             $('.county[data-index="' + segment + '"]').attr('data-loaded', 'true');
 
-            //$('#segment_filter_container select option[value="' + segment + '"]')
-
             $('html, body').animate({
                 scrollTop: 0
             });
@@ -826,6 +824,8 @@ var iceAge = {
             $('html, body').animate({
                 scrollTop: 0
             }, 0);
+
+            $('select').val($(this).attr('data-index'));
             $('#segment_filter a[data-index="' + $(this).attr('data-index') + '"]').click();
         });
 
