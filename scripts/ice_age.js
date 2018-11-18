@@ -445,12 +445,12 @@ var iceAge = {
             readableType = 'potable water';
         }
         if (value.trim() !== '') {
-            html += '<div data-icon="' + className + '" class="segment_details">';
-            html += '<span class="yes">' + readableType + '</span><i class="fas fa-check-circle"></i>';
+            html += '<div data-icon="' + className + '" class="yes segment_details">';
+            html += '<span>' + readableType + '</span><i class="fas fa-check-circle"></i>';
             html += '</div>';
         } else {
-            html += '<div data-icon="' + className + '" class="segment_details">';
-            html += '<span class="no">' + readableType + '</span><i class="fas fa-times-circle"></i>';
+            html += '<div data-icon="' + className + '" class="no segment_details">';
+            html += '<span>' + readableType + '</span><i class="fas fa-times-circle"></i>';
             html += '</div>';
         }
 
@@ -635,6 +635,7 @@ var iceAge = {
                     }
                     
                 }
+                segmentHTML += '<div class="more_info" data-index="' + county_data[a].countyId + '">View county details <i class="fas fa-arrow-alt-circle-right"></i></div>'
                 segmentHTML += '</div>';
                 // segmentHTML += "countComplete- " + countyComplete;
 
@@ -659,7 +660,7 @@ var iceAge = {
             progressHTML += '</div>';
 
             progressHTML += '<div class="user_segments">';
-            progressHTML += countyHTML;
+            progressHTML += '<div class="counties">' + countyHTML + '</div>';
             progressHTML += '</div>';
             
             progressHTML += '</div>';
@@ -751,16 +752,14 @@ var iceAge = {
     ******************
     */
     attachEventListeners: function() {
-        $('#segment_list').on('click', '[data-icon="restrooms"] .yes', function() {
+        $('#segment_list').on('click', '[data-icon="restrooms"].yes', function() {
             var segmentIndex = $(this).closest('.segment').attr('data-index');
-            // alert(ice_age_data[segmentIndex - 1].restrooms);
             var heading = '<h4 class="overlay_heading">' + ice_age_data[segmentIndex - 1].segment + ' ' + $(this).text() + '</h4>';
             iceAge.openOverlay(heading + ice_age_data[segmentIndex - 1].restrooms);
         });
 
-        $('#segment_list').on('click', '[data-icon="potablewater"] .yes', function() {
+        $('#segment_list').on('click', '[data-icon="potablewater"].yes', function() {
             var segmentIndex = $(this).closest('.segment').attr('data-index');
-            //alert(ice_age_data[segmentIndex - 1].potablewater);
             var heading = '<h4 class="overlay_heading">' + ice_age_data[segmentIndex - 1].segment + ' ' + $(this).text() + '</h4>';
             iceAge.openOverlay(heading + ice_age_data[segmentIndex - 1].potablewater); 
         });
@@ -820,6 +819,14 @@ var iceAge = {
 
         $('#ice_age').on('click', '.countyContainer h3', function() {
             $(this).parent().find('.countySegments').toggle();
+        });
+
+        $('#ice_age').on('click', '.more_info', function() {
+            $('#segments').click();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 0);
+            $('#segment_filter a[data-index="' + $(this).attr('data-index') + '"]').click();
         });
 
         $('nav').on('click', '.nav-item', function(e) {

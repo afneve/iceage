@@ -1,6 +1,6 @@
 .user_container {
-    display: inline-block;
-    width: 50%;
+    display: block;
+    width: 100%;
     vertical-align: top;
     padding: 0 10px 35px;
     box-sizing:border-box;
@@ -23,7 +23,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fce037', end
 }
 
 .countyContainer {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
     h3 {
         margin: 0;
@@ -34,11 +34,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fce037', end
     .segment_name {
         font-size: 0.9em;
         padding: 3px;
-    }
+    }   
 }
 
 .countySegments {
     display: none;
+
+    .more_info{
+        color: $ice_blue;
+        margin-top: 10px;
+        cursor: pointer;
+    }
 }
 
 .user_segment_container{
@@ -66,11 +72,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fce037', end
 .user_container span.completion_data, .seg_notes {
     font-weight: normal;
 	font-size: 14px; 
-}
-
-.user_badge_container {
-    width: 50%;
-    display:inline-block;
 }
 
 .user_miles_remaining{

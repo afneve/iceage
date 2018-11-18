@@ -94,11 +94,15 @@ Styles for list of segments
     }
 }
 
-.yes+i {
-    color: #26bf42;
+.yes {
+    cursor: pointer;
+
+    i {
+        color: #26bf42;
+    }
 }
 
-.no+i {
+.no i {
     color: #C50401;
 }
 

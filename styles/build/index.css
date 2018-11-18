@@ -60,8 +60,8 @@ header nav .nav-item {
 }
 
 .user_container {
-  display: inline-block;
-  width: 50%;
+  display: block;
+  width: 100%;
   vertical-align: top;
   padding: 0 10px 35px;
   box-sizing: border-box;
@@ -88,7 +88,7 @@ header nav .nav-item {
 }
 
 .countyContainer {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .countyContainer h3 {
   margin: 0;
@@ -102,6 +102,11 @@ header nav .nav-item {
 
 .countySegments {
   display: none;
+}
+.countySegments .more_info {
+  color: #0C78C5;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 .user_segment_container {
@@ -129,11 +134,6 @@ header nav .nav-item {
 .user_container span.completion_data, .seg_notes {
   font-weight: normal;
   font-size: 14px;
-}
-
-.user_badge_container {
-  width: 50%;
-  display: inline-block;
 }
 
 .user_miles_remaining {
@@ -238,11 +238,14 @@ Styles for list of segments
   margin-right: 5px;
 }
 
-.yes + i {
+.yes {
+  cursor: pointer;
+}
+.yes i {
   color: #26bf42;
 }
 
-.no + i {
+.no i {
   color: #C50401;
 }
 
