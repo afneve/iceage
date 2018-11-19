@@ -589,37 +589,49 @@ var iceAge = {
             for (var a = 0; a < county_data.length; a++) {
                 var segmentHTML = '',
                     countyDistance = 0,
-                    countyCompletedDistance = 0;
+                    countyCompletedDistance = 0,
+                    countySegmentMatch = [],
+                    countyComplete = false;
 
                 segmentHTML += '<div class="countySegments">';
+
+                var segmentsInCounty = ice_age_data.filter(function(curVal) {
+                    return curVal.countyId == county_data[a].countyId;
+                });
+
+                //Push any completed segments to new array
+                for (var q=0; q < segmentsInCounty.length; q++) {
+                    for (var c = 0; c < users[i].completedSegments.length; c++) {
+                        if (segmentsInCounty[q].segment_id == users[i].completedSegments[c].segmentId) {
+                            countySegmentMatch.push(segmentsInCounty[q]);
+                        }
+                     }
+                }
+
+                if(segmentsInCounty.length === countySegmentMatch.length) {
+                    countyComplete = true;
+                }
 
                 // LOOP THROUGH SEGMENTS
                 for (var b = 0; b < ice_age_data.length; b++) {
 
                     // ONLY LOOP THROUGH SEGMENTS THAT ARE IN THE CURRENT COUNTY
                     if(ice_age_data[b].countyId == county_data[a].countyId) {
-                        countyComplete = true;
                         
                         // KEEP TRACK OF MILES IN COUNTY
                         countyDistance += parseFloat(ice_age_data[b].iceagetraildistance);
                         segmentHTML += '<div class="segment_name">' + ice_age_data[b].segment;
                         
-
-                        // [1, 2]
-                        // [1, 3, 5]
                         // LOOP THROUGH USERS COMPLETED SEGMENTS TO SEE IF THEY COMPLETED CURRENT SEGMENT
                         for(var c = 0; c < users[i].completedSegments.length; c++) {
                             if(users[i].completedSegments[c].segmentId == ice_age_data[b].segment_id){
                                 userCompleteMiles += parseFloat(ice_age_data[b].iceagetraildistance);
                                 countyCompletedDistance += parseFloat(ice_age_data[b].iceagetraildistance);
-                                segmentHTML += '<span class="completion_data"> (' + users[i].completedSegments[c].dateOfCompletion + ')</span>';
+                                segmentHTML += '<span class="completion_data complete"> (' + users[i].completedSegments[c].dateOfCompletion + ')</span>';
                                 userCompleteSegments++;
 
-                                countyComplete = countyComplete ? true : false;
                                 break;
-                            } else {
-                                countyComplete = false;
-                            }
+                            } 
                         }
                         for(var d = 0; d < users[i].partialSegments.length; d++) {
                             if(users[i].partialSegments[d].segmentId == ice_age_data[b].segment_id){
@@ -637,9 +649,8 @@ var iceAge = {
                 }
                 segmentHTML += '<div class="more_info" data-index="' + county_data[a].countyId + '">View county details <i class="fas fa-arrow-alt-circle-right"></i></div>'
                 segmentHTML += '</div>';
-                // segmentHTML += "countComplete- " + countyComplete;
 
-                countyHTML += '<div class="countyContainer">';
+                countyHTML += '<div class="countyContainer" data-complete="' + countyComplete +'">';
                 countyHTML += '<h3>' + county_data[a].countyName + '</h3>';
                 // countyHTML += countyDistance + ' miles';
                 countyHTML += '<div class="progressBarContainer">';
