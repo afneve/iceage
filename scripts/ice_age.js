@@ -94,14 +94,7 @@ var iceAge = {
         $("#loggedin").toggle(isLoggedIn);
     },
     loadTrelloData: function () {
-        var completeId = '',
-            completeExtra = '',
-            partialId = '',
-            partialExtra = '';
-
         Trello.get("lists/" + iceAge.completeListId + "/cards", function (cl) {
-            iceAge.trelloCompleteArray = [];
-
             for (var i = 0; i < cl.length; i++) {
                 var complete = iceAge.cleanTrelloData(cl[i]);
 
@@ -109,8 +102,6 @@ var iceAge = {
             }
 
             Trello.get("lists/" + iceAge.partialListId + "/cards", function (pl) {
-                iceAge.trelloPartialArray = [];
-
                 for (var j = 0; j < pl.length; j++) {                 
                     iceAge.trelloPartialArray.push(iceAge.cleanTrelloData(pl[j]));
                 }
