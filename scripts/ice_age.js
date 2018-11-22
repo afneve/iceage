@@ -139,7 +139,7 @@ var iceAge = {
 
         return {
             segmentId: id,
-            dateOfCompletion: extra
+            extra: extra
         }
     },
     loadApp: function () {
@@ -607,7 +607,7 @@ var iceAge = {
                         if (users[i].completedSegments[c].segmentId == segmentsInCounty[b].segment_id) {
                             userCompleteMiles += parseFloat(segmentsInCounty[b].iceagetraildistance);
                             countyCompletedDistance += parseFloat(segmentsInCounty[b].iceagetraildistance);
-                            segmentHTML += '<span class="completion_data complete"> (' + users[i].completedSegments[c].dateOfCompletion + ')</span>';
+                            segmentHTML += '<span class="completion_data complete"> (' + users[i].completedSegments[c].extra + ')</span>';
                             userCompleteSegments++;
 
                             break;
@@ -616,7 +616,7 @@ var iceAge = {
                     for (var d = 0; d < users[i].partialSegments.length; d++) {
                         if (users[i].partialSegments[d].segmentId == segmentsInCounty[b].segment_id) {
                             userPartialMiles += parseFloat(segmentsInCounty[b].iceagetraildistance);
-                            segmentHTML += '<div class="seg_notes">' + users[i].partialSegments[d].notes + '</div>'
+                            segmentHTML += '<div class="seg_notes">' + users[i].partialSegments[d].extra + '</div>';
                             break;
                         }
                     }
@@ -682,7 +682,7 @@ var iceAge = {
             var saidWord = event.results[resultsLength][ArrayLength].transcript;
             saidWord = saidWord.trim().toLowerCase();
 
-            console.log(saidWord);
+            alert(saidWord);
 
             for (var i = 0; i < ice_age_data.length; i++) {
                 if (ice_age_data[i].booksection.toLowerCase().includes(saidWord)) {
