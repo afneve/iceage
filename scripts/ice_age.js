@@ -718,9 +718,6 @@ var iceAge = {
                     $('#segment-filter a[data-index="' + ice_age_data[i].countyId + '"]').click();
                     $('select').val(ice_age_data[i].countyId);
 
-                    console.log($('#segments-view .segment[data-index="' + (i + 1) + '"]'));
-                    console.log(i);
-
                     $('html, body').animate({
                         scrollTop: $('#segments-view .segment[data-index="' + (i + 1) + '"]').position().top - $('nav').height() - 20
                     }, 0);
@@ -803,8 +800,6 @@ var iceAge = {
         //CHANGE SEGMENT SELECT BOX;
         $('body').on('change', '#segment-filter-container select', function () {
             var segment = $(this).val();
-
-            console.log(segment);
 
             $('#segments-view .county').hide();
             $('#segments-view .county[data-index="' + segment + '"]').show();
