@@ -804,8 +804,10 @@ var iceAge = {
         $('body').on('change', '#segment-filter-container select', function () {
             var segment = $(this).val();
 
-            $('#segment-view .county').hide();
-            $('#segment-view [data-index="' + segment + '"]').show();
+            console.log(segment);
+
+            $('#segments-view .county').hide();
+            $('#segments-view .county[data-index="' + segment + '"]').show();
 
             $('#segment-filter li').removeClass('selected');
             $('#segment-filter li a[data-index="' + segment + '"]').parent('li').addClass('selected');
