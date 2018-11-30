@@ -55,11 +55,40 @@ header {
     }
 }
 
+.progressBarContainer {
+    @extend %progressBarContainer;
+}
 
-#ice_age{
+
+#ice-age{
 	padding: 60px 12px 0;
 }
 
 .hide{
     display: none;
+}
+
+#ice-age-overlay {
+    padding: 20px;
+    width: 80%;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: black;
+    font-size: 16px;
+    z-index: 50;
+    background-color: white;
+}
+#overlay-screen {
+    background-color: #000;
+    opacity: 0.8;
+    width: 100%;
+    position: fixed;
+    z-index: 30;
+}
+.overlay-heading {
+    text-align: left;
+    text-transform: capitalize;
 }

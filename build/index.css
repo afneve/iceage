@@ -81,33 +81,6 @@ header nav .nav-item {
   display: none;
 }
 
-#ice-age-overlay {
-  padding: 20px;
-  width: 80%;
-  box-sizing: border-box;
-  position: fixed;
-  left: 0;
-  right: 0;
-  margin: auto;
-  color: black;
-  font-size: 16px;
-  z-index: 50;
-  background-color: white;
-}
-
-#overlay-screen {
-  background-color: #000;
-  opacity: 0.8;
-  width: 100%;
-  position: fixed;
-  z-index: 30;
-}
-
-.overlay-heading {
-  text-align: left;
-  text-transform: capitalize;
-}
-
 #progress-view .user-container {
   display: block;
   width: 100%;
@@ -297,30 +270,6 @@ header nav .nav-item {
 }
 #segments-view .location-based-info {
   margin: 16px 0;
-}
-#segments-view #ice-age-overlay {
-  padding: 20px;
-  width: 80%;
-  box-sizing: border-box;
-  position: fixed;
-  left: 0;
-  right: 0;
-  margin: auto;
-  color: black;
-  font-size: 16px;
-  z-index: 50;
-  background-color: white;
-}
-#segments-view #overlay-screen {
-  background-color: #000;
-  opacity: 0.8;
-  width: 100%;
-  position: fixed;
-  z-index: 30;
-}
-#segments-view .overlay-heading {
-  text-align: left;
-  text-transform: capitalize;
 }
 @media (max-width: 600px) {
   #segments-view #segment-filter-container {
