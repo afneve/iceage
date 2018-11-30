@@ -590,6 +590,7 @@ var iceAge = {
                 var countyDistance = 0,
                     countyCompletedDistance = 0,
                     countySegmentMatch = [],
+                    segmentComplete = false;
                     countyComplete = false;
 
                 var segmentsInCounty = ice_age_data.filter(function (curVal) {
@@ -598,6 +599,7 @@ var iceAge = {
 
                 //Push any completed segments to new array
                 for (var q = 0; q < segmentsInCounty.length; q++) {
+                    
                     for (var c = 0; c < users[i].completedSegments.length; c++) {
                         if (segmentsInCounty[q].segment_id == users[i].completedSegments[c].segmentId) {
                             countySegmentMatch.push(segmentsInCounty[q]);
@@ -613,6 +615,7 @@ var iceAge = {
                 for (var b = 0; b < segmentsInCounty.length; b++) {
                     var segmentCompleteHTML = '',
                         segmentPartialHTML = '';
+                        segmentComplete = false;
 
                     // KEEP TRACK OF MILES IN COUNTY
                     countyDistance += parseFloat(segmentsInCounty[b].iceagetraildistance);
@@ -622,8 +625,9 @@ var iceAge = {
                         if (users[i].completedSegments[c].segmentId == segmentsInCounty[b].segment_id) {
                             userCompleteMiles += parseFloat(segmentsInCounty[b].iceagetraildistance);
                             countyCompletedDistance += parseFloat(segmentsInCounty[b].iceagetraildistance);
-                            segmentCompleteHTML += '<span class="completion-data complete"> (' + users[i].completedSegments[c].extraInfo + ')</span>';
+                            segmentCompleteHTML += '<span class="completion-data"> (' + users[i].completedSegments[c].extraInfo + ')</span>';
                             userCompleteSegments++;
+                            segmentComplete = true;
 
                             break;
                         }
@@ -637,7 +641,13 @@ var iceAge = {
                     }
 
                     segmentHTML += '<div class="segment">';
-                    segmentHTML += '<div class="segment-name">' + segmentsInCounty[b].segment + segmentCompleteHTML + '</div>';
+                    if(segmentComplete) {
+                        segmentHTML += '<div class="segment-name complete">' + segmentsInCounty[b].segment + segmentCompleteHTML + '</div>';
+                    }
+                    else {
+                        segmentHTML += '<div class="segment-name">' + segmentsInCounty[b].segment + segmentCompleteHTML + '</div>';
+                    }
+                    
                     segmentHTML += segmentPartialHTML;
                     segmentHTML += '</div>';
                 }
@@ -794,8 +804,8 @@ var iceAge = {
         $('body').on('change', '#segment-filter-container select', function () {
             var segment = $(this).val();
 
-            $('.county').hide();
-            $('[data-index="' + segment + '"]').show();
+            $('#segment-view .county').hide();
+            $('#segment-view [data-index="' + segment + '"]').show();
 
             $('#segment-filter li').removeClass('selected');
             $('#segment-filter li a[data-index="' + segment + '"]').parent('li').addClass('selected');
