@@ -44,7 +44,7 @@ var iceAge = {
             }
         }
         else {
-            iceAge.usingTrelloData = false
+            iceAge.usingTrelloData = false;
         }
 
         if (iceAge.usingTrelloData) {
@@ -212,6 +212,8 @@ var iceAge = {
     },
 
     getIceAgeData: function () {
+        iceAge.totalSegments = ice_age_data.length;
+
         for (var i = 0; i < ice_age_data.length; i++) {
             ice_age_data[i].segment_id = i + 1;
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
@@ -229,8 +231,6 @@ var iceAge = {
             filterHTML = '',
             selectHTML = '',
             weatherHTML = '',
-            previousSection = '',
-            nextSection = '',
             difficulty = '',
             usersCompleteArray = [],
             usersPartialArray = [],
@@ -240,8 +240,6 @@ var iceAge = {
             allComplete = true;
 
         selectHTML += '<select>';
-
-        iceAge.totalSegments = ice_age_data.length;
 
         //LOOP THROUGH COUNTIES
         for (var a = 0; a < county_data.length; a++) {
@@ -264,24 +262,21 @@ var iceAge = {
 
                             countySegmentMatch.push(segmentsInCounty[q]);
 
-                            progressHTML += '<div class="progressBarContainer" data-complete="true">';
-                            progressHTML += '<div class="progressBar" style="width:100%"></div>';
-                            progressHTML += '</div>';
+                            progressHTML += `<div class="progressBarContainer" data-complete="true">
+                                                <div class="progressBar" style="width:100%"></div>
+                                            </div>`;
                         }
                     }
                     for (var e = 0; e < progress_data.users[c].partialSegments.length; e++) {
                         if (segmentsInCounty[q].segment_id == progress_data.users[c].partialSegments[e].segmentId) {
-                            progressHTML += '<div class="progressBarContainer">';
-                            progressHTML += '<div class="progressBar" style="width:50%"></div>';
-                            progressHTML += '</div>';
+                            progressHTML += `<div class="progressBarContainer">
+                                                <div class="progressBar" style="width:50%"></div>
+                                            </div>`;
                         }
                     }
 
                 }
 
-                progress_data.users.every(function () {
-
-                });
 
                 if (segmentsInCounty[q].booksection.includes('/')) {
                     weatherHTML = segmentsInCounty[q].booksection.split('/')[1];
@@ -397,7 +392,6 @@ var iceAge = {
                 else {
                     filterHTML += '<li>';
                 }
-
             }
             selectHTML += '<option value="' + county_data[a].countyId + '">' + county_data[a].countyName + '</option>';
             filterHTML += '<a data-index="' + county_data[a].countyId + '" href="' + county_data[a].countyId + '">' + county_data[a].countyName + '</a>';
@@ -409,36 +403,14 @@ var iceAge = {
                 countyHTML += '<div class="county hide" data-index="' + county_data[a].countyId + '">';
             }
 
-
-
             countyHTML += '<h2 class="county-name"><a target="_blank" href ="https://www.google.com/#q=' + weatherHTML + '+wi+weather">' + county_data[a].countyName + '</a></h2>';
             countyHTML += segmentHTML;
             countyHTML += '</div>';
-
         }
         selectHTML += '</select>';
         $('#segment-list').html(countyHTML);
         $('#segment-filter ul').html(filterHTML);
         $('#segment-filter-container').append(selectHTML);
-        /*
-
-        for (var i = 0; i < ice_age_data.length; i++) {
-            
-            for (var u = 0; u < usersCompleteArray.length; u++) {
-                segmentHTML += '<div class="progressBarContainer">';
-                segmentHTML += '<div class="progressBar" style="width:100%"></div>';
-                segmentHTML += '</div>';
-            }
-            for (var up = 0; up < usersPartialArray.length; up++) {
-                segmentHTML += '<div class="progressBarContainer">';
-                segmentHTML += '<div class="progressBar" style="width:50%"></div>';
-                segmentHTML += '</div>';
-            }
-            
-           
-            usersCompleteArray = [];
-        }
-        */
 
         iceAge.displayUserProgress();
     },
