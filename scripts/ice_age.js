@@ -306,8 +306,7 @@ var iceAge = {
                 difficulty = iceAge.getDifficultyLevel(parseFloat(segmentsInCounty[q].ruggedness), iceAge.ruggednessObject.shortCutoff, iceAge.ruggednessObject.midCutoff);
                 segmentHTML += '<div class="' + difficulty + '">Ruggedness: ' + segmentsInCounty[q].ruggedness + '</div>';
 
-                segmentHTML += iceAge.displayInfoWithIcon('potablewater', segmentsInCounty[q].potablewater);
-                segmentHTML += iceAge.displayInfoWithIcon('restrooms', segmentsInCounty[q].restrooms);
+                
                 segmentHTML += '<div>Connecting route distance: ' + segmentsInCounty[q].connectingroutedistance + '</div>';
 
                 segmentHTML += '<div class="atlas">Atlas Map: ' + segmentsInCounty[q].atlasmap + '</div>';
@@ -365,8 +364,13 @@ var iceAge = {
 
                 segmentHTML += '</div>';
 
+                segmentHTML += '<div class="extra-info">';
+                segmentHTML += iceAge.displayInfoWithIcon('potablewater', segmentsInCounty[q].potablewater);
+                segmentHTML += iceAge.displayInfoWithIcon('restrooms', segmentsInCounty[q].restrooms);
+                segmentHTML += '</div>';
+
                 if (segmentsInCounty[q].nohiking.trim() !== '') {
-                    segmentHTML += '<div class="nohiking">Hiking Restrictions: </div><div>' + segmentsInCounty[q].nohiking + '</div>';
+                    segmentHTML += '<div class="no-hiking">Hiking Restrictions: </div><div>' + segmentsInCounty[q].nohiking + '</div>';
                 }
 
                 segmentHTML += '</div>';
@@ -420,16 +424,27 @@ var iceAge = {
             className = stringValue.toLowerCase(),
             html = '';
 
+        /*
         if (stringValue == 'potablewater') {
             readableType = 'potable water';
         }
+        */
+
         if (value.trim() !== '') {
             html += '<div data-icon="' + className + '" class="yes segment-details">';
-            html += '<span>' + readableType + '</span><i class="fas fa-check-circle"></i>';
+            if(stringValue == 'potablewater') {
+                html += '<i class="fas fa-tint"></i>';
+            } else if (stringValue == 'restrooms') {
+                html += '<i class="fas fa-restroom"></i>';
+            }
             html += '</div>';
         } else {
             html += '<div data-icon="' + className + '" class="no segment-details">';
-            html += '<span>' + readableType + '</span><i class="fas fa-times-circle"></i>';
+            if(stringValue == 'potablewater') {
+                html += '<i class="fas fa-tint"></i>';
+            } else if (stringValue == 'restrooms') {
+                html += '<i class="fas fa-restroom"></i>';
+            }
             html += '</div>';
         }
 
@@ -614,7 +629,7 @@ var iceAge = {
 
                     segmentHTML += '<div class="segment">';
                     if(segmentComplete) {
-                        segmentHTML += '<div class="segment-name complete">' + segmentsInCounty[b].segment + segmentCompleteHTML + '</div>';
+                        segmentHTML += '<div class="segment-name complete"><i class="fas fa-check-circle"></i>' + segmentsInCounty[b].segment + segmentCompleteHTML + '</div>';
                     }
                     else {
                         segmentHTML += '<div class="segment-name">' + segmentsInCounty[b].segment + segmentCompleteHTML + '</div>';

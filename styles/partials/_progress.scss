@@ -3,7 +3,7 @@
         display: block;
         width: 100%;
         vertical-align: top;
-        padding: 0 10px 35px;
+        padding: 0 5px 35px;
         box-sizing: border-box;
     }
     .county {
@@ -21,6 +21,10 @@
             font-weight: bold;
 
             &.complete {
+                i {
+                    color: $ice-green;
+                    margin-right: 5px;
+                }
                 //color: white;
                 //background: $ice-green;
             }

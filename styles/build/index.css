@@ -112,7 +112,7 @@ header nav .nav-item {
   display: block;
   width: 100%;
   vertical-align: top;
-  padding: 0 10px 35px;
+  padding: 0 5px 35px;
   box-sizing: border-box;
 }
 #progress-view .county {
@@ -129,6 +129,10 @@ header nav .nav-item {
 #progress-view .county .segment-name {
   font-size: 0.9em;
   font-weight: bold;
+}
+#progress-view .county .segment-name.complete i {
+  color: #26bf42;
+  margin-right: 5px;
 }
 #progress-view .segments {
   display: none;
@@ -180,7 +184,7 @@ header nav .nav-item {
 #segments-view .segment-container {
   width: 100%;
   display: inline-block;
-  margin-bottom: 45px;
+  margin-bottom: 55px;
 }
 #segments-view .county-name a {
   text-decoration: none !important;
@@ -231,7 +235,7 @@ header nav .nav-item {
 #segments-view #segment-list {
   float: left;
   width: 70%;
-  padding: 0 15px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 #segments-view .segment-name {
@@ -260,15 +264,25 @@ header nav .nav-item {
 #segments-view .yes i {
   color: #26bf42;
 }
-#segments-view .no i {
-  color: #C50401;
-}
-#segments-view .nohiking {
+#segments-view .no-hiking {
   margin: 15px 0 5px;
+  font-weight: bold;
+  color: #C50401;
 }
 #segments-view .segment-info {
   width: 50%;
   display: inline-block;
+}
+#segments-view .extra-info {
+  margin-top: 20px;
+  font-size: 25px;
+  display: flex;
+}
+#segments-view .extra-info i {
+  margin-right: 10px;
+}
+#segments-view .extra-info .yes .fa-tint {
+  color: #0C78C5;
 }
 #segments-view #segment-list a {
   color: #236B8E;
