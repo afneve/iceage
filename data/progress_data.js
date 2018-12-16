@@ -5,6 +5,10 @@ progress_data = {
 		"userId" : "2",
 		"completedSegments" : [
 			{
+				"segmentId" : 55,
+				"extraInfo" : "2018-12-14"
+			},
+			{
 				"segmentId" : 36,
 				"extraInfo" : "2018-11-03"
 			},

@@ -108,6 +108,16 @@ header nav .nav-item {
   text-transform: capitalize;
 }
 
+#info-view a {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.gallery {
+  margin-left: 20px;
+  font-weight: normal;
+}
+
 #progress-view .user-container {
   display: block;
   width: 100%;

@@ -557,6 +557,7 @@ var iceAge = {
             countyHTML = '',
             segmentHTML = '',
             layoutHTML = '',
+            yearlyHTML = '',
             userCompleteMiles = 0,
             userPartialMiles = 0,
             userCompleteSegments = 0,
@@ -612,7 +613,14 @@ var iceAge = {
                         if (users[i].completedSegments[c].segmentId == segmentsInCounty[b].segment_id) {
                             userCompleteMiles += parseFloat(segmentsInCounty[b].iceagetraildistance);
                             countyCompletedDistance += parseFloat(segmentsInCounty[b].iceagetraildistance);
+                            console.log(users[i].completedSegments[c]);
+                            console.log(segmentsInCounty[b]);
                             segmentCompleteHTML += '<span class="completion-data"> (' + users[i].completedSegments[c].extraInfo + ')</span>';
+
+                            if(segmentsInCounty[b].gallery) {
+                                segmentCompleteHTML += '<div class="gallery"><a target="_blank" href="' + segmentsInCounty[b].gallery + '">View images</a></div>';
+                            }
+
                             userCompleteSegments++;
                             segmentComplete = true;
 
