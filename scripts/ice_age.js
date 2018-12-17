@@ -617,9 +617,7 @@ var iceAge = {
                             console.log(segmentsInCounty[b]);
                             segmentCompleteHTML += '<span class="completion-data"> (' + users[i].completedSegments[c].extraInfo + ')</span>';
 
-                            if(segmentsInCounty[b].gallery) {
-                                segmentCompleteHTML += '<div class="gallery"><a target="_blank" href="' + segmentsInCounty[b].gallery + '">View images</a></div>';
-                            }
+                            
 
                             userCompleteSegments++;
                             segmentComplete = true;
@@ -644,6 +642,10 @@ var iceAge = {
                     }
                     
                     segmentHTML += segmentPartialHTML;
+
+                    if(segmentsInCounty[b].gallery) {
+                        segmentHTML += '<div class="gallery" style="margin-left:20px"><a target="_blank" href="' + segmentsInCounty[b].gallery + '">View images</a></div>';
+                    }
                     segmentHTML += '</div>';
                 }
 
