@@ -69,6 +69,33 @@
         color: $ice_blue;
         font-weight: bold;
     }
+
+    .stats{
+        width: 75%;
+        text-align: left;
+        margin: auto;
+        background-color: $ice-blue;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+
+        h4, p {
+            margin: 0;
+            text-align: left;
+        }
+
+        .miles {
+            margin-bottom: 40px;
+        }
+
+        .year {
+            margin-bottom: 10px;
+        }
+
+        .month {
+            margin-bottom: 10px;
+        }
+    }
     @media (max-width: 600px) {
         .user-container {
             display: inline-block;

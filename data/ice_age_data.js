@@ -1296,7 +1296,7 @@ ice_age_data = [{
 	"easternterminus": "CTH-E",
 	"elevation": "3",
 	"ruggedness": "5",
-	"summary": "The Turtle Rock Segment includes a beautifuland very challengingtrek along and near the banks of the Wisconsin River, where the ceremonial Turtle Rock is found.",
+	"summary": "The Turtle Rock Segment includes a beautifuland very challenging trek along and near the banks of the Wisconsin River, where the ceremonial Turtle Rock is found.",
 	"potablewater": " ",
 	"filterablewater": "From the Wisconsin River and other small streams/creeks.",
 	"nowater": " ",

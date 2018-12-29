@@ -3,6 +3,9 @@
 var iceAge = {
     iconArray: ["potablewater", "restrooms"],
     totalTrailDistance: 0,
+    months: ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    ],
     totalSegments: 0,
     distanceArray: [],
     distanceObject: {},
@@ -28,6 +31,8 @@ var iceAge = {
     ******************
     */
     init: function () {
+        console.time('APP');
+
         let loc = window.location.host,
             parameters = window.location.search;
 
@@ -562,7 +567,8 @@ var iceAge = {
             userPartialMiles = 0,
             userCompleteSegments = 0,
             countyComplete = false,
-
+            monthTotals = {},
+            yearTotals = {},
             users = progress_data.users;
 
         //LOOP THROUGH USERS
@@ -589,8 +595,42 @@ var iceAge = {
                 for (var q = 0; q < segmentsInCounty.length; q++) {
                     
                     for (var c = 0; c < users[i].completedSegments.length; c++) {
+                        var date, year, month, distance;
+
                         if (segmentsInCounty[q].segment_id == users[i].completedSegments[c].segmentId) {
                             countySegmentMatch.push(segmentsInCounty[q]);
+
+                            distance = parseFloat(segmentsInCounty[q].iceagetraildistance).toFixed(2);
+                            distance = parseFloat(distance);                            
+
+                            date = users[i].completedSegments[c].extraInfo;
+
+                            if (date.includes('/')) {
+                                date = date.split('/');
+                            } else if (date.includes('-')) {
+                                date = date.split('-');
+                            }
+
+                            if (date[0].length === 4) {
+                                year = date[0];
+                                month = parseInt(date[1]);
+                            } else {
+                                year = date[2];
+                                month = parseInt(date[0]);
+                            }
+
+                            
+                            if(monthTotals.hasOwnProperty(month)){
+                                monthTotals[month] += distance;
+                            } else {
+                                monthTotals[month] = distance;
+                            }
+                           
+                            if(yearTotals.hasOwnProperty(year)){
+                                yearTotals[year] += distance;
+                            } else{
+                                yearTotals[year] = distance;
+                            }
                         }
                     }
                 }
@@ -611,13 +651,11 @@ var iceAge = {
                     // LOOP THROUGH USERS COMPLETED SEGMENTS TO SEE IF THEY COMPLETED CURRENT SEGMENT
                     for (var c = 0; c < users[i].completedSegments.length; c++) {
                         if (users[i].completedSegments[c].segmentId == segmentsInCounty[b].segment_id) {
+
                             userCompleteMiles += parseFloat(segmentsInCounty[b].iceagetraildistance);
                             countyCompletedDistance += parseFloat(segmentsInCounty[b].iceagetraildistance);
-                            console.log(users[i].completedSegments[c]);
-                            console.log(segmentsInCounty[b]);
-                            segmentCompleteHTML += '<span class="completion-data"> (' + users[i].completedSegments[c].extraInfo + ')</span>';
 
-                            
+                            segmentCompleteHTML += '<span class="completion-data"> (' + users[i].completedSegments[c].extraInfo + ')</span>';
 
                             userCompleteSegments++;
                             segmentComplete = true;
@@ -653,7 +691,7 @@ var iceAge = {
                 countyHTML += '<h3>' + county_data[a].countyName + '</h3>';
                 countyHTML += '<div class="progressBarContainer">';
                 countyHTML += '<div class="progressBar" style="width:' + parseFloat(countyCompletedDistance) / countyDistance * 100 + '%"></div>';
-                countyHTML += '</div>'
+                countyHTML += '</div>';
                 countyHTML += '<div class=segments>';
                 countyHTML += segmentHTML;
                 countyHTML += '<div class="more-info" data-index="' + county_data[a].countyId + '">View county details <i class="fas fa-arrow-alt-circle-right"></i></div>'
@@ -672,9 +710,50 @@ var iceAge = {
             layoutHTML += '<div class="progress-info container">' + progressHTML + '</div>';
             layoutHTML += '<div class="counties container">' + countyHTML + '</div>';
             layoutHTML += '</div>';
+
+            layoutHTML += '<div class="stats">';
+            layoutHTML += '<div class="miles miles-by-year">';
+            layoutHTML += '<h3>Miles per year</h3>';
+            for (var key in yearTotals) {
+                if (yearTotals.hasOwnProperty(key)) {
+                    layoutHTML += '<div class="year">';
+                    layoutHTML += '<h4>' + key + '</h4>';
+                    layoutHTML += '<p>' + yearTotals[key].toFixed(1) + '</p>';
+                    layoutHTML += '</div>';
+                }
+            }
+            layoutHTML += '</div>';
+
+            layoutHTML += '<div class="miles miles-by-month">';
+            layoutHTML += '<h3>Miles per month</h3>';
+
+            for(let i = 0; i < iceAge.months.length; i++){
+                layoutHTML += '<div class="month">';
+                layoutHTML += '<h4>' + iceAge.months[i] + '</h4>';
+                if (monthTotals.hasOwnProperty(i + 1)){ 
+                    layoutHTML += '<p>' + monthTotals[i+1].toFixed(1) + '</p>'; 
+                } else {
+                    layoutHTML += '<p>0</p>'; 
+                }
+                layoutHTML += '</div>';
+            }
+            /*
+            for (var key in monthTotals) {
+                if (monthTotals.hasOwnProperty(key)) {
+                    layoutHTML += '<div class="month">';
+                    layoutHTML += '<h4>' + iceAge.months[key - 1] + '</h4>';
+                    layoutHTML += '<p>' + monthTotals[key].toFixed(1) + '</p>';
+                    layoutHTML += '</div>';
+                }
+            }
+            */
+            layoutHTML += '</div>';
+            layoutHTML += '</div>';
         } //END USER LOOP
 
         $('#progress-view').html(layoutHTML);
+
+        console.timeEnd("APP");
     },
     enableSpeech: function () {
         console.log("enabled");
@@ -701,23 +780,23 @@ var iceAge = {
 
             // get last word detected
             var saidWord = event.results[resultsLength][ArrayLength].transcript;
-            saidWord = saidWord.trim().toLowerCase();
+            saidWord = saidWord.trim().toLowerCase().split(" ").join("");
 
             // alert(saidWord);
 
             for (var i = 0; i < ice_age_data.length; i++) {
+                var currentSegment = ice_age_data[i].segment.toLowerCase().split(" ").join("");
                 if (ice_age_data[i].booksection.toLowerCase().includes(saidWord)) {
                     // alert(saidWord);
                 }
 
-                if (ice_age_data[i].segment.toLowerCase().includes(saidWord)) {
+                if (currentSegment.includes(saidWord)) {
+                    iceAge.scroll(0);
                     $('#segments').click();
                     $('#segment-filter a[data-index="' + ice_age_data[i].countyId + '"]').click();
                     $('select').val(ice_age_data[i].countyId);
 
-                    $('html, body').animate({
-                        scrollTop: $('#segments-view .segment[data-index="' + (i + 1) + '"]').position().top - $('nav').height() - 20
-                    }, 0);
+                    iceAge.scroll($('#segments-view .segment[data-index="' + (i + 1) + '"]').position().top - $('nav').height() - 2);
                     // alert(saidWord);
                 }
             }
@@ -747,6 +826,10 @@ var iceAge = {
                 return false;
             }
         }
+    },
+
+    scroll: function(value){
+        $('html, body').animate({scrollTop: value}, 0);
     },
     /*
     ******************
@@ -789,9 +872,7 @@ var iceAge = {
 
             $('#segment-list .county[data-index="' + segment + '"]').attr('data-loaded', 'true');
 
-            $('html, body').animate({
-                scrollTop: 0
-            });
+            iceAge.scroll(0);
         });
 
         //CHANGE SEGMENT SELECT BOX;
@@ -822,9 +903,8 @@ var iceAge = {
 
         $('#ice-age').on('click', '.more-info', function () {
             $('#segments').click();
-            $('html, body').animate({
-                scrollTop: 0
-            }, 0);
+
+            iceAge.scroll(0);
 
             $('select').val($(this).attr('data-index'));
             $('#segment-filter a[data-index="' + $(this).attr('data-index') + '"]').click();

@@ -178,6 +178,28 @@ header nav .nav-item {
   color: #0C78C5;
   font-weight: bold;
 }
+#progress-view .stats {
+  width: 50%;
+  text-align: left;
+  margin: auto;
+  background-color: #0C78C5;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+#progress-view .stats h4, #progress-view .stats p {
+  margin: 0;
+  text-align: left;
+}
+#progress-view .stats .miles {
+  margin-bottom: 40px;
+}
+#progress-view .stats .year {
+  margin-bottom: 10px;
+}
+#progress-view .stats .month {
+  margin-bottom: 10px;
+}
 @media (max-width: 600px) {
   #progress-view .user-container {
     display: inline-block;
