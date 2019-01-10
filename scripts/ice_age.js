@@ -62,6 +62,7 @@ var iceAge = {
         }
     },
     AuthenticateTrello: function () {
+        console.time('AuthenTrello');
         iceAge.usingTrelloData = false;
         if (typeof Trello != 'undefined') {
             Trello.authorize({
@@ -90,6 +91,7 @@ var iceAge = {
                 },
             });
         }
+        console.timeEnd('AuthenTrello');
     },
     updateLoggedIn: function () {
         //Trello.unauthorize();
@@ -98,6 +100,7 @@ var iceAge = {
         $("#loggedin").toggle(isLoggedIn);
     },
     loadTrelloData: function () {
+        console.time('LoadTrello');
         Trello.get("lists/" + iceAge.completeListId + "/cards", function (cl) {
             for (var i = 0; i < cl.length; i++) {
                 var complete = iceAge.cleanTrelloData(cl[i]);
@@ -116,10 +119,10 @@ var iceAge = {
                         progress_data.users[u].partialSegments = iceAge.trelloPartialArray;
                     }
                 }
-
+                console.timeEnd('LoadTrello');
                 iceAge.loadApp();
             });
-        });
+        });     
     },
     cleanTrelloData: function (currentListItem) {
         var tempArray = [],
@@ -231,6 +234,7 @@ var iceAge = {
     ******************
     */
     displaySegmentList: function () {
+        console.time('DisplaySegList');
         var segmentHTML = '',
             progressHTML = '',
             filterHTML = '',
@@ -421,6 +425,8 @@ var iceAge = {
         $('#segment-filter ul').html(filterHTML);
         $('#segment-filter-container').append(selectHTML);
 
+        console.timeEnd('DisplaySegList');
+
         iceAge.displayUserProgress();
     },
 
@@ -558,6 +564,7 @@ var iceAge = {
     ******************
     */
     displayUserProgress: function () {
+        console.time('DisplayUserProg');
         var progressHTML = '',
             countyHTML = '',
             segmentHTML = '',
@@ -753,6 +760,7 @@ var iceAge = {
 
         $('#progress-view').html(layoutHTML);
 
+        console.timeEnd('DisplayUserProg');
         console.timeEnd("APP");
     },
     enableSpeech: function () {
