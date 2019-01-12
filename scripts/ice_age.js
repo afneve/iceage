@@ -612,32 +612,35 @@ var iceAge = {
 
                             date = users[i].completedSegments[c].extraInfo;
 
-                            if (date.includes('/')) {
-                                date = date.split('/');
-                            } else if (date.includes('-')) {
-                                date = date.split('-');
+                            if (date){
+                                if (date.includes('/')) {
+                                    date = date.split('/');
+                                } else if (date.includes('-')) {
+                                    date = date.split('-');
+                                }
+    
+                                if (date[0].length === 4) {
+                                    year = date[0];
+                                    month = parseInt(date[1]);
+                                } else {
+                                    year = date[2];
+                                    month = parseInt(date[0]);
+                                }
+    
+                                
+                                if(monthTotals.hasOwnProperty(month)){
+                                    monthTotals[month] += distance;
+                                } else {
+                                    monthTotals[month] = distance;
+                                }
+                               
+                                if(yearTotals.hasOwnProperty(year)){
+                                    yearTotals[year] += distance;
+                                } else{
+                                    yearTotals[year] = distance;
+                                }
                             }
 
-                            if (date[0].length === 4) {
-                                year = date[0];
-                                month = parseInt(date[1]);
-                            } else {
-                                year = date[2];
-                                month = parseInt(date[0]);
-                            }
-
-                            
-                            if(monthTotals.hasOwnProperty(month)){
-                                monthTotals[month] += distance;
-                            } else {
-                                monthTotals[month] = distance;
-                            }
-                           
-                            if(yearTotals.hasOwnProperty(year)){
-                                yearTotals[year] += distance;
-                            } else{
-                                yearTotals[year] = distance;
-                            }
                         }
                     }
                 }

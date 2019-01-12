@@ -5,6 +5,18 @@ progress_data = {
 		"userId" : "2",
 		"completedSegments" : [
 			{
+				"segmentId" : 39,
+				"extraInfo" : "2018-01-11"
+			},
+			{
+				"segmentId" : 47,
+				"extraInfo" : "2018-01-05"
+			},
+			{
+				"segmentId" : 46,
+				"extraInfo" : "2018-01-05"
+			},
+			{
 				"segmentId" : 55,
 				"extraInfo" : "2018-12-14"
 			},
@@ -171,6 +183,10 @@ progress_data = {
 		],
 		"partialSegments" : [
 			{
+				"segmentId" : 39,
+				"extraInfo" : "Completed everything West of Cty B"
+			},
+			{
 				"segmentId" : 117,
 				"extraInfo" : "Completed Western segment from B to Bb"
 			},
@@ -181,10 +197,6 @@ progress_data = {
 			{
 				"segmentId" : 17,
 				"extraInfo" : "Completed North section to about 2 miles North of North Lake. Stopped where trail left snowmobile trail on the East side"
-			},
-			{
-				"segmentId" : 47,
-				"extraInfo" : "Stopped at poplar road"
 			}
 		]
 	}]
