@@ -576,6 +576,7 @@ var iceAge = {
             countyComplete = false,
             monthTotals = {},
             yearTotals = {},
+            yearTotalsProps = [],
             users = progress_data.users;
 
         //LOOP THROUGH USERS
@@ -639,6 +640,8 @@ var iceAge = {
                                 } else{
                                     yearTotals[year] = distance;
                                 }
+
+                                yearTotalsProps = Object.keys(yearTotals).reverse();
                             }
 
                         }
@@ -724,14 +727,17 @@ var iceAge = {
             layoutHTML += '<div class="stats">';
             layoutHTML += '<div class="miles miles-by-year">';
             layoutHTML += '<h3>Miles per year</h3>';
-            for (var key in yearTotals) {
+
+            yearTotalsProps.forEach(function(key){
                 if (yearTotals.hasOwnProperty(key)) {
                     layoutHTML += '<div class="year">';
                     layoutHTML += '<h4>' + key + '</h4>';
                     layoutHTML += '<p>' + yearTotals[key].toFixed(1) + '</p>';
                     layoutHTML += '</div>';
                 }
-            }
+            });
+            //  => console.log(`PropertyName: ${prop}, its Value: ${test[prop]}`));
+
             layoutHTML += '</div>';
 
             layoutHTML += '<div class="miles miles-by-month">';
