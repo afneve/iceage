@@ -6,15 +6,15 @@ progress_data = {
 		"completedSegments" : [
 			{
 				"segmentId" : 39,
-				"extraInfo" : "2018-01-11"
+				"extraInfo" : "2019-01-11"
 			},
 			{
 				"segmentId" : 47,
-				"extraInfo" : "2018-01-05"
+				"extraInfo" : "2019-01-05"
 			},
 			{
 				"segmentId" : 46,
-				"extraInfo" : "2018-01-05"
+				"extraInfo" : "2019-01-05"
 			},
 			{
 				"segmentId" : 55,
