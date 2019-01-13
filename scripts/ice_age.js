@@ -245,6 +245,9 @@ var iceAge = {
             usersPartialArray = [],
             countyCompleteArray = [],
             countyCounter = 1,
+            countyMilesRemaining = 0,
+            segmentsRemaining = new Set(),
+            completedSegment = false,
             countyHTML = '',
             allComplete = true;
 
@@ -253,6 +256,8 @@ var iceAge = {
         //LOOP THROUGH COUNTIES
         for (var a = 0; a < county_data.length; a++) {
             segmentHTML = '';
+            segmentsRemaining = new Set();
+            countyMilesRemaining = 0;
 
             var countyDistance = 0,
                 countyCompletedDistance = 0,
@@ -265,10 +270,11 @@ var iceAge = {
 
             for (var q = 0; q < segmentsInCounty.length; q++) {
                 progressHTML = '';
+                completedSegment = false;
                 for (var c = 0; c < progress_data.users.length; c++) {
                     for (var d = 0; d < progress_data.users[c].completedSegments.length; d++) {
                         if (segmentsInCounty[q].segment_id == progress_data.users[c].completedSegments[d].segmentId) {
-
+                            completedSegment = true;
                             countySegmentMatch.push(segmentsInCounty[q]);
 
                             progressHTML += `<div class="progressBarContainer" data-complete="true">
@@ -286,6 +292,9 @@ var iceAge = {
 
                 }
 
+                if (!completedSegment) {
+                    segmentsRemaining.add(segmentsInCounty[q]);
+                }
 
                 if (segmentsInCounty[q].booksection.includes('/')) {
                     weatherHTML = segmentsInCounty[q].booksection.split('/')[1];
@@ -386,6 +395,10 @@ var iceAge = {
                 segmentHTML += '</div>';
             }
 
+            for (var item of segmentsRemaining) {
+                countyMilesRemaining += parseFloat(item.iceagetraildistance);
+            }
+
             if (segmentsInCounty.length === countySegmentMatch.length) {
                 countyComplete = true;
             }
@@ -416,7 +429,7 @@ var iceAge = {
                 countyHTML += '<div class="county hide" data-index="' + county_data[a].countyId + '">';
             }
 
-            countyHTML += '<h2 class="county-name"><a target="_blank" href ="https://www.google.com/#q=' + weatherHTML + '+wi+weather">' + county_data[a].countyName + '</a></h2>';
+            countyHTML += '<h2 class="county-name"><a target="_blank" href ="https://www.google.com/#q=' + weatherHTML + '+wi+weather">' + county_data[a].countyName + ' - ' + countyMilesRemaining.toFixed(2) + ' miles left</a></h2>';
             countyHTML += segmentHTML;
             countyHTML += '</div>';
         }
