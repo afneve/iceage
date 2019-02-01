@@ -103,6 +103,7 @@ var iceAge = {
         console.time('LoadTrello');
         Trello.get("lists/" + iceAge.completeListId + "/cards", function (cl) {
             for (var i = 0; i < cl.length; i++) {
+                console.log(cl[i]);
                 var complete = iceAge.cleanTrelloData(cl[i]);
 
                 iceAge.trelloCompleteArray.push(complete);
