@@ -183,7 +183,7 @@ progress_data = {
 		],
 		"partialSegments" : [
 			{
-				"segmentId" : 39,
+				"segmentId" : 40,
 				"extraInfo" : "Completed everything West of Cty B"
 			},
 			{
