@@ -22,6 +22,7 @@ var iceAge = {
     completeListId: "58af2c62a582aace8e45d928",
     trelloCompleteArray: [],
     trelloPartialArray: [],
+    newSegments: 0,
     trelloCounter: 0,
     useGeo: false,
 
@@ -222,9 +223,18 @@ var iceAge = {
 
     getIceAgeData: function () {
         iceAge.totalSegments = ice_age_data.length;
+        var newSegmentCounter = 0;
 
         for (var i = 0; i < ice_age_data.length; i++) {
-            ice_age_data[i].segment_id = i + 1;
+            if (ice_age_data[i].newSegment) { 
+                newSegmentCounter++;
+            }
+            if (ice_age_data[i].newSegment) {
+                ice_age_data[i].segment_id = i + (newSegmentCounter * 0.1);
+            } 
+            else {
+                ice_age_data[i].segment_id = i + 1 - newSegmentCounter;
+            }
             iceAge.totalTrailDistance += parseFloat(ice_age_data[i].iceagetraildistance);
         }
     },
@@ -312,23 +322,32 @@ var iceAge = {
                 segmentHTML += '<h3 class="segment-name">' + segmentsInCounty[q].segment + '</h3>';
                 segmentHTML += progressHTML;
 
-                segmentHTML += '<div class="segment-summary">' + segmentsInCounty[q].summary + '</div>';
+                if (segmentsInCounty[q].summary) {
+                    segmentHTML += '<div class="segment-summary">' + segmentsInCounty[q].summary + '</div>';
+                }
 
                 segmentHTML += '<div class="segment-info">';
 
                 difficulty = iceAge.getDifficultyLevel(parseFloat(segmentsInCounty[q].iceagetraildistance), iceAge.distanceObject.shortCutoff, iceAge.distanceObject.midCutoff);
                 segmentHTML += '<div class="' + difficulty + '">Distance: ' + segmentsInCounty[q].iceagetraildistance + '</div>';
 
-                difficulty = iceAge.getDifficultyLevel(parseFloat(segmentsInCounty[q].elevation), iceAge.elevationObject.shortCutoff, iceAge.elevationObject.midCutoff);
-                segmentHTML += '<div class="' + difficulty + '">Elevation: ' + segmentsInCounty[q].elevation + '</div>';
+                if (segmentsInCounty[q].elevation) {
+                    difficulty = iceAge.getDifficultyLevel(parseFloat(segmentsInCounty[q].elevation), iceAge.elevationObject.shortCutoff, iceAge.elevationObject.midCutoff);
+                    segmentHTML += '<div class="' + difficulty + '">Elevation: ' + segmentsInCounty[q].elevation + '</div>';
+                }
 
-                difficulty = iceAge.getDifficultyLevel(parseFloat(segmentsInCounty[q].ruggedness), iceAge.ruggednessObject.shortCutoff, iceAge.ruggednessObject.midCutoff);
-                segmentHTML += '<div class="' + difficulty + '">Ruggedness: ' + segmentsInCounty[q].ruggedness + '</div>';
-
+                if (segmentsInCounty[q].ruggedness) {
+                    difficulty = iceAge.getDifficultyLevel(parseFloat(segmentsInCounty[q].ruggedness), iceAge.ruggednessObject.shortCutoff, iceAge.ruggednessObject.midCutoff);
+                    segmentHTML += '<div class="' + difficulty + '">Ruggedness: ' + segmentsInCounty[q].ruggedness + '</div>';
+                }
                 
-                segmentHTML += '<div>Connecting route distance: ' + segmentsInCounty[q].connectingroutedistance + '</div>';
+                if (segmentsInCounty[q].connectingroutedistance) {
+                    segmentHTML += '<div>Connecting route distance: ' + segmentsInCounty[q].connectingroutedistance + '</div>';
+                }
 
-                segmentHTML += '<div class="atlas">Atlas Map: ' + segmentsInCounty[q].atlasmap + '</div>';
+                if (segmentsInCounty[q].atlasmap) {
+                    segmentHTML += '<div class="atlas">Atlas Map: ' + segmentsInCounty[q].atlasmap + '</div>';
+                }
 
                 for (var j = 0; j < segment_id_location_data.length; j++) {
                     if (segment_id_location_data[j].segment_id == segmentsInCounty[q].segment_id) {
@@ -388,7 +407,7 @@ var iceAge = {
                 segmentHTML += iceAge.displayInfoWithIcon('restrooms', segmentsInCounty[q].restrooms);
                 segmentHTML += '</div>';
 
-                if (segmentsInCounty[q].nohiking.trim() !== '') {
+                if (segmentsInCounty[q].nohiking && segmentsInCounty[q].nohiking.trim() !== '') {
                     segmentHTML += '<div class="no-hiking">Hiking Restrictions: </div><div>' + segmentsInCounty[q].nohiking + '</div>';
                 }
 
@@ -455,7 +474,7 @@ var iceAge = {
         }
         */
 
-        if (value.trim() !== '') {
+        if (value && value.trim() !== '') {
             html += '<div data-icon="' + className + '" class="yes segment-details">';
             if(stringValue == 'potablewater') {
                 html += '<i class="fas fa-tint"></i>';
@@ -727,7 +746,7 @@ var iceAge = {
 
             } //END COUNTY LOOP
 
-            progressHTML += '<h2 class="user-miles-remaining">' + (parseFloat(iceAge.totalTrailDistance) - parseFloat(userCompleteMiles.toFixed(2))) + ' miles to go</h2>';
+            progressHTML += '<h2 class="user-miles-remaining">' + parseFloat((iceAge.totalTrailDistance - userCompleteMiles).toFixed(2)) + ' miles to go</h2>';
 
             progressHTML += '<div>' + parseFloat(userCompleteMiles.toFixed(2)) + ' of ' + iceAge.totalTrailDistance + ' miles completed</div>';
             progressHTML += '<div>' + (iceAge.totalSegments - users[i].completedSegments.length) + ' segments remaining</div>';

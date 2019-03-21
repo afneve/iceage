@@ -41,9 +41,6 @@ county_data = [{
     "countyId": 14,
     "countyName": "Southern Columbia County"
 }, {
-    "countyId": 15,
-    "countyName": "Southern Columbia County/Dane County"
-}, {
     "countyId": 16,
     "countyName": "Dane County"
 }, {
@@ -67,9 +64,6 @@ county_data = [{
 }, {
     "countyId": 23,
     "countyName": "Manitowoc County"
-}, {
-    "countyId": 24,
-    "countyName": "Manitowoc County/Kewaunee County"
 }, {
     "countyId": 25,
     "countyName": "Kewaunee & Door Counties"

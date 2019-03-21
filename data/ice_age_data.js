@@ -846,7 +846,7 @@ ice_age_data = [{
 }, {
 	"booksection": "Taylor County",
 	"countyId": 5,
-	"segment": "Lake Eleven Segment",
+	"segment": "Lake Eleven",
 	"atlasmap": "21f, 22f",
 	"totaldistance": "14.1",
 	"iceagetraildistance": "14.1",
@@ -2586,7 +2586,7 @@ ice_age_data = [{
 }, {
 	"booksection": "Southern Columbia County",
 	"countyId": 14,
-	"segment": "Gibraltar",
+	"segment": "Gibraltar Rock",
 	"gallery": "https://www.flickr.com/photos/144057467@N05/sets/72157701540411142",
 	"atlasmap": "62f",
 	"totaldistance": "4.8",
@@ -2746,8 +2746,8 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail1": " ",
 	"pointsofinterest/sidetrail2": " "
 }, {
-	"booksection": "Southern Columbia County/Dane County",
-	"countyId": 15,
+	"booksection": "Southern Columbia County",
+	"countyId": 14,
 	"segment": "Lodi Marsh",
 	"atlasmap": "63f",
 	"totaldistance": "1.6",
@@ -2785,6 +2785,12 @@ ice_age_data = [{
 	"areaservices7": " ",
 	"pointsofinterest/sidetrail1": " ",
 	"pointsofinterest/sidetrail2": " "
+}, {
+	"booksection": "Dane County",
+	"countyId": 16,
+	segment: "Springfield Hill",
+	iceagetraildistance: "1.6",
+	newSegment: true
 }, {
 	"booksection": "Dane County",
 	"countyId": 16,
@@ -4472,6 +4478,12 @@ ice_age_data = [{
 }, {
 	"booksection": "Manitowoc County",
 	"countyId": 23,
+	segment: "Walla Hi", 
+	iceagetraildistance: "1.8",
+	newSegment: true
+}, {
+	"booksection": "Manitowoc County",
+	"countyId": 23,
 	"segment": "City of Manitowoc",
 	"atlasmap": "95f",
 	"totaldistance": "7.3",
@@ -4671,8 +4683,14 @@ ice_age_data = [{
 	"pointsofinterest/sidetrail1": " ",
 	"pointsofinterest/sidetrail2": " "
 }, {
-	"booksection": "Manitowoc County/Kewaunee County",
-	"countyId": 24,
+	"booksection": "Manitowoc County",
+	"countyId": 23,
+	segment: "East Twin River", 
+	iceagetraildistance: "1.4",
+	newSegment: true
+}, {
+	"booksection": "Manitowoc County",
+	"countyId": 23,
 	"segment": "Tisch Mills",
 	"gallery": "https://www.flickr.com/photos/144057467@N05/sets/72157703498560211",
 	"atlasmap": "98f",
