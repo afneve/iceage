@@ -5,6 +5,34 @@ progress_data = {
 		"userId" : "2",
 		"completedSegments" : [
 			{
+				"segmentId" : 69.1,
+				"extraInfo" : "2019-03-24"
+			},
+			{
+				"segmentId" : 70,
+				"extraInfo" : "2019-03-24"
+			},
+			{
+				"segmentId" : 71,
+				"extraInfo" : "2019-03-24"
+			},
+			{
+				"segmentId" : 72,
+				"extraInfo" : "2019-03-25"
+			},
+			{
+				"segmentId" : 73,
+				"extraInfo" : "2019-03-24"
+			},
+			{
+				"segmentId" : 74,
+				"extraInfo" : "2019-03-24"
+			},
+			{
+				"segmentId" : 75,
+				"extraInfo" : "2019-03-24"
+			},
+			{
 				"segmentId" : 39,
 				"extraInfo" : "2019-01-11"
 			},
