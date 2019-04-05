@@ -2790,6 +2790,9 @@ ice_age_data = [{
 	"countyId": 16,
 	segment: "Springfield Hill",
 	iceagetraildistance: "1.6",
+	"elevation": "2",
+	"ruggedness": "1",
+	"summary": "This loop features a historic cabin, farm field, and a hill through some woods",
 	newSegment: true
 }, {
 	"booksection": "Dane County",
@@ -4480,6 +4483,9 @@ ice_age_data = [{
 	"countyId": 23,
 	segment: "Walla Hi", 
 	iceagetraildistance: "1.8",
+	"elevation": "?",
+	"ruggedness": "?",
+	"summary": "?",
 	newSegment: true
 }, {
 	"booksection": "Manitowoc County",
@@ -4687,6 +4693,9 @@ ice_age_data = [{
 	"countyId": 23,
 	segment: "East Twin River", 
 	iceagetraildistance: "1.4",
+	"elevation": "?",
+	"ruggedness": "?",
+	"summary": "?",
 	newSegment: true
 }, {
 	"booksection": "Manitowoc County",

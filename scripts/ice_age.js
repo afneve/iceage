@@ -185,9 +185,15 @@ var iceAge = {
     */
     dataCollection: function () {
         for (var i = 0; i < ice_age_data.length; i++) {
-            iceAge.distanceArray.push(parseFloat(ice_age_data[i].iceagetraildistance));
-            iceAge.elevationArray.push(parseFloat(ice_age_data[i].elevation));
-            iceAge.ruggednessArray.push(parseFloat(ice_age_data[i].ruggedness));
+            if (!isNaN(ice_age_data[i].iceagetraildistance)) {
+                iceAge.distanceArray.push(parseFloat(ice_age_data[i].iceagetraildistance));
+            }
+            if (!isNaN(ice_age_data[i].elevation)) {
+                iceAge.elevationArray.push(parseFloat(ice_age_data[i].elevation));
+            }
+            if (!isNaN(ice_age_data[i].ruggedness)) {
+                iceAge.ruggednessArray.push(parseFloat(ice_age_data[i].ruggedness));
+            }  
         }
 
         iceAge.getAverage(iceAge.distanceArray, iceAge.distanceObject);
@@ -546,11 +552,12 @@ var iceAge = {
         }
     },
 
-    getDifficultyLevel: function (iceAgeDistance, shortCutoff, midCutoff) {
+    getDifficultyLevel: function (iceAgeValue, shortCutoff, midCutoff) {
         var difficulty = '';
-        if (iceAgeDistance <= shortCutoff) {
+
+        if (iceAgeValue <= shortCutoff) {
             difficulty = 'easy';
-        } else if (iceAgeDistance <= midCutoff) {
+        } else if (iceAgeValue <= midCutoff) {
             difficulty = 'average';
         } else {
             difficulty = 'difficult';
