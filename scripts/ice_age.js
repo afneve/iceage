@@ -895,15 +895,15 @@ var iceAge = {
     */
     attachEventListeners: function () {
         $('#segment-list').on('click', '[data-icon="restrooms"].yes', function () {
-            var segmentIndex = $(this).closest('.segment').attr('data-index');
-            var heading = '<h4 class="overlay-heading">' + ice_age_data[segmentIndex - 1].segment + ' ' + $(this).text() + '</h4>';
-            iceAge.openOverlay(heading + ice_age_data[segmentIndex - 1].restrooms);
+            var segmentIndex = parseInt($(this).closest('.segment').attr('data-index'));
+            var heading = '<h4 class="overlay-heading">' + ice_age_data[parseInt(segmentIndex + 1)].segment + ' ' + $(this).text() + '</h4>';
+            iceAge.openOverlay(heading + ice_age_data[segmentIndex + 1].restrooms);
         });
 
         $('#segment-list').on('click', '[data-icon="potablewater"].yes', function () {
-            var segmentIndex = $(this).closest('.segment').attr('data-index');
-            var heading = '<h4 class="overlay-heading">' + ice_age_data[segmentIndex - 1].segment + ' ' + $(this).text() + '</h4>';
-            iceAge.openOverlay(heading + ice_age_data[segmentIndex - 1].potablewater);
+            var segmentIndex = parseInt($(this).closest('.segment').attr('data-index'));
+            var heading = '<h4 class="overlay-heading">' + ice_age_data[segmentIndex + 1].segment + ' ' + $(this).text() + '</h4>';
+            iceAge.openOverlay(heading + ice_age_data[segmentIndex + 1].potablewater);
         });
 
         //CHANGE SEGMENT ON CLICK
