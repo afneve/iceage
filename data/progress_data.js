@@ -5,7 +5,31 @@ progress_data = {
 		"userId" : "2",
 		"completedSegments" : [
 			{
-				"segmentId" : 69.1,
+				"segmentId" : 112,
+				"extraInfo" : "2019-04-07"
+			},
+			{
+				"segmentId" : 113,
+				"extraInfo" : "2019-04-06"
+			},
+			{
+				"segmentId" : 114,
+				"extraInfo" : "2019-04-06"
+			},
+			{
+				"segmentId" : 116,
+				"extraInfo" : "2019-04-06"
+			},
+			{
+				"segmentId" : 126,
+				"extraInfo" : "2019-04-06"
+			},
+			{
+				"segmentId" : 117,
+				"extraInfo" : "2019-04-06"
+			},
+			{
+				"segmentId" : 124,
 				"extraInfo" : "2019-03-24"
 			},
 			{
@@ -213,10 +237,6 @@ progress_data = {
 			{
 				"segmentId" : 40,
 				"extraInfo" : "Completed everything West of Cty B"
-			},
-			{
-				"segmentId" : 117,
-				"extraInfo" : "Completed Western segment from B to Bb"
 			},
 			{
 				"segmentId" : 16,

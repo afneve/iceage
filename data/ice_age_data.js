@@ -4693,8 +4693,8 @@ ice_age_data = [{
 	"countyId": 23,
 	segment: "East Twin River", 
 	iceagetraildistance: "1.4",
-	"elevation": "?",
-	"ruggedness": "?",
+	"elevation": "2",
+	"ruggedness": "1",
 	"summary": "?",
 	newSegment: true
 }, {
