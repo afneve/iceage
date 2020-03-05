@@ -1611,7 +1611,7 @@ ice_age_data = [{
 }, {
 	"booksection": "Langlade County",
 	"countyId": 7,
-	"segment": "Old Railroad",
+	"segment": "Old Railroad (Summit Moraine)",
 	"atlasmap": "33f, 34f",
 	"totaldistance": "11.2",
 	"iceagetraildistance": "11.2",

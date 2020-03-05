@@ -236,7 +236,7 @@ new_segment_data = [{
 	"segment": "Northern Blue Hills",
 	"iceagetraildistance": "9.580808337777853",
 }, {
-	"segment": "Old Railroad",
+	"segment": "Old Railroad (Summit Moraine)",
 	"iceagetraildistance": "11.155769972130656",
 }, {
 	"segment": "Parnell",

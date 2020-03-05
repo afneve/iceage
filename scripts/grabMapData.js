@@ -33,10 +33,14 @@ console.log(segmentObj);
 console.log(html);
 
 
+/* Paste HTML from above here
+    Then copy and paste everything below on your site */
+var new_segment_data = []
+
+
 /* 
 Get New segments
 */
-
 var newSegments = new_segment_data.filter(function (curVal) {
     var notInData = ice_age_data.every(function (iceVal) {
         // return !iceVal.segment.includes(curVal.segment);
