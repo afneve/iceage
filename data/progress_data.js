@@ -267,7 +267,7 @@ progress_data = {
 		],
 		"partialSegments" : [
 			{
-				"segmentId" : 40,
+				"segmentId" : 37,
 				"extraInfo" : "Finished section from west end to County Road B"
 			},
 			{
