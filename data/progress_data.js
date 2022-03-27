@@ -5,6 +5,18 @@ progress_data = {
 		"userId" : "2",
 		"completedSegments" : [
 			{
+				"segmentId" : 125,
+				"extraInfo" : "2021-10-18"
+			},
+			{
+				"segmentId" : 109,
+				"extraInfo" : "2021-10-18"
+			},
+			{
+				"segmentId" : 111,
+				"extraInfo" : "2021-10-18"
+			},
+			{
 				"segmentId" : 112,
 				"extraInfo" : "2019-04-07"
 			},
@@ -236,7 +248,7 @@ progress_data = {
 		"partialSegments" : [
 			{
 				"segmentId" : 40,
-				"extraInfo" : "Completed everything West of Cty B"
+				"extraInfo" : "Finished section from west end to County Road B"
 			},
 			{
 				"segmentId" : 16,
@@ -245,7 +257,11 @@ progress_data = {
 			{
 				"segmentId" : 17,
 				"extraInfo" : "Completed North section to about 2 miles North of North Lake. Stopped where trail left snowmobile trail on the East side"
-			}
+			},
+			{
+				"segmentId" : 110,
+				"extraInfo" : "Finished from west end off of 67 to Greenbush campground off of campground road"
+			},
 		]
 	}]
 }
