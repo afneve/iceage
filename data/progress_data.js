@@ -17,6 +17,14 @@ progress_data = {
 				"extraInfo" : "2021-10-18"
 			},
 			{
+				"segmentId" : 102,
+				"extraInfo" : "2019-10-19"
+			},
+			{
+				"segmentId" : 103,
+				"extraInfo" : "2019-10-19"
+			},
+			{
 				"segmentId" : 112,
 				"extraInfo" : "2019-04-07"
 			},
