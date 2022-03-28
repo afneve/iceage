@@ -1032,48 +1032,6 @@ var iceAge = {
 
             $(this).addClass('selected');
             $('#' + $(this).attr('id') + '-view').show();
-
-            var synth = window.speechSynthesis;
-
-            var voices = [];
-
-            voices = synth.getVoices().sort(function (a, b) {
-                const aname = a.name.toUpperCase(), bname = b.name.toUpperCase();
-                if ( aname < bname ) return -1;
-                else if ( aname == bname ) return 0;
-                else return +1;
-            });
-
-            if (synth.speaking) {
-                console.error('speechSynthesis.speaking');
-                // return;
-            }
-
-            const sayThis = 'Player 1';
-            if (sayThis) {
-                var utterThis = new SpeechSynthesisUtterance(sayThis);
-                utterThis.onend = function (event) {
-                    console.log('SpeechSynthesisUtterance.onend');
-                }
-                utterThis.onerror = function (event) {
-                    console.log(event);
-                    console.error('SpeechSynthesisUtterance.onerror');
-                }
-                var selectedOption = 'Google UK English Female';
-
-                for(let i = 0; i < voices.length; i++) {
-                    console.log(voices[i].name);
-                    console.log({selectedOption});
-                    if(voices[i].name === selectedOption) {
-                        utterThis.voice = voices[i];
-                        break;
-                    }
-                }
-                utterThis.pitch = 1
-                utterThis.rate = 1;
-                synth.speak(utterThis);
-            }
-
         });
 
         //ARROW THROUGH COUNTIES ON SEGMENT VIEW
