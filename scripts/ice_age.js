@@ -788,6 +788,7 @@ var iceAge = {
                     segmentHTML += segmentPartialHTML;
 
                     if (segmentsInCounty[b].gallery) {
+                        console.log(segmentsInCounty[b].gallery);
                         segmentHTML += '<div class="gallery" style="margin-left:20px"><a target="_blank" href="' + segmentsInCounty[b].gallery + '">View images</a></div>';
                     }
                     segmentHTML += '</div>';
