@@ -2551,6 +2551,7 @@ ice_age_data = [{
 	"booksection": "Sauk County",
 	"countyId": 13,
 	"segment": "Merrimac",
+	gallery: "https://www.flickr.com/photos/144057467@N05/albums/72177720297732127",
 	"atlasmap": "61f",
 	"totaldistance": "3.6",
 	"iceagetraildistance": "3.6",
